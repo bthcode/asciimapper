@@ -167,6 +167,46 @@ class AsciiTileMap:
     return ( 180.0 / math.pi * math.atan(0.5 * (math.exp(n) - math.exp(-n))) )
   # end tile2lat
 
+  def isShown( self, lat, lon, z ):
+    """ Returns true if this lat/lon point is in the current map """
+    x,y = self.LatLonToTile( lat, lon, z )
+    if x == self.x or x == self.x+1:
+      if y == self.y or y == self.y+1:
+        return 1
+    return 0
+  # end isShown
+
+  def latlon2pixel( self,lat_deg, lon_deg, z ):
+    """ For a given zoom level, return tile x,y and pixel x,y """
+    #f = open( "debug.txt", "a" )
+    if self.isShown( lat_deg, lon_deg, z ):
+      # 1. Get tile boundary information
+      x, y       = self.LatLonToTile( lat_deg, lon_deg, z ) 
+      north, south, east, west = self.TileToBoundingBox( x,y,z )
+      north_span = north - south 
+      east_span  = east - west 
+      pct_lon = (lon_deg - west) / ( east_span * 1.0 )
+      pct_lat = -1 * (lat_deg - north ) / ( north_span * 1.0 )
+      # 2. Get the actual pixel - remember, we always show four tiles
+      #       on screen
+      xOffset = self.sizeX * (x - self.x ) # adds one tile width if needed
+      yOffset = self.sizeY * (y - self.y ) # adds one tile height if needed
+      
+      pixY        = yOffset + int( pct_lat * self.sizeY )
+      pixX        = xOffset + int( pct_lon * self.sizeX )
+      #f.write( "--------------\n" )
+      #f.write( "self.sizeX = %s, self.sizeY=%s\n" % ( self.sizeX, self.sizeY) )
+      #f.write( "self.x=%s, self.y=%s, self.z=%s, x=%s, y=%s, z=%s\n" % (self.x, self.y, self.z, x, y, z) ) 
+      #f.write( "lat_deg=%s, lon_deg=%s, north=%s, south=%s, east=%s, west=%s\n" % ( lat_deg, lon_deg, north, south, east, west) )
+      #f.write( "north_span=%s, east_span=%s, pct_lat=%s, pct_lon=%s, pixX=%s, pixY=%s\n" % ( north_span,east_span,pct_lat, pct_lon, pixX, pixY ) )
+      #f.close()
+      return pixX, pixY 
+    else:
+      #f.close()
+      return None
+  # end latlon2pixel
+
+
   def getMapTile( self, (x,y,z) ):
     regenerate_map = 0
     # 1. See if the map is in memory
