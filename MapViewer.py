@@ -1,3 +1,4 @@
+#!/usr/bin/python
 ######################################################################
 #                     Ascii TMS Viewer
 #
@@ -36,6 +37,7 @@
 import curses, time, sys, os, string, random, math
 import pprint
 from AsciiTileMap import AsciiTileMap
+import kml
 
 false = 0
 true = 1
@@ -55,9 +57,13 @@ class MapViewer:
     self.win         = win
     # turn the window's getch into a non-blocking call
     self.win.nodelay(1)
+    self.logFile     = sys.stdout
+    #self.logFile     = open( "MapViewer_log.txt", "w" )
 
     self.baseUrl     = "http://tile.openstreetmap.org"
     self.cacheUrl    = "tile.openstreetmap.org"
+    self.kmlFiles    = "kml_files.txt"
+    self.kmlPoints   = {}
     
     # get some dimensions
     self.maxY, self.maxX = self.win.getmaxyx()
@@ -74,8 +80,10 @@ class MapViewer:
     # tile will always point to north west corner of north west screen tile
     self.tileMap   = AsciiTileMap( (0,0,1), ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), self.baseUrl, self.cacheUrl )
     self.mapLoaded = None # optimization - don't load if you don't need to
+    self.showCities = false
 
     self.getMap()
+    self.loadKML()
 
     curses.start_color() 
     self.initColors()
@@ -123,9 +131,41 @@ class MapViewer:
 
   def drawCommandWin( self ):
     self.commandWinMaxY, self.commandWinMaxX = self.commandWin.getmaxyx()
-    helpString = "[+] Zoom in  [-]  Zoom out  [j] West [k] East [i] North [m] South [g] Jump to Location     [q] Quit" 
+    helpString = "[+] Zoom in  [-]  Zoom out  [j] West [k] East [i] North [m] South [g] Jump to Location [c] Show Cities     [q] Quit" 
     self.commandWin.addstr( 0, 0, helpString, curses.A_BOLD )
   # end drawCommandWin
+
+  def loadKML( self ):
+    """ Load cities and countries from a kml file - ./kml_files.txt lists kml files to load"""
+    kmlFiles = [ string.strip( line ) for line in open( self.kmlFiles, "r" ).readlines() ] 
+    for line in kmlFiles:
+      if line[0] == "#":
+        pass
+      else:
+        lineParts = string.split( line, "," )
+        reader = kml.kmlReader( lineParts[1] )
+        coords = reader.getCoordinates()  
+        for c in coords:
+          if c.lat  and c.lon:
+            self.kmlPoints[ c.name ] = { "LON" : c.lon, "LAT" : c.lat, "NAME": c.name, "ZOOMLEVEL" : int( lineParts[0] ) }
+  # end getCities
+
+  def loadFile( self ):
+    self.commandWin.clear()  
+    prompt = "Enter Path to File: "
+    valid_file = false
+    self.commandWin.addstr( 0,0, prompt, curses.A_BOLD )
+    curses.echo()
+    self.commandWin.move( 0, len(prompt) )
+    res = self.commandWin.getstr( 0, len(prompt) ) 
+    # put in error handling here
+    file = string.lstrip( res )
+    try:
+      self.logFile.write( "loaded: %s\n" % ( file ) )
+    except:
+      self.logFile.write( "error: can't load %s\n" % ( file ) )
+    self.drawCommandWin()
+  # end loadFile
 
   def getLocation( self ):
     self.commandWin.clear()
@@ -196,9 +236,25 @@ class MapViewer:
       q = q + 1
   #end initColors
 
+  def drawCities( self ):
+    """ draw cities """
+    # 123456
+    if not self.showCities:
+      return
+    for key, value in self.kmlPoints.items():
+      lat = float( value[ "LAT" ] )
+      lon = float( value[ "LON" ] )
+      if self.tileMap.z > value[ "ZOOMLEVEL" ]:
+        res = self.tileMap.latlon2pixel( lat, lon, self.tileMap.z )
+        if res != None:
+          pixX, pixY = res[0], res[1]
+          self.mainWin.addstr( pixY, pixX, value[ "NAME" ], curses.color_pair(7) )
+  # end drawCities
+    
   def drawMap( self ):
     """ draw a map in the map window """
     self.addColorString( self.mainMap )
+    self.drawCities()
   # end drawMap
 
   def drawMainWindow(self):
@@ -216,6 +272,10 @@ class MapViewer:
     # TODO: put an isDirty here
     self.mainMap = self.tileMap.getMap()
   # end getMap 
+
+  def nextFrame( self ):
+    pass
+  # end nextFrame
 
 
   def run( self ):
@@ -238,6 +298,15 @@ class MapViewer:
         self.tileMap.moveSouth()
       elif c == ord( 'i' ):
         self.tileMap.moveNorth()
+      elif c == ord( 'c' ):
+        if ( self.showCities ):
+          self.showCities = false
+        else:
+          self.showCities = true
+      elif c == ord( 'f' ):
+        self.loadFile()
+      elif c == ord( 'n' ):
+        self.nextFrame()
       self.getMap()    
       self.drawMap()
       self.mainWin.box()
