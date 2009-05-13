@@ -1,0 +1,3 @@
+# min zoom to show file, filename
+0,countries.kml
+2,us_states.kml
