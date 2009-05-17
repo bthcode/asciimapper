@@ -245,10 +245,13 @@ class MapViewer:
       lat = float( value[ "LAT" ] )
       lon = float( value[ "LON" ] )
       if self.tileMap.z > value[ "ZOOMLEVEL" ]:
-        res = self.tileMap.latlon2pixel( lat, lon, self.tileMap.z )
+        res = self.tileMap.latlon2pixel( value["NAME" ], lat, lon, self.tileMap.z )
         if res != None:
           pixX, pixY = res[0], res[1]
-          self.mainWin.addstr( pixY, pixX, value[ "NAME" ], curses.color_pair(7) )
+          try:
+            self.mainWin.addstr( pixY, pixX, value[ "NAME" ], curses.color_pair(7) )
+          except:
+            pass
   # end drawCities
     
   def drawMap( self ):

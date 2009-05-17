@@ -52,8 +52,61 @@ class AsciiTileMap:
     self.sizeX        = sizeX
     self.sizeY        = sizeY
     self.curMap       = ""
+    # For coordinate conversions
+    self.tileSize = 256
+    self.originShift = 2 * math.pi * 6378137 / 2.0
+    self.initialResolution = 2 * math.pi * 6378137 / self.tileSize
     self.mapLoaded    = false #TODO how do I use this effectively?
   # end __init__
+
+  #### Begin borrowed from maptiler ###
+
+  def LatLonToMeters(self, lat, lon ):
+    "Converts given lat/lon in WGS84 Datum to XY in Spherical Mercator EPSG:900913"
+
+    mx = lon * self.originShift / 180.0
+    my = math.log( math.tan((90 + lat) * math.pi / 360.0 )) / (math.pi / 180.0)
+
+    my = my * self.originShift / 180.0
+    return mx, my
+  # end LatLonToMeters
+
+  def PixelsToMeters(self, px, py, zoom):
+    "Converts pixel coordinates in given zoom level of pyramid to EPSG:900913"
+
+    res = self.Resolution( zoom )
+    mx = px * res - self.originShift
+    my = py * res - self.originShift
+    return mx, my
+  # end PixelsToMeters
+    
+  def MetersToPixels(self, mx, my, zoom):
+    "Converts EPSG:900913 to pyramid pixel coordinates in given zoom level"
+        
+    res = self.Resolution( zoom )
+    # orig:
+    px = (mx + self.originShift) / res
+    py = (my + self.originShift) / res
+    return px, py
+  # end MetersToPixels
+  
+  def Resolution(self, zoom ):
+    "Resolution (meters/pixel) for given zoom level (measured at Equator)"
+    
+    # return (2 * math.pi * 6378137) / (self.tileSize * 2**zoom)
+    return self.initialResolution / (2**zoom)
+  # end Resolution
+
+  def PixelsToTile(self, px, py):
+    "Returns a tile covering region in given pixel coordinates"
+
+    tx = int( math.ceil( px / float(self.tileSize) ) - 1 )
+    ty = int( math.ceil( py / float(self.tileSize) ) - 1 )
+    return tx, ty
+  # end PixelsToTile
+
+
+  #### End borrowed from maptiler ###
 
   def getEmptyTile( self ):
     return "." * ( ( self.sizeX ) * ( self.sizeY ) )
@@ -177,7 +230,48 @@ class AsciiTileMap:
     return 0
   # end isShown
 
-  def latlon2pixel( self,lat_deg, lon_deg, z ):
+  def latlon2pixel( self, name, lat_deg, lon_deg, z ):
+    f = open( "debug.txt", "a" )
+    if not self.isShown( lat_deg, lon_deg, z ):
+      return None
+
+    #M = globalmaptiles.GlobalMercator()
+    meters_x, meters_y = self.LatLonToMeters( lat_deg, lon_deg )
+    # BTH: It appears that this function is busted - meters_x,meters_y agrees with test code...
+    pixels_x, pixels_y = self.MetersToPixels( meters_x, meters_y, z ) # how can this be bigger than 512?
+    tile_x, tile_y     = self.PixelsToTile( pixels_x, pixels_y )
+
+    # NOTE: pixels are counted from [0,0] = bottom left - 
+    #       therefore, y has to be refigured out
+
+
+    pixels_x_scaled = ( pixels_x  * (self.sizeX) / 256 ) # scale
+    pixels_y_scaled = ( pixels_y  * (self.sizeY) / 256 ) # scale
+
+    total_pixels_y  = self.sizeY * ( 2 << (z-1) ) 
+    pixels_y_inv    = total_pixels_y - pixels_y_scaled 
+
+    pixels_x_r = int( pixels_x_scaled - (self.x*self.sizeX)  )
+    pixels_y_r = int( pixels_y_inv - (self.y*self.sizeY)  )
+
+    f.write( "--- %s ----\n" % name )
+    f.write( "zoom: %s\n" % z )
+    f.write( "lat: %s, lon: %s (lat=y)\n" % ( lat_deg, lon_deg) )
+    f.write( "meters_x: %s, meters_y: %s\n" % ( meters_x, meters_y ) )
+    f.write( "pixels_x: %s, pixels_y: %s\n" % ( pixels_x, pixels_y ) )
+    f.write( "total_pixels_y: %s, pixels_y_inv: %s\n" % ( total_pixels_y, pixels_y_inv ) )
+    f.write( "self.x: %s, self.y: %s\n" % ( self.x, self.y )         )
+    f.write( "self.sizeX: %s, self.sizeY: %s\n" % (self.sizeX, self.sizeY ) )
+    f.write( "tile_x: %s, tile_y: %s\n" % ( tile_x, tile_y )         )
+    f.write( "pixels_x_scaled: %s, pixels_y_scaled: %s\n" % ( pixels_x_scaled, pixels_y_scaled  ) )
+    f.write( "pixels_x_r: %s, pixels_y_r: %s\n" % ( pixels_x_r, pixels_y_r ) )
+    f.close()
+    return int(pixels_x_r), int(pixels_y_r)
+    
+  # end latlon2pixel
+    
+
+  def old_latlon2pixel( self,name,lat_deg, lon_deg, z ):
     """ For a given zoom level, return tile x,y and pixel x,y """
     #f = open( "debug.txt", "a" )
     if self.isShown( lat_deg, lon_deg, z ):
@@ -205,7 +299,7 @@ class AsciiTileMap:
     else:
       #f.close()
       return None
-  # end latlon2pixel
+  # end old_latlon2pixel
 
 
   def getMapTile( self, (x,y,z) ):
@@ -390,3 +484,5 @@ class AsciiTileMap:
   #end getMap
 
 # end class AsciiTileMap
+
+# NOTES: http://www.perlmonks.org/?node_id=600012
