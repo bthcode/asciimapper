@@ -148,4 +148,4 @@ if __name__=="__main__":
   fname = sys.argv[1]
   reader = kmlReader( fname )
   for c in reader.getCoordinates():
-    print c.coords
+    print c.name, c.lat, c.lon
