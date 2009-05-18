@@ -231,7 +231,7 @@ class AsciiTileMap:
   # end isShown
 
   def latlon2pixel( self, name, lat_deg, lon_deg, z ):
-    f = open( "debug.txt", "a" )
+    #f = open( "debug.txt", "a" )
     if not self.isShown( lat_deg, lon_deg, z ):
       return None
 
@@ -254,18 +254,18 @@ class AsciiTileMap:
     pixels_x_r = int( pixels_x_scaled - (self.x*self.sizeX)  )
     pixels_y_r = int( pixels_y_inv - (self.y*self.sizeY)  )
 
-    f.write( "--- %s ----\n" % name )
-    f.write( "zoom: %s\n" % z )
-    f.write( "lat: %s, lon: %s (lat=y)\n" % ( lat_deg, lon_deg) )
-    f.write( "meters_x: %s, meters_y: %s\n" % ( meters_x, meters_y ) )
-    f.write( "pixels_x: %s, pixels_y: %s\n" % ( pixels_x, pixels_y ) )
-    f.write( "total_pixels_y: %s, pixels_y_inv: %s\n" % ( total_pixels_y, pixels_y_inv ) )
-    f.write( "self.x: %s, self.y: %s\n" % ( self.x, self.y )         )
-    f.write( "self.sizeX: %s, self.sizeY: %s\n" % (self.sizeX, self.sizeY ) )
-    f.write( "tile_x: %s, tile_y: %s\n" % ( tile_x, tile_y )         )
-    f.write( "pixels_x_scaled: %s, pixels_y_scaled: %s\n" % ( pixels_x_scaled, pixels_y_scaled  ) )
-    f.write( "pixels_x_r: %s, pixels_y_r: %s\n" % ( pixels_x_r, pixels_y_r ) )
-    f.close()
+    #f.write( "--- %s ----\n" % name )
+    #f.write( "zoom: %s\n" % z )
+    #f.write( "lat: %s, lon: %s (lat=y)\n" % ( lat_deg, lon_deg) )
+    #f.write( "meters_x: %s, meters_y: %s\n" % ( meters_x, meters_y ) )
+    #f.write( "pixels_x: %s, pixels_y: %s\n" % ( pixels_x, pixels_y ) )
+    #f.write( "total_pixels_y: %s, pixels_y_inv: %s\n" % ( total_pixels_y, pixels_y_inv ) )
+    #f.write( "self.x: %s, self.y: %s\n" % ( self.x, self.y )         )
+    #f.write( "self.sizeX: %s, self.sizeY: %s\n" % (self.sizeX, self.sizeY ) )
+    #f.write( "tile_x: %s, tile_y: %s\n" % ( tile_x, tile_y )         )
+    #f.write( "pixels_x_scaled: %s, pixels_y_scaled: %s\n" % ( pixels_x_scaled, pixels_y_scaled  ) )
+    #f.write( "pixels_x_r: %s, pixels_y_r: %s\n" % ( pixels_x_r, pixels_y_r ) )
+    #f.close()
     return int(pixels_x_r), int(pixels_y_r)
     
   # end latlon2pixel
