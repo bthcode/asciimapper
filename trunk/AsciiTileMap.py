@@ -484,5 +484,3 @@ class AsciiTileMap:
   #end getMap
 
 # end class AsciiTileMap
-
-# NOTES: http://www.perlmonks.org/?node_id=600012
