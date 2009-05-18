@@ -293,13 +293,13 @@ class MapViewer:
         self.tileMap.zoomIn()
       elif c == ord('-'):
         self.tileMap.zoomOut()
-      elif c == ord( 'j' ):
+      elif c == ord( 'j' ) or c == curses.KEY_LEFT:
         self.tileMap.moveWest()
-      elif c == ord( 'k' ):
+      elif c == ord( 'k' ) or c == curses.KEY_RIGHT:
         self.tileMap.moveEast()
-      elif c == ord( 'm' ):
+      elif c == ord( 'm' ) or c == curses.KEY_DOWN:
         self.tileMap.moveSouth()
-      elif c == ord( 'i' ):
+      elif c == ord( 'i' ) or c == curses.KEY_UP:
         self.tileMap.moveNorth()
       elif c == ord( 'c' ):
         if ( self.showCities ):
