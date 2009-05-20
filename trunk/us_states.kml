@@ -27,7 +27,7 @@
     </Style>
 
     <Placemark id="pm251">
-      <name><![CDATA[Hawaii (1959)]]></name>
+      <name><![CDATA[Hawaii]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -280,7 +280,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm252">
-      <name><![CDATA[Washington (1889)]]></name>
+      <name><![CDATA[Washington]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -658,7 +658,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm253">
-      <name><![CDATA[Montana (1889)]]></name>
+      <name><![CDATA[Montana]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -1037,7 +1037,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm254">
-      <name><![CDATA[Maine (1820)]]></name>
+      <name><![CDATA[Maine]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -1283,7 +1283,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm255">
-      <name><![CDATA[North Dakota (1889)]]></name>
+      <name><![CDATA[North Dakota]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -1526,7 +1526,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm256">
-      <name><![CDATA[South Dakota (1889)]]></name>
+      <name><![CDATA[South Dakota]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -1754,7 +1754,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm257">
-      <name><![CDATA[Wyoming (1890)]]></name>
+      <name><![CDATA[Wyoming]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -1885,7 +1885,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm258">
-      <name><![CDATA[Wisconsin (1848)]]></name>
+      <name><![CDATA[Wisconsin]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -2247,7 +2247,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm259">
-      <name><![CDATA[Idaho (1890)]]></name>
+      <name><![CDATA[Idaho]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -2698,7 +2698,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm260">
-      <name><![CDATA[Vermont (1791)]]></name>
+      <name><![CDATA[Vermont]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -2911,7 +2911,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm261">
-      <name><![CDATA[Minnesota (1858)]]></name>
+      <name><![CDATA[Minnesota]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -3300,7 +3300,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm262">
-      <name><![CDATA[Oregon (1859)]]></name>
+      <name><![CDATA[Oregon]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -3582,7 +3582,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm263">
-      <name><![CDATA[New Hampshire (1788)]]></name>
+      <name><![CDATA[New Hampshire]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -3788,7 +3788,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm264">
-      <name><![CDATA[Iowa (1846)]]></name>
+      <name><![CDATA[Iowa]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -4119,7 +4119,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm265">
-      <name><![CDATA[Massachusetts (1788)]]></name>
+      <name><![CDATA[Massachusetts]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -4339,7 +4339,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm266">
-      <name><![CDATA[Nebraska (1867)]]></name>
+      <name><![CDATA[Nebraska]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -4618,7 +4618,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm267">
-      <name><![CDATA[New York (1788)]]></name>
+      <name><![CDATA[New York]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -4942,7 +4942,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm268">
-      <name><![CDATA[Pennsylvania (1787)]]></name>
+      <name><![CDATA[Pennsylvania]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -5179,7 +5179,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm269">
-      <name><![CDATA[Connecticut (1788)]]></name>
+      <name><![CDATA[Connecticut]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -5302,7 +5302,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm270">
-      <name><![CDATA[Rhode Island (1790)]]></name>
+      <name><![CDATA[Rhode Island]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -5446,7 +5446,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm271">
-      <name><![CDATA[New Jersey (1787)]]></name>
+      <name><![CDATA[New Jersey]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -5655,7 +5655,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm272">
-      <name><![CDATA[Indiana (1816)]]></name>
+      <name><![CDATA[Indiana]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -6002,7 +6002,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm273">
-      <name><![CDATA[Nevada (1864)]]></name>
+      <name><![CDATA[Nevada]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -6169,7 +6169,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm274">
-      <name><![CDATA[Utah (1896)]]></name>
+      <name><![CDATA[Utah]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -6293,7 +6293,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm275">
-      <name><![CDATA[California (1850)]]></name>
+      <name><![CDATA[California]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -6692,7 +6692,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm276">
-      <name><![CDATA[Ohio (1803)]]></name>
+      <name><![CDATA[Ohio]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -6988,7 +6988,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm277">
-      <name><![CDATA[Illinois (1818)]]></name>
+      <name><![CDATA[Illinois]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -7397,7 +7397,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm278">
-      <name><![CDATA[Delaware (1787)]]></name>
+      <name><![CDATA[Delaware]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -7517,7 +7517,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm279">
-      <name><![CDATA[West Virginia (1863)]]></name>
+      <name><![CDATA[West Virginia]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -7997,7 +7997,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm280">
-      <name><![CDATA[Maryland (1788)]]></name>
+      <name><![CDATA[Maryland]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -8377,7 +8377,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm281">
-      <name><![CDATA[Colorado (1876)]]></name>
+      <name><![CDATA[Colorado]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -8516,7 +8516,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm282">
-      <name><![CDATA[Kentucky (1792)]]></name>
+      <name><![CDATA[Kentucky]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -8969,7 +8969,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm283">
-      <name><![CDATA[Kansas (1861)]]></name>
+      <name><![CDATA[Kansas]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -9176,7 +9176,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm284">
-      <name><![CDATA[Virginia (1788)]]></name>
+      <name><![CDATA[Virginia]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -9685,7 +9685,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm285">
-      <name><![CDATA[Missouri (1821)]]></name>
+      <name><![CDATA[Missouri]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -10104,7 +10104,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm286">
-      <name><![CDATA[Arizona (1912)]]></name>
+      <name><![CDATA[Arizona]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -10340,7 +10340,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm287">
-      <name><![CDATA[Oklahoma (1907)]]></name>
+      <name><![CDATA[Oklahoma]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -10739,7 +10739,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm288">
-      <name><![CDATA[North Carolina (1789)]]></name>
+      <name><![CDATA[North Carolina]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -11168,7 +11168,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm289">
-      <name><![CDATA[Tennessee (1796)]]></name>
+      <name><![CDATA[Tennessee]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -11501,7 +11501,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm290">
-      <name><![CDATA[Texas (1845)]]></name>
+      <name><![CDATA[Texas]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -12478,7 +12478,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm291">
-      <name><![CDATA[New Mexico (1912)]]></name>
+      <name><![CDATA[New Mexico]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -12619,7 +12619,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm292">
-      <name><![CDATA[Alabama (1819)]]></name>
+      <name><![CDATA[Alabama]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -12845,7 +12845,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm293">
-      <name><![CDATA[Mississippi (1817)]]></name>
+      <name><![CDATA[Mississippi]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -13350,7 +13350,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm294">
-      <name><![CDATA[Georgia (1788)]]></name>
+      <name><![CDATA[Georgia]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -13793,7 +13793,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm295">
-      <name><![CDATA[South Carolina (1788)]]></name>
+      <name><![CDATA[South Carolina]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -14135,7 +14135,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm296">
-      <name><![CDATA[Arkansas (1836)]]></name>
+      <name><![CDATA[Arkansas]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -14555,7 +14555,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm297">
-      <name><![CDATA[Louisiana (1812)]]></name>
+      <name><![CDATA[Louisiana]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -15222,7 +15222,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm298">
-      <name><![CDATA[Florida (1845)]]></name>
+      <name><![CDATA[Florida]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -15729,7 +15729,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm299">
-      <name><![CDATA[Michigan (1837)]]></name>
+      <name><![CDATA[Michigan]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
@@ -16179,7 +16179,7 @@
       </MultiGeometry>
     </Placemark>
     <Placemark id="pm300">
-      <name><![CDATA[Alaska (1959)]]></name>
+      <name><![CDATA[Alaska]]></name>
       <Snippet maxLines="0">empty</Snippet>
       <description><![CDATA[<table cellpadding="1" cellspacing="1">
 <tr>
