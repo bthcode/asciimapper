@@ -81,6 +81,7 @@ class MapViewer:
     self.tileMap   = AsciiTileMap( (0,0,1), ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), self.baseUrl, self.cacheUrl )
     self.mapLoaded = None # optimization - don't load if you don't need to
     self.showCities = false
+    self.showLines  = false
 
     self.getMap()
     self.loadKML()
@@ -134,6 +135,7 @@ class MapViewer:
     helpString = "[+] Zoom in  [-]  Zoom out  [j] West [k] East [i] North [m] South [g] Jump to Location [c] Show Cities     [q] Quit" 
     self.commandWin.addstr( 0, 0, helpString, curses.A_BOLD )
   # end drawCommandWin
+
 
   def loadKML( self ):
     """ Load cities and countries from a kml file - ./kml_files.txt lists kml files to load"""
@@ -236,6 +238,49 @@ class MapViewer:
       q = q + 1
   #end initColors
 
+  def drawLine( self, fromY, fromX, toY, toX, ch ):
+    """ draw from YX to YX using the character ch """
+    deltaY = toY - fromY
+    deltaX = toX - fromX
+    pts = []
+    pts.append( [fromX, fromY] )
+    direction = 1
+
+    if abs(deltaX) > abs(deltaY):
+      if toX - fromX < 0:
+        direction = -1
+      for x in range( fromX+1, toX, direction ):
+        pts.append( [x, fromY + deltaY * (( x-fromX ) / float(deltaX))  ] )
+    else:
+      if toY - fromY < 0:
+        direction = -1
+      for y in range( fromY+1, toY, direction ):
+        pts.append( [ fromX + deltaX * (( y-fromY ) / float(deltaY)), y ] )
+
+    foo = open( "debug2.txt", "a" )
+    foo.write( pprint.pformat( pts ) + "\n" ) 
+    foo.write( "maxX: %s, maxY: %s\n" % ( self.maxX, self.maxY ) )
+
+    for pt in pts:
+      self.mainWin.addch( int(pt[1]), int(pt[0]), ord(ch), curses.color_pair(0) )
+    foo.close() 
+    self.mainWin.refresh()
+  # end drawLine 
+
+  def drawLatLonLine( self, latA, lonA, latB, lonB ):
+    resA = self.tileMap.latlon2pixel( "A", latA, lonA, self.tileMap.z )
+    resB = self.tileMap.latlon2pixel( "B", latB, lonB, self.tileMap.z ) 
+    if resA and resB:
+      self.drawLine( resA[1], resA[0], resB[1], resB[0], 'G' )    
+  # end drawLatLonLine
+
+  def drawLines( self ):
+    if not self.showLines:
+      return
+    self.drawLatLonLine( 0,0,10,10 );
+  #end showLine
+
+
   def drawCities( self ):
     """ draw cities """
     # 123456
@@ -258,6 +303,7 @@ class MapViewer:
     """ draw a map in the map window """
     self.addColorString( self.mainMap )
     self.drawCities()
+    self.drawLines()
   # end drawMap
 
   def drawMainWindow(self):
@@ -280,7 +326,6 @@ class MapViewer:
     pass
   # end nextFrame
 
-
   def run( self ):
     while 1:
       time.sleep(0.5)
@@ -301,6 +346,8 @@ class MapViewer:
         self.tileMap.moveSouth()
       elif c == ord( 'i' ) or c == curses.KEY_UP:
         self.tileMap.moveNorth()
+      elif c == ord( 'l' ):
+        self.showLines   = true
       elif c == ord( 'c' ):
         if ( self.showCities ):
           self.showCities = false
