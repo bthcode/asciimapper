@@ -37,7 +37,7 @@
 import curses, time, sys, os, string, random, math
 import pprint
 from AsciiTileMap import AsciiTileMap
-import kml
+import KMLParser
 
 false = 0
 true = 1
@@ -145,7 +145,7 @@ class MapViewer:
         pass
       else:
         lineParts = string.split( line, "," )
-        reader = kml.kmlReader( lineParts[1] )
+        reader = KMLParser.kmlReader( lineParts[1] )
         coords = reader.getCoordinates()  
         for c in coords:
           if c.lat  and c.lon:
