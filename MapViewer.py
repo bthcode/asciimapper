@@ -238,6 +238,13 @@ class MapViewer:
       q = q + 1
   #end initColors
 
+  def pixelIsShown( self, px, py ):
+    self.mainWinMaxY, self.mainWinMaxX = self.mainWin.getmaxyx()
+    if px > 0 and px < self.mainWinMaxX and py > 0 and py < self.mainWinMaxY:
+      return true
+    return false;
+  # end pixelIsShown
+
   def drawLine( self, fromY, fromX, toY, toX, ch ):
     """ draw from YX to YX using the character ch """
     deltaY = toY - fromY
@@ -262,7 +269,8 @@ class MapViewer:
     foo.write( "maxX: %s, maxY: %s\n" % ( self.maxX, self.maxY ) )
 
     for pt in pts:
-      self.mainWin.addch( int(pt[1]), int(pt[0]), ord(ch), curses.color_pair(0) )
+      if self.pixelIsShown( pt[0], pt[1] ):
+        self.mainWin.addch( int(pt[1]), int(pt[0]), ord(ch), curses.color_pair(0) )
     foo.close() 
     self.mainWin.refresh()
   # end drawLine 
@@ -270,8 +278,7 @@ class MapViewer:
   def drawLatLonLine( self, latA, lonA, latB, lonB ):
     resA = self.tileMap.latlon2pixel( "A", latA, lonA, self.tileMap.z )
     resB = self.tileMap.latlon2pixel( "B", latB, lonB, self.tileMap.z ) 
-    if resA and resB:
-      self.drawLine( resA[1], resA[0], resB[1], resB[0], 'G' )    
+    self.drawLine( resA[1], resA[0], resB[1], resB[0], 'G' )    
   # end drawLatLonLine
 
   def drawLines( self ):
@@ -291,6 +298,9 @@ class MapViewer:
       lon = float( value[ "LON" ] )
       if self.tileMap.z > value[ "ZOOMLEVEL" ]:
         res = self.tileMap.latlon2pixel( value["NAME" ], lat, lon, self.tileMap.z )
+
+        # TODO: This logic relies on error handling to determine whether
+        #       a point is "onscreen" - do something better
         if res != None:
           pixX, pixY = res[0], res[1]
           try:
