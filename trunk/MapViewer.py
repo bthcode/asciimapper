@@ -264,10 +264,6 @@ class MapViewer:
       for y in range( fromY+1, toY, direction ):
         pts.append( [ fromX + deltaX * (( y-fromY ) / float(deltaY)), y ] )
 
-    foo = open( "debug2.txt", "a" )
-    foo.write( pprint.pformat( pts ) + "\n" ) 
-    foo.write( "maxX: %s, maxY: %s\n" % ( self.maxX, self.maxY ) )
-
     for pt in pts:
       if self.pixelIsShown( pt[0], pt[1] ):
         self.mainWin.addch( int(pt[1]), int(pt[0]), ord(ch), curses.color_pair(0) )
