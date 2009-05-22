@@ -232,18 +232,13 @@ class AsciiTileMap:
 
   def latlon2pixel( self, name, lat_deg, lon_deg, z ):
     #f = open( "debug.txt", "a" )
-    if not self.isShown( lat_deg, lon_deg, z ):
-      return None
 
-    #M = globalmaptiles.GlobalMercator()
     meters_x, meters_y = self.LatLonToMeters( lat_deg, lon_deg )
-    # BTH: It appears that this function is busted - meters_x,meters_y agrees with test code...
-    pixels_x, pixels_y = self.MetersToPixels( meters_x, meters_y, z ) # how can this be bigger than 512?
+    pixels_x, pixels_y = self.MetersToPixels( meters_x, meters_y, z )
     tile_x, tile_y     = self.PixelsToTile( pixels_x, pixels_y )
 
     # NOTE: pixels are counted from [0,0] = bottom left - 
     #       therefore, y has to be refigured out
-
 
     pixels_x_scaled = ( pixels_x  * (self.sizeX) / 256 ) # scale
     pixels_y_scaled = ( pixels_y  * (self.sizeY) / 256 ) # scale
@@ -270,37 +265,6 @@ class AsciiTileMap:
     
   # end latlon2pixel
     
-
-  def old_latlon2pixel( self,name,lat_deg, lon_deg, z ):
-    """ For a given zoom level, return tile x,y and pixel x,y """
-    #f = open( "debug.txt", "a" )
-    if self.isShown( lat_deg, lon_deg, z ):
-      # 1. Get tile boundary information
-      x, y       = self.LatLonToTile( lat_deg, lon_deg, z ) 
-      north, south, east, west = self.TileToBoundingBox( x,y,z )
-      north_span = north - south 
-      east_span  = east - west 
-      pct_lon = (lon_deg - west) / ( east_span * 1.0 )
-      pct_lat = -1 * (lat_deg - north ) / ( north_span * 1.0 )
-      # 2. Get the actual pixel - remember, we always show four tiles
-      #       on screen
-      xOffset = self.sizeX * (x - self.x ) # adds one tile width if needed
-      yOffset = self.sizeY * (y - self.y ) # adds one tile height if needed
-      
-      pixY        = yOffset + int( pct_lat * self.sizeY )
-      pixX        = xOffset + int( pct_lon * self.sizeX )
-      #f.write( "--------------\n" )
-      #f.write( "self.sizeX = %s, self.sizeY=%s\n" % ( self.sizeX, self.sizeY) )
-      #f.write( "self.x=%s, self.y=%s, self.z=%s, x=%s, y=%s, z=%s\n" % (self.x, self.y, self.z, x, y, z) ) 
-      #f.write( "lat_deg=%s, lon_deg=%s, north=%s, south=%s, east=%s, west=%s\n" % ( lat_deg, lon_deg, north, south, east, west) )
-      #f.write( "north_span=%s, east_span=%s, pct_lat=%s, pct_lon=%s, pixX=%s, pixY=%s\n" % ( north_span,east_span,pct_lat, pct_lon, pixX, pixY ) )
-      #f.close()
-      return pixX, pixY 
-    else:
-      #f.close()
-      return None
-  # end old_latlon2pixel
-
 
   def getMapTile( self, (x,y,z) ):
     regenerate_map = 0
