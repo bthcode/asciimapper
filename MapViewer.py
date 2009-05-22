@@ -266,15 +266,14 @@ class MapViewer:
 
     for pt in pts:
       if self.pixelIsShown( pt[0], pt[1] ):
-        self.mainWin.addch( int(pt[1]), int(pt[0]), ord(ch), curses.color_pair(0) )
-    foo.close() 
+        self.mainWin.addch( int(pt[1]), int(pt[0]), ord(ch), curses.color_pair(6) )
     self.mainWin.refresh()
   # end drawLine 
 
   def drawLatLonLine( self, latA, lonA, latB, lonB ):
     resA = self.tileMap.latlon2pixel( "A", latA, lonA, self.tileMap.z )
     resB = self.tileMap.latlon2pixel( "B", latB, lonB, self.tileMap.z ) 
-    self.drawLine( resA[1], resA[0], resB[1], resB[0], 'G' )    
+    self.drawLine( resA[1], resA[0], resB[1], resB[0], '.' )    
   # end drawLatLonLine
 
   def drawLines( self ):
