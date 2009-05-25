@@ -310,9 +310,6 @@ class AsciiTileMap:
       if regenerate_map: 
         jpgFile = self.cacheUrl + "/%s/%s/%s.jpg" % ( z,x,y )
         cmd = """jp2a --size=%sx%s --chars="%s" %s > %s""" % (self.sizeX, self.sizeY, self.mapChars, jpgFile, txtFile )
-        a = open( "debug.txt", "a" )
-        a.write( cmd + "\n" )
-        a.close()
         os.popen( cmd )
         f = open( txtFile, "r" )
         self.loadedTiles[ (x,y,z) ] = [ string.strip(line) for line in f.readlines() ]
