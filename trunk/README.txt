@@ -54,11 +54,10 @@ Requirements:
 ------------
 
 1. Python
-2. wget
-3. jp2a
-4. Imagemagick convert
+2. jp2a
+3. Imagemagick convert
 
- Your distro should have come with python and wget.  The others you may have to 
+ Your distro should have come with python.  The others you may have to 
   install:
 
  Getting the requirements on RPM based distros:

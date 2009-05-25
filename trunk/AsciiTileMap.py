@@ -35,6 +35,7 @@
 
 import curses, time, sys, os, string, random, math
 import pprint
+from Wget import *
 
 false = 0
 true = 1
@@ -299,7 +300,9 @@ class AsciiTileMap:
           if not os.access( pngFile, os.R_OK ) :
             # png doesn't exist, try to download it
             url = self.baseUrl + "/%s/%s/%s.png" % ( z,x,y )
-            os.popen( "wget -q -x --timeout=2 %s" % url ) 
+            #os.popen( "wget -q -x --timeout=2 %s" % url ) 
+            args = [ '-x', url ]
+            wget( args )
           if not os.access( pngFile, os.R_OK ):
             # no png after wget
             regenerate_map = 0
