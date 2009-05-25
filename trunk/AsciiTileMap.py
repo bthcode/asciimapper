@@ -52,6 +52,7 @@ class AsciiTileMap:
     self.sizeX        = sizeX
     self.sizeY        = sizeY
     self.curMap       = ""
+    self.mapChars     = "....,;clodxkO.XNOM"
     # For coordinate conversions
     self.tileSize = 256
     self.originShift = 2 * math.pi * 6378137 / 2.0
@@ -308,7 +309,10 @@ class AsciiTileMap:
           os.popen( "convert %s %s" % ( pngFile, jpgFile ) )
       if regenerate_map: 
         jpgFile = self.cacheUrl + "/%s/%s/%s.jpg" % ( z,x,y )
-        cmd = """jp2a --size=%sx%s --chars="....,;clodxkO.XNOM" %s > %s""" % ( self.sizeX, self.sizeY, jpgFile, txtFile )
+        cmd = """jp2a --size=%sx%s --chars="%s" %s > %s""" % (self.sizeX, self.sizeY, self.mapChars, jpgFile, txtFile )
+        a = open( "debug.txt", "a" )
+        a.write( cmd + "\n" )
+        a.close()
         os.popen( cmd )
         f = open( txtFile, "r" )
         self.loadedTiles[ (x,y,z) ] = [ string.strip(line) for line in f.readlines() ]
