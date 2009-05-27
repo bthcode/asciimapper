@@ -64,6 +64,7 @@ class MapViewer:
     self.cacheUrl    = "tile.openstreetmap.org"
     self.kmlFiles    = "kml_files.txt"
     self.kmlPoints   = {}
+    self.kmlShapes   = {}
     
     # get some dimensions
     self.maxY, self.maxX = self.win.getmaxyx()
@@ -78,10 +79,12 @@ class MapViewer:
     self.drawCommandWin()
 
     # tile will always point to north west corner of north west screen tile
-    self.tileMap   = AsciiTileMap( (0,0,1), ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), self.baseUrl, self.cacheUrl )
-    self.mapLoaded = None # optimization - don't load if you don't need to
+    self.tileMap    = AsciiTileMap( (0,0,1), ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), self.baseUrl, self.cacheUrl )
+    self.mapLoaded  = None # optimization - don't load if you don't need to
     self.showCities = false
     self.showLines  = false
+    self.showMap    = true
+    self.dirty      = true
 
     self.getMap()
     self.loadKML()
@@ -148,8 +151,10 @@ class MapViewer:
         reader = KMLParser.kmlReader( lineParts[1] )
         coords = reader.getCoordinates()  
         for c in coords:
-          if c.lat  and c.lon:
-            self.kmlPoints[ c.name ] = { "LON" : c.lon, "LAT" : c.lat, "NAME": c.name, "ZOOMLEVEL" : int( lineParts[0] ) }
+          if c.has_point and c.point.lat and c.point.lon:
+            self.kmlPoints[ c.name ] = { "LON" : c.point.lon, "LAT" : c.point.lat, "NAME": c.name, "ZOOMLEVEL" : int( lineParts[0] ) }
+          if c.has_linear_ring:
+            self.kmlShapes[ c.name ] = { "NAME" : c.name, "ZOOMLEVEL" : int( lineParts[0] ), "POINTS" : c.linear_ring.points }
   # end getCities
 
   def loadFile( self ):
@@ -266,7 +271,10 @@ class MapViewer:
 
     for pt in pts:
       if self.pixelIsShown( pt[0], pt[1] ):
-        self.mainWin.addch( int(pt[1]), int(pt[0]), ord(ch), curses.color_pair(6) )
+        try:
+          self.mainWin.addch( int(pt[1]), int(pt[0]), ord(ch), curses.color_pair(6) )
+        except:
+          pass
     self.mainWin.refresh()
   # end drawLine 
 
@@ -279,7 +287,13 @@ class MapViewer:
   def drawLines( self ):
     if not self.showLines:
       return
-    self.drawLatLonLine( 0,0,10,10 );
+    for shape in self.kmlShapes.items():
+      shape = shape[1]
+      points = shape["POINTS"]
+      last_point = points[-1]
+      for point in shape["POINTS"]:
+        self.drawLatLonLine( last_point.lat,last_point.lon,point.lat,point.lon );
+        last_point = point
   #end showLine
 
 
@@ -304,11 +318,14 @@ class MapViewer:
             pass
   # end drawCities
     
-  def drawMap( self ):
+  def drawMainWin( self ):
     """ draw a map in the map window """
-    self.addColorString( self.mainMap )
-    self.drawCities()
+    if self.showMap:
+      self.addColorString( self.mainMap )
+    else:
+      self.mainWin.clear()
     self.drawLines()
+    self.drawCities()
   # end drawMap
 
   def drawMainWindow(self):
@@ -321,9 +338,9 @@ class MapViewer:
       return 1
     else:
       return 0
+  # end canFitString
 
   def getMap(self):
-    # TODO: put an isDirty here
     self.mainMap = self.tileMap.getMap()
   # end getMap 
 
@@ -340,33 +357,52 @@ class MapViewer:
       elif c == ord( 'g' ):
         self.getLocation()
       elif c == ord('+'):
+        self.dirty = true
         self.tileMap.zoomIn()
       elif c == ord('-'):
+        self.dirty = true
         self.tileMap.zoomOut()
       elif c == ord( 'j' ) or c == curses.KEY_LEFT:
+        self.dirty = true
         self.tileMap.moveWest()
       elif c == ord( 'k' ) or c == curses.KEY_RIGHT:
+        self.dirty = true
         self.tileMap.moveEast()
       elif c == ord( 'm' ) or c == curses.KEY_DOWN:
+        self.dirty = true
         self.tileMap.moveSouth()
       elif c == ord( 'i' ) or c == curses.KEY_UP:
+        self.dirty = true
         self.tileMap.moveNorth()
       elif c == ord( 'l' ):
-        self.showLines   = true
+        self.dirty = true
+        if self.showLines:
+          self.showLines   = false
+        else:
+          self.showLines   = true
       elif c == ord( 'c' ):
+        self.dirty = true
         if ( self.showCities ):
           self.showCities = false
         else:
           self.showCities = true
+      elif c == ord( 'M' ):
+        self.dirty = true
+        if self.showMap:
+          self.showMap = false
+        else:
+          self.showMap = true
       elif c == ord( 'f' ):
         self.loadFile()
       elif c == ord( 'n' ):
         self.nextFrame()
-      self.getMap()    
-      self.drawMap()
-      self.mainWin.box()
-      self.mainWin.refresh()
-      self.commandWin.refresh()
+      if self.dirty:
+        self.getMap()    
+        self.drawMainWin()
+        self.mainWin.box()
+        self.mainWin.refresh()
+        self.commandWin.refresh()
+      self.dirty = false
 # end class MapViewer
 
 def main( scr ):
