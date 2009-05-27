@@ -1,4 +1,5 @@
 # min zoom to show file, filename
-#0,test.kml
 0,us_states.kml
 0,countries.kml
+#0,country_shapes.kml
+#0,doc.kml
