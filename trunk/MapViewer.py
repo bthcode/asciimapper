@@ -80,6 +80,11 @@ class MapViewer:
 
     # tile will always point to north west corner of north west screen tile
     self.tileMap    = AsciiTileMap( (0,0,1), ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), self.baseUrl, self.cacheUrl )
+
+    # BTH TEST:
+    #self.tileMap.makeFakeTile( "fake_tile.txt" )
+    #self.fake_tile       = open( "fake_tile.txt", "r" ).read()
+
     self.mapLoaded  = None # optimization - don't load if you don't need to
     self.showCities = false
     self.showLines  = false
@@ -116,6 +121,8 @@ class MapViewer:
       if c == "\n":
         x = 1
         y = y + 1
+      elif c == " ":
+        x = x + 1 
       else:
         color = cmap[ c ]
         self.mainWin.addch( y,x, ord(c), color )
@@ -272,7 +279,7 @@ class MapViewer:
     for pt in pts:
       if self.pixelIsShown( pt[0], pt[1] ):
         try:
-          self.mainWin.addch( int(pt[1]), int(pt[0]), ord(ch), curses.color_pair(6) )
+          self.mainWin.addch( int(pt[1]), int(pt[0]), ord(ch), curses.color_pair(8) )
         except:
           pass
     self.mainWin.refresh()
@@ -296,9 +303,11 @@ class MapViewer:
         last_point = point
   #end showLine
 
-
   def drawCities( self ):
     """ draw cities """
+    # 1. Check if we have a kml overlay tile already created
+    # 2. If so, go to the correct screen position and call addColorSting
+    # 3. If not, create one, then load it and call addColorString
     # 123456
     if not self.showCities:
       return
@@ -324,6 +333,8 @@ class MapViewer:
       self.addColorString( self.mainMap )
     else:
       self.mainWin.clear()
+    # BTH Test
+    #self.addColorString( self.fake_tile )
     self.drawLines()
     self.drawCities()
   # end drawMap

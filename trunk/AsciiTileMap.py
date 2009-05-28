@@ -63,6 +63,18 @@ class AsciiTileMap:
 
   #### Begin borrowed from maptiler ###
 
+  def makeFakeTile( self, fname ):
+    a = open( fname, "w" )
+    for i in range ( self.sizeY ):
+      s = [ " " ] * self.sizeX
+      for j in range( self.sizeX ):
+        if j%5 == 0:
+          s[j] = "x"
+      a.write( string.join( s, "" ) )
+      a.write( "\n" )
+    a.close()
+  # end makeFakeFile
+
   def LatLonToMeters(self, lat, lon ):
     "Converts given lat/lon in WGS84 Datum to XY in Spherical Mercator EPSG:900913"
 
@@ -412,6 +424,18 @@ class AsciiTileMap:
     self.z = new_z
 
   # end moveToPoint
+
+########## Beginning to add overlay support here ##############
+  def renderKmlToTile( self ):
+    pass
+  # end renderKmlToTile
+
+  def getKmlTile( self ):
+    pass
+  # end getKmlTile
+########## Beginning to add overlay support here ##############
+
+
 
   def getMap( self ):
     """ Get four tiles - x,y,z points to north west corner of north west tile """
