@@ -33,29 +33,40 @@
 # THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ######################################################################
 
-import curses, time, sys, os, string, random, math
+import time, sys, os, string, random, math
 import pprint
-from Wget import *
 from TileMap import TileMap
+import KMLParser
 
 false = 0
 true = 1
 
-class AsciiTileMap( TileMap ):
-  def __init__(self, (x,y,z), (sizeX, sizeY), url, cacheUrl ):
+class KMLTileMap( TileMap ):
+  def __init__(self, (x,y,z), (sizeX, sizeY), kmlFile, cacheUrl ):
     TileMap.__init__( self, (x,y,z), (sizeX, sizeY), cacheUrl )
-    self.baseUrl      = url
-    self.mapChars     = "....,;clodxkO.XNOM"
+    self.kmlFile      = kmlFile
   # end __init__
 
-  def getTile( self, x, y, z ): 
-        txtFile = self.cacheUrl + "/%s/%s/%s.txt" % ( z,x,y )
-        jpgFile = self.cacheUrl + "/%s/%s/%s.jpg" % ( z,x,y )
-        cmd = """jp2a --size=%sx%s --chars="%s" %s > %s""" % (self.sizeX, self.sizeY, self.mapChars, jpgFile, txtFile )
-        os.popen( cmd )
-        f = open( txtFile, "r" )
-        self.loadedTiles[ (x,y,z) ] = [ string.strip(line) for line in f.readlines() ]
-        f.close()
-  #end getMap
+  def getTile( self, x, y, z ):
+    pass
+  # end getTile
 
-# end class AsciiTileMap
+  def loadKML( self ):
+    """ Load cities and countries from a kml file - ./kml_files.txt lists kml files to load"""
+    kmlFiles = [ string.strip( line ) for line in open( self.kmlFiles, "r" ).readlines() ] 
+    for line in kmlFiles:
+      if line[0] == "#":
+        pass
+      else:
+        lineParts = string.split( line, "," )
+        reader = KMLParser.kmlReader( lineParts[1] )
+        coords = reader.getCoordinates()  
+        for c in coords:
+          if c.has_point and c.point.lat and c.point.lon:
+            self.kmlPoints[ c.name ] = { "LON" : c.point.lon, "LAT" : c.point.lat, "NAME": c.name, "ZOOMLEVEL" : int( lineParts[0] ) }
+          if c.has_linear_ring:
+            self.kmlShapes[ c.name ] = { "NAME" : c.name, "ZOOMLEVEL" : int( lineParts[0] ), "POINTS" : c.linear_ring.points }
+  # end loadKML
+
+
+# end class KMLTileMap
