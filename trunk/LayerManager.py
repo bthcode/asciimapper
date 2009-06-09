@@ -39,7 +39,7 @@ import pprint
 false = 0
 true = 1
 
-class TileMap:
+class LayerManager:
   def __init__(self, (x,y,z), (sizeX, sizeY), cacheUrl ):
     self.tileStr      = None
     self.cacheUrl     = cacheUrl
@@ -56,10 +56,27 @@ class TileMap:
     self.tileSize     = 256
     self.originShift  = 2 * math.pi * 6378137 / 2.0
     self.initialResolution = 2 * math.pi * 6378137 / self.tileSize
-    self.tileLoaders  = []
+    # These get you the tile maps
+    self.tileMaps     = {}
   # end __init__
 
+  def getTileMap(self):
+    pass
+  # end getTileMap
+
   #### Begin borrowed from maptiler ###
+
+  def makeFakeTile( self, fname ):
+    a = open( fname, "w" )
+    for i in range ( self.sizeY ):
+      s = [ " " ] * self.sizeX
+      for j in range( self.sizeX ):
+        if j%5 == 0:
+          s[j] = "x"
+      a.write( string.join( s, "" ) )
+      a.write( "\n" )
+    a.close()
+  # end makeFakeFile
 
   def LatLonToMeters(self, lat, lon ):
     "Converts given lat/lon in WGS84 Datum to XY in Spherical Mercator EPSG:900913"
@@ -260,7 +277,6 @@ class TileMap:
     # 2. If the map isn't in memory, see if there's a text file __of the right size__
     else:
       txtFile = self.cacheUrl + "/%s/%s/%s.txt" % ( z,x,y )
-
       # check if the next file exists
       if os.access( txtFile, os.R_OK ):
         f = open( txtFile, "r"  )
@@ -275,14 +291,29 @@ class TileMap:
         # it's a good text file, just use it
         else:
           self.loadedTiles [ (x,y,z) ] = mapstring
-
       # text file doesn't exist or we can't read it
       else:
         regenerate_map = 1
-
-      if regenerate_map:
-        self.fetchTile( x, y, z )
-   #end getMap
+        pngFile = self.cacheUrl + "/%s/%s/%s.png" % ( z,x,y )
+        jpgFile = self.cacheUrl + "/%s/%s/%s.jpg" % ( z,x,y )
+        # if the jpgFile doesn't exist, check if the png does
+        if not os.access( jpgFile , os.R_OK ):
+          if not os.access( pngFile, os.R_OK ) :
+            # png doesn't exist, try to download it
+            url = self.baseUrl + "/%s/%s/%s.png" % ( z,x,y )
+            #os.popen( "wget -q -x --timeout=2 %s" % url ) 
+            args = [ '-x', url ]
+            wget( args )
+          if not os.access( pngFile, os.R_OK ):
+            # no png after wget
+            regenerate_map = 0
+            self.loadedTiles[ (x,y,z) ] = self.getEmptyTile()
+            return
+          # now try to convert it
+          os.popen( "convert %s %s" % ( pngFile, jpgFile ) )
+      if regenerate_map: 
+        self.getTile( x, y, z ) 
+  #end getMap
 
   def zoomIn( self ):
     new_x, new_y, new_z = self.TileZoomedIn( (self.x, self.y, self.z) )
@@ -377,24 +408,6 @@ class TileMap:
     self.z = new_z
 
   # end moveToPoint
-
-############# Tile Loader Registration ####################
-  def addTileLoader( self ):
-    pass
-  # end addTileLoader
-
-  def delTileLoader( self ):
-    pass
-  # end delTileLoader
-
-  def activateTileLoader( self ):
-    pass
-  # end activateTileLoader
-
-  def deActivateTileLoader( self ):
-    pass
-  # end deActivateTileLoader
-############# Tile Loader Registration ####################
 
   def getMap( self ):
     """ Get four tiles - x,y,z points to north west corner of north west tile """

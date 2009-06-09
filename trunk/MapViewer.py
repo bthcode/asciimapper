@@ -37,6 +37,7 @@
 import curses, time, sys, os, string, random, math
 import pprint
 from AsciiTileMap import AsciiTileMap
+from KMLTileMap import KMLTileMap
 import KMLParser
 
 false = 0
@@ -80,6 +81,8 @@ class MapViewer:
 
     # tile will always point to north west corner of north west screen tile
     self.tileMap    = AsciiTileMap( (0,0,1), ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), self.baseUrl, self.cacheUrl )
+    self.stateMap = KMLTileMap( (0,0,1),  ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), "us_states.kml", "us_states",0 )
+    
 
     # BTH TEST:
     #self.tileMap.makeFakeTile( "fake_tile.txt" )
