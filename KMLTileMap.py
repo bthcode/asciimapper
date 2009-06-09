@@ -40,6 +40,7 @@ import KMLParser
 
 false = 0
 true = 1
+debug = 1
 
 class KMLTileMap( TileMap ):
   def __init__(self, (x,y,z), (sizeX, sizeY), kmlFile, cacheUrl, zoomlevel ):
@@ -57,6 +58,7 @@ class KMLTileMap( TileMap ):
 
   def createTile( self, x, y, z ):
     tileStr = self.getEmptyTile()
+    #print tileStr
     for key, value in self.kmlPoints.items():
       lat = float( value[ "LAT" ] )
       lon = float( value[ "LON" ] )
@@ -72,21 +74,56 @@ class KMLTileMap( TileMap ):
   # end createTile
 
   def addTextToTile( self,pixX, pixY, text, tileStr ):
-    pos = self.sizeX * pixY + pixX
+    #pos = self.sizeX * pixY + pixX
+    pos = pixX - len( text )/2
+    if debug:
+      print "pixX = %s, len(text) = %s, pos = %s" % (pixX, len(text), pos)
+    if pos < 0:
+      pos = 0
     for c in text:
-      tileStr[pos] = c
-    return text
+      tileStr[pixY][pos] = c
+      pos = pos + 1
+    return tileStr
   # end addTextToTile
 
   def getEmptyTile( self ):
-    return [" "] * ( ( self.sizeX ) * ( self.sizeY ) )
+    arr = []
+    for y in range(self.sizeY):
+        arr.append( [" "] * self.sizeX )	
+    #return [" "] * ( ( self.sizeX ) * ( self.sizeY ) )
+    return arr
   # end getMepthTile
 
   def saveTileToCache( self, x, y, z, tileStr ):
     fname = self.cacheUrl+ "/%s/%s/%s.txt" % ( z,x,y )
-    f = open( fname, "w" )
-    f.write( tileStr ) # BTH - not right
-    f.close() 
+    dirParts = string.split( fname, "/" )[:-1]
+    curdir='./'
+    nextdir=''
+    for dirname in dirParts:
+      if nextdir == '':
+        nextdir = dirname
+      else:
+        nextdir=nextdir+os.sep+dirname
+
+      if dirname not in os.listdir(curdir):
+        if debug:
+          print "trying to make " + nextdir
+        try:
+          os.mkdir(nextdir)
+        except:
+          print "Couldn't make directory %s" % nextdir
+          return
+      curdir = nextdir
+
+    try:
+      output_file = open( fname, "w" )
+    except:
+      print "Couldn't open file %s" % fname
+
+    for row_num in range(self.sizeY):
+        output_file.write( string.join(tileStr[row_num],"" ) ) # BTH - not right
+        output_file.write( "\n" )
+    output_file.close() 
   # end saveTileToCache
 
   def loadTileFromCache( self ):
@@ -116,10 +153,9 @@ class KMLTileMap( TileMap ):
             self.kmlShapes[ c.name ] = { "NAME" : c.name, "ZOOMLEVEL" : self.zoomLevel, "POINTS" : c.linear_ring.points }
   # end loadKML
 
-
 # end class KMLTileMap
 
 if __name__=="__main__":
   #def __init__(self, (x,y,z), (sizeX, sizeY), kmlFile, cacheUrl ):
-  T = KMLTileMap((1,1,0), (256,256),  "us_states.kml", "test_cache", 0 )
+  T = KMLTileMap((0,0,1), (56,56),  "us_states.kml", "test_cache", 0 )
   T.createTile( 0,0,1 )
