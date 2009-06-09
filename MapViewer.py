@@ -297,8 +297,8 @@ class MapViewer:
     for shape in self.kmlShapes.items():
       shape = shape[1]
       points = shape["POINTS"]
-      last_point = points[-1]
-      for point in shape["POINTS"]:
+      last_point = points[0]
+      for point in shape["POINTS"][1:]:
         self.drawLatLonLine( last_point.lat,last_point.lon,point.lat,point.lon );
         last_point = point
   #end showLine

@@ -60,18 +60,6 @@ class TileMap:
 
   #### Begin borrowed from maptiler ###
 
-  def makeFakeTile( self, fname ):
-    a = open( fname, "w" )
-    for i in range ( self.sizeY ):
-      s = [ " " ] * self.sizeX
-      for j in range( self.sizeX ):
-        if j%5 == 0:
-          s[j] = "x"
-      a.write( string.join( s, "" ) )
-      a.write( "\n" )
-    a.close()
-  # end makeFakeFile
-
   def LatLonToMeters(self, lat, lon ):
     "Converts given lat/lon in WGS84 Datum to XY in Spherical Mercator EPSG:900913"
 
@@ -271,6 +259,7 @@ class TileMap:
     # 2. If the map isn't in memory, see if there's a text file __of the right size__
     else:
       txtFile = self.cacheUrl + "/%s/%s/%s.txt" % ( z,x,y )
+
       # check if the next file exists
       if os.access( txtFile, os.R_OK ):
         f = open( txtFile, "r"  )
@@ -285,29 +274,14 @@ class TileMap:
         # it's a good text file, just use it
         else:
           self.loadedTiles [ (x,y,z) ] = mapstring
+
       # text file doesn't exist or we can't read it
       else:
         regenerate_map = 1
-        pngFile = self.cacheUrl + "/%s/%s/%s.png" % ( z,x,y )
-        jpgFile = self.cacheUrl + "/%s/%s/%s.jpg" % ( z,x,y )
-        # if the jpgFile doesn't exist, check if the png does
-        if not os.access( jpgFile , os.R_OK ):
-          if not os.access( pngFile, os.R_OK ) :
-            # png doesn't exist, try to download it
-            url = self.baseUrl + "/%s/%s/%s.png" % ( z,x,y )
-            #os.popen( "wget -q -x --timeout=2 %s" % url ) 
-            args = [ '-x', url ]
-            wget( args )
-          if not os.access( pngFile, os.R_OK ):
-            # no png after wget
-            regenerate_map = 0
-            self.loadedTiles[ (x,y,z) ] = self.getEmptyTile()
-            return
-          # now try to convert it
-          os.popen( "convert %s %s" % ( pngFile, jpgFile ) )
-      if regenerate_map: 
-        self.getTile( x, y, z ) 
-  #end getMap
+
+      if regenerate_map:
+        self.fetchTile( x, y, z )
+   #end getMap
 
   def zoomIn( self ):
     new_x, new_y, new_z = self.TileZoomedIn( (self.x, self.y, self.z) )

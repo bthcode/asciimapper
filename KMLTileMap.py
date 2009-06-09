@@ -42,31 +42,84 @@ false = 0
 true = 1
 
 class KMLTileMap( TileMap ):
-  def __init__(self, (x,y,z), (sizeX, sizeY), kmlFile, cacheUrl ):
+  def __init__(self, (x,y,z), (sizeX, sizeY), kmlFile, cacheUrl, zoomlevel ):
     TileMap.__init__( self, (x,y,z), (sizeX, sizeY), cacheUrl )
+    self.zoomLevel    = zoomlevel # minzoomlevel
     self.kmlFile      = kmlFile
+    self.kmlPoints    = {}
+    self.kmlShapes    = {}
+    self.initKML()
   # end __init__
 
   def getTile( self, x, y, z ):
     pass
   # end getTile
 
-  def loadKML( self ):
+  def createTile( self, x, y, z ):
+    tileStr = self.getEmptyTile()
+    for key, value in self.kmlPoints.items():
+      lat = float( value[ "LAT" ] )
+      lon = float( value[ "LON" ] )
+      # returns None if point does not intersect
+      res = self.latlon2pixel( value["NAME" ], lat, lon, z )
+
+      # TODO: This logic relies on error handling to determine whether
+      #       a point is "onscreen" - do something better
+      if res != None:
+          pixX, pixY = res[0], res[1]
+          tileStr = self.addTextToTile( pixX, pixY, value[ "NAME" ], tileStr )
+    self.saveTileToCache( x, y, z, tileStr )
+  # end createTile
+
+  def addTextToTile( self,pixX, pixY, text, tileStr ):
+    pos = self.sizeX * pixY + pixX
+    for c in text:
+      tileStr[pos] = c
+    return text
+  # end addTextToTile
+
+  def getEmptyTile( self ):
+    return [" "] * ( ( self.sizeX ) * ( self.sizeY ) )
+  # end getMepthTile
+
+  def saveTileToCache( self, x, y, z, tileStr ):
+    fname = self.cacheUrl+ "/%s/%s/%s.txt" % ( z,x,y )
+    f = open( fname, "w" )
+    f.write( tileStr ) # BTH - not right
+    f.close() 
+  # end saveTileToCache
+
+  def loadTileFromCache( self ):
+    pass
+  # end loadTileFromCache
+
+  def makeFakeTile( self, fname ):
+    a = open( fname, "w" )
+    for i in range ( self.sizeY ):
+      s = [ " " ] * self.sizeX
+      for j in range( self.sizeX ):
+        if j%5 == 0:
+          s[j] = "x"
+      a.write( string.join( s, "" ) )
+      a.write( "\n" )
+    a.close()
+  # end makeFakeFile
+
+  def initKML( self ):
     """ Load cities and countries from a kml file - ./kml_files.txt lists kml files to load"""
-    kmlFiles = [ string.strip( line ) for line in open( self.kmlFiles, "r" ).readlines() ] 
-    for line in kmlFiles:
-      if line[0] == "#":
-        pass
-      else:
-        lineParts = string.split( line, "," )
-        reader = KMLParser.kmlReader( lineParts[1] )
-        coords = reader.getCoordinates()  
-        for c in coords:
-          if c.has_point and c.point.lat and c.point.lon:
-            self.kmlPoints[ c.name ] = { "LON" : c.point.lon, "LAT" : c.point.lat, "NAME": c.name, "ZOOMLEVEL" : int( lineParts[0] ) }
-          if c.has_linear_ring:
-            self.kmlShapes[ c.name ] = { "NAME" : c.name, "ZOOMLEVEL" : int( lineParts[0] ), "POINTS" : c.linear_ring.points }
+    reader = KMLParser.kmlReader( self.kmlFile )
+    coords = reader.getCoordinates()  
+    for c in coords:
+        if c.has_point and c.point.lat and c.point.lon:
+            self.kmlPoints[ c.name ] = { "LON" : c.point.lon, "LAT" : c.point.lat, "NAME": c.name, "ZOOMLEVEL" : self.zoomLevel }
+        if c.has_linear_ring:
+            self.kmlShapes[ c.name ] = { "NAME" : c.name, "ZOOMLEVEL" : self.zoomLevel, "POINTS" : c.linear_ring.points }
   # end loadKML
 
 
 # end class KMLTileMap
+
+if __name__=="__main__":
+  #def __init__(self, (x,y,z), (sizeX, sizeY), kmlFile, cacheUrl ):
+  T = KMLTileMap((1,1,0), (256,256),  "us_states.kml", "test_cache", 0 )
+  T.createTile( 0,0,1 )
