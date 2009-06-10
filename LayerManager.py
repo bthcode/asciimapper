@@ -36,14 +36,17 @@
 import sys, os, string, random, math
 import pprint
 
+from TileLoader import TileLoader
+from OSMTileLoader import OSMTileLoader
+from KMLTileLoader import KMLTileLoader
+from TileUtils import TileUtils
+
 false = 0
 true = 1
 
 class LayerManager:
-  def __init__(self, (x,y,z), (sizeX, sizeY), cacheUrl ):
+  def __init__(self, (x,y,z), (sizeX, sizeY) ):
     self.tileStr      = None
-    self.cacheUrl     = cacheUrl
-    self.loadedTiles  = {}
     self.x            = x 
     self.y            = y
     self.z            = z
@@ -51,270 +54,10 @@ class LayerManager:
     self.sizeX        = sizeX
     self.sizeY        = sizeY
     self.curMap       = ""
-    # For coordinate conversions
-    self.mapLoaded    = false
-    self.tileSize     = 256
-    self.originShift  = 2 * math.pi * 6378137 / 2.0
-    self.initialResolution = 2 * math.pi * 6378137 / self.tileSize
     # These get you the tile maps
     self.tileMaps     = {}
   # end __init__
-
-  def getTileMap(self):
-    pass
-  # end getTileMap
-
-  #### Begin borrowed from maptiler ###
-
-  def makeFakeTile( self, fname ):
-    a = open( fname, "w" )
-    for i in range ( self.sizeY ):
-      s = [ " " ] * self.sizeX
-      for j in range( self.sizeX ):
-        if j%5 == 0:
-          s[j] = "x"
-      a.write( string.join( s, "" ) )
-      a.write( "\n" )
-    a.close()
-  # end makeFakeFile
-
-  def LatLonToMeters(self, lat, lon ):
-    "Converts given lat/lon in WGS84 Datum to XY in Spherical Mercator EPSG:900913"
-
-    mx = lon * self.originShift / 180.0
-    my = math.log( math.tan((90 + lat) * math.pi / 360.0 )) / (math.pi / 180.0)
-
-    my = my * self.originShift / 180.0
-    return mx, my
-  # end LatLonToMeters
-
-  def PixelsToMeters(self, px, py, zoom):
-    "Converts pixel coordinates in given zoom level of pyramid to EPSG:900913"
-
-    res = self.Resolution( zoom )
-    mx = px * res - self.originShift
-    my = py * res - self.originShift
-    return mx, my
-  # end PixelsToMeters
-    
-  def MetersToPixels(self, mx, my, zoom):
-    "Converts EPSG:900913 to pyramid pixel coordinates in given zoom level"
-        
-    res = self.Resolution( zoom )
-    # orig:
-    px = (mx + self.originShift) / res
-    py = (my + self.originShift) / res
-    return px, py
-  # end MetersToPixels
-  
-  def Resolution(self, zoom ):
-    "Resolution (meters/pixel) for given zoom level (measured at Equator)"
-    
-    # return (2 * math.pi * 6378137) / (self.tileSize * 2**zoom)
-    return self.initialResolution / (2**zoom)
-  # end Resolution
-
-  def PixelsToTile(self, px, py):
-    "Returns a tile covering region in given pixel coordinates"
-
-    tx = int( math.ceil( px / float(self.tileSize) ) - 1 )
-    ty = int( math.ceil( py / float(self.tileSize) ) - 1 )
-    return tx, ty
-  # end PixelsToTile
-
-
-  #### End borrowed from maptiler ###
-
-  def getEmptyTile( self ):
-    return "." * ( ( self.sizeX ) * ( self.sizeY ) )
-  # end getMepthTile
-
-  def TileToWest( self, (x,y,z)  ):
-    "Returns a tile west of the tile specified by x,y,z"
-    north, south, east, west  = self.TileToBoundingBox(x, y, z)
-    north_resolution = abs( abs( north ) - abs( south ) )
-    east_resolution = abs( abs( east ) - abs( west ) )
-    # don't go west past the end of the map
-    if ( west - ( east_resolution/2 ) ) < -189:
-      return x,y,z
-    newx, newy = self.LatLonToTile( (north+south)/2, west - ( east_resolution/2 ) , z )
-    return newx, newy, z
-  # end TileToWEst
-  
-  def TileToEast( self, (x,y,z) ):
-    "Returns a tile east of the tile specified by x,y,z"
-    north, south, east, west  = self.TileToBoundingBox(x, y, z)
-    north_resolution = abs( abs( north ) - abs( south ) )
-    east_resolution = abs( abs( east ) - abs( west ) )
-    # don't go east past end of map
-    if ( east + ( east_resolution/2 ) ) > 189:
-      return x,y,z
-    newx, newy = self.LatLonToTile( (north+south)/2, east + (east_resolution/2 ), z )
-    return (newx, newy, z)
-  # end TileToEast
-  
-  def TileToNorth( self, (x,y,z) ):
-    "Returns a tile north of the tile specified by x,y,z"
-    north, south, east, west  = self.TileToBoundingBox(x, y, z)
-    north_resolution = north - south 
-    east_resolution =  east - west 
-    # don't go past the north pole
-    new_north = north + north_resolution/2
-    if ( new_north ) > 86:
-      new_north = 85
-    newx, newy = self.LatLonToTile( new_north, (east+west)/2, z )
-    return (newx, newy,z)
-  # end TileToNorth
-  
-  def TileToSouth( self, (x,y,z) ):
-    "Returns a tile west of the tile specified by x,y,z"
-    north, south, east, west  = self.TileToBoundingBox(x, y, z)
-    north_resolution = abs( abs( north ) - abs( south ) )
-    east_resolution = abs( abs( east ) - abs( west ) )
-    # don't go past the north pole
-    new_south = south - north_resolution/2
-    if ( new_south ) < -85:
-      new_south = -85
-    newx, newy = self.LatLonToTile( new_south, (east+west)/2, z )
-    return (newx, newy,z)
-  # end TileToSouth
-  
-  def TileZoomedOut( self, (x,y,z) ):
-    "Returns a tile west of the tile specified by x,y,z"
-    if z <= 1:
-      return x,y,z 
-    north, south, east, west  = self.TileToBoundingBox(x, y, z)
-    # 1. Expand, but check for boundary conditions
-    z = z-1
-    newx, newy = self.LatLonToTile( north , west, z )
-    return newx, newy, z
-  # end TileUp
-  
-  def TileZoomedIn( self, (x,y,z) ):
-    "Returns a tile west of the tile specified by x,y,z"
-    if z >= 18:
-      return x,y,z
-    north, south, east, west  = self.TileToBoundingBox(x, y, z)
-    z = z+1
-    tl_x, tl_y = self.LatLonToTile( north , west, z )
-    (newx, newy, z) = self.TileToSouth( self.TileToEast( (tl_x, tl_y, z) ) )
-    return (newx, newy,z)
-  # end TileDown
-
-  def LatLonToTile(self, lat_deg, lon_deg, zoom):
-    lat_rad = lat_deg * math.pi / 180.0
-    n = 2.0 ** zoom
-    xtile = int((lon_deg + 180.0) / 360.0 * n)
-    ytile = int((1.0 - math.log(math.tan(lat_rad) + (1 / math.cos(lat_rad))) / math.pi) / 2.0 * n)
-    return(xtile, ytile)
-  # end LatLonToTile
-  
-  def TileToLatLon(self, xtile, ytile, zoom):
-    n = 2.0 ** zoom
-    min_lon_deg = xtile / n * 360.0 - 180.0
-    min_lat_rad = math.atan(math.sinh(math.pi * (1 - 2 * ytile / n)))
-    min_lat_deg = min_lat_rad * 180.0 / math.pi
-  
-    max_lon_deg = (xtile+1) / n * 360.0 - 180.0
-    max_lat_rad = math.atan(math.sinh(math.pi * (1 - 2 * (ytile+1) / n)))
-    max_lat_deg = max_lat_rad * 180.0 / math.pi
-    return(lat_deg, lon_deg)
-  # end TileToLatLon
-  
-  def TileToBoundingBox(self, x, y, z):
-    north = self.tile2lat(y, z)
-    south = self.tile2lat(y + 1, z)
-    west = self.tile2lon(x, z)
-    east = self.tile2lon(x + 1, z)
-    return (north,south,east,west)
-  # end tile2boundingbox
-  
-  def tile2lon(self, x, z):
-    return ( (x / math.pow(2.0, z) * 360.0) - 180 )
-  # end tile2lon
-  
-  def tile2lat(self, y, z):
-    n = math.pi - ((2.0 * math.pi * y) / math.pow(2.0, z));
-    return ( 180.0 / math.pi * math.atan(0.5 * (math.exp(n) - math.exp(-n))) )
-  # end tile2lat
-
-  def isShown( self, lat, lon, z ):
-    """ Returns true if this lat/lon point is in the current map """
-    x,y = self.LatLonToTile( lat, lon, z )
-    if x == self.x or x == self.x+1:
-      if y == self.y or y == self.y+1:
-        return 1
-    return 0
-  # end isShown
-
-  def latlon2pixel( self, name, lat_deg, lon_deg, z ):
-
-    meters_x, meters_y = self.LatLonToMeters( lat_deg, lon_deg )
-    pixels_x, pixels_y = self.MetersToPixels( meters_x, meters_y, z )
-    tile_x, tile_y     = self.PixelsToTile( pixels_x, pixels_y )
-
-    # NOTE: pixels are counted from [0,0] = bottom left - 
-    #       therefore, y has to be refigured out
-
-    pixels_x_scaled = ( pixels_x  * (self.sizeX) / 256 ) # scale
-    pixels_y_scaled = ( pixels_y  * (self.sizeY) / 256 ) # scale
-
-    total_pixels_y  = self.sizeY * ( 2 << (z-1) ) 
-    pixels_y_inv    = total_pixels_y - pixels_y_scaled 
-
-    pixels_x_r = int( pixels_x_scaled - (self.x*self.sizeX)  )
-    pixels_y_r = int( pixels_y_inv - (self.y*self.sizeY)  )
-
-    return int(pixels_x_r), int(pixels_y_r)
-  # end latlon2pixel
-    
-
-  def getMapTile( self, (x,y,z) ):
-    regenerate_map = 0
-    # 1. See if the map is in memory
-    if self.loadedTiles.has_key( (x,y,z) ):
-      return
-    # 2. If the map isn't in memory, see if there's a text file __of the right size__
-    else:
-      txtFile = self.cacheUrl + "/%s/%s/%s.txt" % ( z,x,y )
-      # check if the next file exists
-      if os.access( txtFile, os.R_OK ):
-        f = open( txtFile, "r"  )
-        mapstring = [ string.strip( line) for line in f.readlines() ]
-        f.close()
-        # need to regenerate text file because it's not the right size
-        if len( mapstring ) !=  self.sizeY :
-          regenerate_map = 1
-        if len( mapstring[0] ) != self.sizeX :
-          regenerate_map = 1
-
-        # it's a good text file, just use it
-        else:
-          self.loadedTiles [ (x,y,z) ] = mapstring
-      # text file doesn't exist or we can't read it
-      else:
-        regenerate_map = 1
-        pngFile = self.cacheUrl + "/%s/%s/%s.png" % ( z,x,y )
-        jpgFile = self.cacheUrl + "/%s/%s/%s.jpg" % ( z,x,y )
-        # if the jpgFile doesn't exist, check if the png does
-        if not os.access( jpgFile , os.R_OK ):
-          if not os.access( pngFile, os.R_OK ) :
-            # png doesn't exist, try to download it
-            url = self.baseUrl + "/%s/%s/%s.png" % ( z,x,y )
-            #os.popen( "wget -q -x --timeout=2 %s" % url ) 
-            args = [ '-x', url ]
-            wget( args )
-          if not os.access( pngFile, os.R_OK ):
-            # no png after wget
-            regenerate_map = 0
-            self.loadedTiles[ (x,y,z) ] = self.getEmptyTile()
-            return
-          # now try to convert it
-          os.popen( "convert %s %s" % ( pngFile, jpgFile ) )
-      if regenerate_map: 
-        self.getTile( x, y, z ) 
-  #end getMap
-
+   
   def zoomIn( self ):
     new_x, new_y, new_z = self.TileZoomedIn( (self.x, self.y, self.z) )
     if ( new_x, new_y, new_z ) != (self.x, self.y, self.z):
@@ -447,4 +190,25 @@ class LayerManager:
     return self.curMap
   #end getMap
 
+############# Tile Loader Registration ####################
+  def addTileLoader( self, name, loader ):
+    pass
+  # end addTileLoader
+
+  def delTileLoader( self, name ):
+    pass
+  # end delTileLoader
+
+  def activateTileLoader( self, name ):
+    pass
+  # end activateTileLoader
+
+  def deActivateTileLoader( self, name ):
+    pass
+  # end deActivateTileLoader
+############# Tile Loader Registration ####################
+
 # end class TileMap
+
+if __name__=="__main__":
+	L = LayerManager( (0,0,0), (56,56) )
