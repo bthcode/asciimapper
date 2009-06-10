@@ -1,0 +1,1334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMI verified="false" xmi.version="1.2" timestamp="2009-06-10T17:14:34" xmlns:UML="http://schema.omg.org/spec/UML/1.3" >
+ <XMI.header>
+  <XMI.documentation>
+   <XMI.exporter>umbrello uml modeller http://uml.sf.net</XMI.exporter>
+   <XMI.exporterVersion>1.5.8</XMI.exporterVersion>
+   <XMI.exporterEncoding>UnicodeUTF8</XMI.exporterEncoding>
+  </XMI.documentation>
+  <XMI.metamodel xmi.version="1.3" href="UML.xml" xmi.name="UML" />
+ </XMI.header>
+ <XMI.content>
+  <UML:Model isSpecification="false" isAbstract="false" isLeaf="false" xmi.id="m1" isRoot="false" name="UML Model" >
+   <UML:Namespace.ownedElement>
+    <UML:Stereotype visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="folder" name="folder" />
+    <UML:Stereotype visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="datatype" name="datatype" />
+    <UML:Model stereotype="folder" visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Logical View" name="Logical View" >
+     <UML:Namespace.ownedElement>
+      <UML:Package stereotype="folder" visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Datatypes" name="Datatypes" >
+       <UML:Namespace.ownedElement>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ORp1wCzaoSYK" name="int" />
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="LA0eejgtLtOW" name="char" />
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="OKkp3O5PouPi" name="bool" />
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="6OGtooD9wDlb" name="float" />
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="uSUDLqkhAUWB" name="double" />
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="rbbfT0NYMdR8" name="short" />
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="PeHLq3uiTOwo" name="long" />
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="DeTL60XxZ6a1" name="unsigned int" />
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="4vZOW0WvcnFQ" name="unsigned short" />
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="o99HW33hhX2l" name="unsigned long" />
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="VZj2fH3hDc5j" name="string" />
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="mgq9YQJV8kzu" name="array" />
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="C7IAKUc5N5TW" name="tuple" />
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="cYrhjuMUaDd8" name="dict" />
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="bwcjebbrgu11" name="object" />
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Mb4khVEH35yl" name="set" />
+       </UML:Namespace.ownedElement>
+      </UML:Package>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="NGYFHXctZKY4" name="AsciiTileMap" >
+       <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="tZjCL92jPayh" />
+       </UML:GeneralizableElement.generalization>
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="cuk1ThgXFEC6" name="__init__" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="ejRsxbyEWSNG" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="IuW9kYlTCPG1" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="V0iDTaF3Tx4u" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="17iBUwAzwsBN" name="fetchTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="b9ENMcbUBmYb" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="RQQsNTm0CBs7" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="moLGGhXFmDOG" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="9ZD4RORsmqkA" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="JU8VdyaQmwe0" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="NGYFHXctZKY4" xmi.id="tZjCL92jPayh" parent="Yp8dltd36CVy" name="" />
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="9xRvnA36cBZG" name="Point" >
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="9Aet4IudS60m" name="__init__" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="0Pcdb9tiHVcL" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="iZEsJmRSksOV" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="nUyDawyGTC8n" name="__repr__" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="usG9NqT9KRKs" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="xZDfQbAQ1k1a" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="MI7nTFYQnm5B" name="LinearRing" >
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="LFZK0ZusRB1n" name="__init__" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="VYOGIRRdgyye" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="1UwKuEAEXH1y" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="XqWzzWkzyeHs" name="addPoint" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="LBkxtAp1xLok" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="sR4Nh4LAchQu" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="8pVnnTRJIwGH" type="VZj2fH3hDc5j" value="" name="lat" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Q0EOeVFUvJsa" type="VZj2fH3hDc5j" value="" name="lon" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="mE328HIYHWut" name="__repr__" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="LXKGq60dI2fQ" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="09OtRGTmRDiI" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="JxwZSrSS0qJP" name="Placemark" >
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="4mCWxumGP6WG" name="__init__" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="dlIccb1eLD8I" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="BUrRUUqmQmLs" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="5vWVz2j8Waaz" name="setPoint" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="bKAOuYo6vqcW" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="4QlUC4KopcOP" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="DP4YbCog7K95" type="VZj2fH3hDc5j" value="" name="lat" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="KsDpSnoVBXzM" type="VZj2fH3hDc5j" value="" name="lon" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="0RB8jIB4BOtb" name="addLinearRingPoint" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="6cYQSkgnf12R" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Af6LC4hnMpBG" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="LxKHnxloMuu5" type="VZj2fH3hDc5j" value="" name="lat" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="D57MRyxbd2xn" type="VZj2fH3hDc5j" value="" name="lon" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="woDIg5Lt8RDZ" name="__repr__" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="5LyiKy9EmMWT" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="PBB1B6oHiNfA" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="RqKXHW7gfGfq" name="KML_Handler" >
+       <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="7kau47LUxd1E" />
+       </UML:GeneralizableElement.generalization>
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="WPWT1Vf8cWxy" name="__init__" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="hyhhQmhuBBOA" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="2Xh0FSngOS9V" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="g1JIVEHXlwX0" name="startElement" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="hQSSKZb1NerK" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="MKfkmoFUlu9B" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="go5qzR0fRJwu" type="VZj2fH3hDc5j" value="" name="name" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="VBSH7xFTGuD0" type="VZj2fH3hDc5j" value="" name="attrs" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="6p0V9uPc5ptA" name="characters" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="ZKveApmtwPux" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="l9d11o1iESAY" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="1jXPOMhSCfxJ" type="VZj2fH3hDc5j" value="" name="ch" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="DtgPLoyLWTiu" name="endElement" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="Jy2pRijF83FD" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="qPM05HJeZCHj" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="13cvRUteMX2h" type="VZj2fH3hDc5j" value="" name="name" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="MU54pkDu39aO" name="ContentHandler" />
+      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="RqKXHW7gfGfq" xmi.id="7kau47LUxd1E" parent="MU54pkDu39aO" name="" />
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="KYrul6bk8CgZ" name="kmlReader" >
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="eXB04DgLBgBd" name="__init__" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="i9etpnUCgLjc" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="PusXw6kEeZ8N" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="ei6mskLUFWVJ" type="VZj2fH3hDc5j" value="" name="fname" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="RRq3zxPddVPV" name="getCoordinates" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="9GbpbJR2kH6h" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="DizSCSjubLmP" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="CVKpyhIBPGba" name="KMLTileLoader" >
+       <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="X07GGDxSgGGc" />
+       </UML:GeneralizableElement.generalization>
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="VNI9bYjZ7Ust" name="__init__" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="eiGjC8dzt1Pz" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="olOS89ikZkrC" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="N3MxNmpr760j" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="B7kirZsDaEAw" name="fetchTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="3ugBbYAqJLgI" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="yyn64lngT3Qe" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="93d042zDAhuz" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="FmApzJlxHY1J" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="ImzlnPNwS0uV" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="cPDtyDAEx9xl" name="initKML" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="disw1WCdvOUr" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="XLfxLaSOS7Z3" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="CVKpyhIBPGba" xmi.id="X07GGDxSgGGc" parent="iKUIfGfmXEb6" name="" />
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="be5Yl3HIOvGh" name="LayerManager" >
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Vg6xldyPJoLK" name="__init__" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="vY8CLSVdyQps" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="IYvEwN3V191l" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="AH3YCHDfyJcj" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="otLn0MYAbagn" name="getTileMap" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="3lX1CLtyEEjE" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="rtSpB2X4ZdGu" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ZIMAs2wjtOX4" name="makeFakeTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="SQnMmIOBKV9y" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="P28ydNsh8NiI" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="iaGumy6JGSU6" type="VZj2fH3hDc5j" value="" name="fname" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="szfyLLH1tVwg" name="LatLonToMeters" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="1eWqDjQ5JCFO" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="T2zjTRnvpbFc" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="rclC5t8xslvB" type="VZj2fH3hDc5j" value="" name="lat" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="4ADyg9e99brc" type="VZj2fH3hDc5j" value="" name="lon" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="5LJv4D78NI61" name="PixelsToMeters" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="SoCr8sKfewXh" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="RiBYI09Jcd9q" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Matgk62nRMiV" type="VZj2fH3hDc5j" value="" name="px" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Xndu3iwSO51g" type="VZj2fH3hDc5j" value="" name="py" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="5Azhl7V7hMlP" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="eRA0WBhZJeF4" name="MetersToPixels" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="V2eqLsgon5XL" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="li9Q5tpVfzLl" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="sfQUbvBDNLEr" type="VZj2fH3hDc5j" value="" name="mx" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="UvPlZcnJKvjN" type="VZj2fH3hDc5j" value="" name="my" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="oXrRWCCMraqT" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="hLezELL0sCRN" name="Resolution" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="DBk6LBRjkAvv" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="ObjDBaeecJTv" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="B9jxCFIrYuqm" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="kZXKs0E49v1J" name="PixelsToTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="7UKDgih2Yr7Y" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="AHAi9zSM8CQU" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="LrB5060kgY3Y" type="VZj2fH3hDc5j" value="" name="px" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="YHagAZzLo83x" type="VZj2fH3hDc5j" value="" name="py" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="x6GbeJ8AYgoj" name="getEmptyTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="0sGYhL6cRNE3" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Gm24u30zXKCE" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="eKED00uEmuJg" name="TileToWest" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="yHiiBzP8G0bp" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="xHdVbqhZgv8N" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="GEziZBlEVxPU" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="oIPUDVpSjnAH" name="TileToEast" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="axwHi4Whvz7k" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="ytTSpswl7eTI" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="cqOsr0gfG58U" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="r3TyfxEFnd8e" name="TileToNorth" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="IBk5mqiNc0CT" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="bmIrrQJPLDe4" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="HBjBAqt0rNwU" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="OWqhjUlzfS8o" name="TileToSouth" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="XDLBfTxuTl1p" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="G1o7MkcetMif" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="CQ0mQBFmh3TO" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="TbSLvAy5azry" name="TileZoomedOut" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="rDURAJNIO57T" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="A4ip7BDdOXm2" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="0juTStHtVjEO" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="EI4dpodoXVHx" name="TileZoomedIn" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="gMfBrv9DRy5f" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="OWprD3G4GiVO" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="zqgNvnpA4rlr" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="zLjE1Dc01JMx" name="LatLonToTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="msWKCfuiQUHS" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="4B562oyi8dsx" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Y1AyxFdwaKAb" type="VZj2fH3hDc5j" value="" name="lat_deg" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="XlcZ4yU67XD7" type="VZj2fH3hDc5j" value="" name="lon_deg" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="J9oRmgOJfWHa" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="QjWXEhcXqQwb" name="TileToLatLon" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="8TjxFv3ggbxr" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="4Iujo9Ja1otD" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="RntpHAFhrlC5" type="VZj2fH3hDc5j" value="" name="xtile" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="TmaHBWsFomxd" type="VZj2fH3hDc5j" value="" name="ytile" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="tEBu246RpzG4" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="8q6wa3XUGjMI" name="TileToBoundingBox" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="howji2KggNr3" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="lQibQwfWQPTf" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="IUJy6EpC2w8d" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="xg5DNPU8qAhE" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="6NkWkB92eS1k" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="nJAbRrpYCX4w" name="tile2lon" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="mUUZRX4SuB5f" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="gEzKey4Lmy5V" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="1N9flyjYGr9h" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="iwFvRIr7WqSA" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="9oBPfI7MEKHd" name="tile2lat" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="2OKh7YmLrITI" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="c6l6vDHhfjG6" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="GIWATcodOz02" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="G7OSQd62jr9c" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="uHvHFuJVzhxP" name="isShown" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="knRmHB3cGnxy" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="I1QzsZcuvua0" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="SMLHcoaV4TmH" type="VZj2fH3hDc5j" value="" name="lat" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="N5kNkfk2hA1Z" type="VZj2fH3hDc5j" value="" name="lon" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="jbScV0cyKvDw" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Siy9syhaZ7C5" name="latlon2pixel" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="lYFgD4K5COx3" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="7n1RiELQ0lCF" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="wDrByp9RX6YP" type="VZj2fH3hDc5j" value="" name="name" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="4DxdKAgPxfod" type="VZj2fH3hDc5j" value="" name="lat_deg" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="sA4stE7pSyyQ" type="VZj2fH3hDc5j" value="" name="lon_deg" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="l8pIEMgGXdtq" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="c2s21rRmxE39" name="getMapTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="8Qn3foADVXJn" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="ahP6IGw4oBi0" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="D25NO1Qz3H12" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="nFpaRYYcab0x" name="zoomIn" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="DwEgTWSFlHnA" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="cOwefxelMPo1" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="nLnMwlJX9F9p" name="zoomOut" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="EV0zmnAY8vu2" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="AlaWBNVOJi3l" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="eDZnQgaYS95d" name="moveEast" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="HaqNTiQ7vxsJ" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="UYznG2WUXWSI" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="eRr6auh4Tgph" name="moveWest" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="0tmtpcCT32Xd" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="hKCCqcU6CITf" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="wCfNsT5XnFkb" name="moveNorth" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="4XI6ZnjUzNrq" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="rEh3VBgV2SNr" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ouNb97AyKqzn" name="moveSouth" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="vvCsI2i6u4f2" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="zfG15dr8B7Ei" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="9o0Te0EddVcj" name="moveToPoint" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="oEgZKKyNCy6a" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="8TrHZ30SyAKF" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="A1L55z7En7gP" type="VZj2fH3hDc5j" value="" name="lat" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="5u2jPeSW6Hld" type="VZj2fH3hDc5j" value="" name="lon" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Kl5IuNV4Or7R" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="aW6gnrJ5bMMV" name="getMap" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="UvXgtdGU8M8t" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="krX6gfYSrCz9" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="CQznkJGU8lZp" name="OSMTileLoader" >
+       <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="O5FGHFPlAuR4" />
+       </UML:GeneralizableElement.generalization>
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="DzrMtHOPxs3x" name="__init__" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="GMPBES9i1HB7" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="UbAV57GrJTnG" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="EUb5SBCeA1y1" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="OPyfrjv5DX8d" name="fetchTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="AJSB3c5Th25I" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="iIHqKDpYZEkn" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="htUi8dnW3jCu" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="S5zdc7HIQW6i" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="kwEHAy5ppXYx" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical View" child="CQznkJGU8lZp" xmi.id="O5FGHFPlAuR4" parent="iKUIfGfmXEb6" name="" />
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="iKUIfGfmXEb6" name="TileLoader" >
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="AMYYqfEYbSqj" name="__init__" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="Lidu8RdXKAki" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="PtZEO5AYOakP" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Cnrrqu7yGgU4" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="FsEcSwzckqRY" name="activate" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="31ILC21RsF3I" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="kZWyD01WgcQm" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="A3usrJQasuW3" name="deactivate" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="cUaUkcmsdekS" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="uXZY9zKAzcVB" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="y82o2Zsu4RSC" name="loadTileFromDisk" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="PxM6jxo1PRMK" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="PkKONoXxI5S0" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="hCsIralpilbk" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="ITcNv2XInre8" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="fB5wGXwwipCZ" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="TtcEjEMMPSId" name="writeTileToDisk" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="PrL1akOXU6rf" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="xFXf2kCPhWVO" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="SKQrjm9AejPN" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="xljKB0x7FTmF" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="DxesRAHtSfkB" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="6nmJGXYRSCHt" name="getTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="ksimj214uiqx" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="KWlmBTxZLHat" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="zxRT1G751rMH" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Msgo2ygNUP7e" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="s3BDKj7JeWld" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="gWK8vPkmSvxm" name="addTextToTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="CG8biCWxAjtk" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="f24HYpvHhd3O" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="e4QYkHVOlnXf" type="VZj2fH3hDc5j" value="" name="pixX" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="DFRdBOQoPS5v" type="VZj2fH3hDc5j" value="" name="pixY" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="H0CwcFIGIjm2" type="VZj2fH3hDc5j" value="" name="text" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="0GRl1wQCBpqK" type="VZj2fH3hDc5j" value="" name="tileArr" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="wByEulFs1ec2" name="fetchTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="5PS2dPraaWUQ" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="a2Djq342HAdz" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="M7uVqnFlwExp" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="xChwqJwOK98A" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="CCATMlQhsKCh" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="qRp8avGn7QGR" name="tileIsCorrectSize" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="SArFSDdgqm0q" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="9h81zIi5i87L" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Ywu8SOWGpJOO" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="EcBJ0Pl94tB4" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Ar9s0EBWA3ea" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Al0Ec9Gm0Ncy" name="getEmptyTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="M6NCtN1361Fh" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="boUjr8KHH9Vj" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="8WR8t47TqbAh" name="getFileName" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="hHItrdwT3Tx2" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="iUzxbSeyY18R" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="N7ST6iAEEcL5" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="eSYU1j9hB6cn" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="YGj7IpYfxz63" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="A6iLDK6jbnqr" name="createDir" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="djrkxY2VM3dx" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="dNUaMab1ptse" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Uo7XF2YP7GjI" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Yn17bsyCFSkZ" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="3LYqDQVhCcDS" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Yp8dltd36CVy" name="TileMap" >
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="tZ762rf3ADtN" name="__init__" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="r1d1EUNorSao" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="bM5oxGEaz3Kw" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="cMRyN2tHc0Nc" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="goOfrgZT20RN" name="LatLonToMeters" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="vXmwJtAaN9fH" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="1KebI0B71o7D" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="IU17ubtaNFFD" type="VZj2fH3hDc5j" value="" name="lat" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="vogvm6HlOvMh" type="VZj2fH3hDc5j" value="" name="lon" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="jZp6m2Jiqybb" name="PixelsToMeters" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="3XMKj1Nyy61s" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="4sKQmh5hCscU" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="lk47tjOaICh3" type="VZj2fH3hDc5j" value="" name="px" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Eyj3uKeyByNv" type="VZj2fH3hDc5j" value="" name="py" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="dSaoKCI4uMBm" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="OdpZZCUBc5zx" name="MetersToPixels" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="LtIGncjsMMYB" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="FFzAZAucfGwN" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="GHJENK6mvvJU" type="VZj2fH3hDc5j" value="" name="mx" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="5mdipcd2pcAO" type="VZj2fH3hDc5j" value="" name="my" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="k4zNLvkbB3nY" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="xBBmlM9TQ8rj" name="Resolution" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="e3X4BMmAw4LX" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="1ZICd5jwx1Dk" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="buaxE96BIIw4" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="84T55enhYNen" name="PixelsToTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="OyKGKzI1RVev" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Wjwp1qrftMh2" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="jRDdWYAcadhf" type="VZj2fH3hDc5j" value="" name="px" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="IUKqpxbMgY9h" type="VZj2fH3hDc5j" value="" name="py" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="1oXbSCFigZYV" name="getEmptyTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="9ZCa2rV2f0b5" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="W8pAewr2s9GD" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="CqnqOKJsS734" name="TileToWest" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="xXdNegRgWVaY" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="3s4u2L7BuJjw" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="8EyoCarOOdEm" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="qfhiwQf5cbro" name="TileToEast" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="iiRLJI7TyI1K" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="BiCYLOKGwxdY" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="b2C6YmeMPK5M" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="gJaaHC7qEJwk" name="TileToNorth" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="Xc0ktvSxSVPJ" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="4Z5Tr8pZqEu9" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="W0cVIbnwvLVA" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="dEsTTlbxlDQ1" name="TileToSouth" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="4OrnaGmNTh5y" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="nDviXQs20qmu" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="jDpBiESMTJnu" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="8v18ll0Tyqef" name="TileZoomedOut" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="ftGejtHmwGHK" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="45zVOmPQ9FDj" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Vz6wg9vm2wtn" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="0fk9svsLuwFY" name="TileZoomedIn" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="pnajiqGlyXp1" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="38J52Cri35Kl" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="wbXspmCnPuxH" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="jejkj1Vgc0WP" name="LatLonToTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="nWOYxh3PXCRM" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="njCCd9SRv08d" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="oOMnt9manTLV" type="VZj2fH3hDc5j" value="" name="lat_deg" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Uq94rfTcMdmy" type="VZj2fH3hDc5j" value="" name="lon_deg" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="lCPgDXHzudkn" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="sswCWhAHtZx4" name="TileToLatLon" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="Cm16KPYbxDk2" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="5E4zpokaJ89E" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="pAcLN3fDwaNS" type="VZj2fH3hDc5j" value="" name="xtile" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="HYh87eDCqF9d" type="VZj2fH3hDc5j" value="" name="ytile" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="1uEI0LXoV97q" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="rvDfAMJBEVUF" name="TileToBoundingBox" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="CfueSWDZPwvn" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="qz3L8ACIuDPF" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="cvoZ9WayRncb" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="9tlMODbECeZI" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="mjYexxtXrg5y" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="9UzL6XbsGAXB" name="tile2lon" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="q4sFpj46oQjp" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="5Oju4msFRntr" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="H4Of1IQAmQUt" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="x5jBDENJb4Dd" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="iAxTYRKTV3ei" name="tile2lat" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="QXWhqYlrfufC" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Gz1p3DSrHJ46" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="26AqXsdF2biY" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="221X4fEIdF7g" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="mJPms6Ku6JQ8" name="isShown" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="RJ54mCXJZuvH" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="weQZrVEI1ixp" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="GjgtbM5NdT7V" type="VZj2fH3hDc5j" value="" name="lat" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="XPNdilmeNACF" type="VZj2fH3hDc5j" value="" name="lon" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="eQVd8SSM97Gk" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="gfu3n6GPUl2a" name="getMapTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="7MJZ6J9Im5bI" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="CTwLYC4zW91G" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="KYatQT94836t" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="GfHmpG27oa0D" name="zoomIn" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="dx4O1fgHLw18" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="39H9AN3FiKoo" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="C3F1eDCfLTnV" name="zoomOut" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="2ojLikRulgtN" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="polX8XJjTN7U" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="s53DZogMcPrk" name="moveEast" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="JKx4zrSpwT2T" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="xATQXbsXNbt5" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Hgpt4gd1o4PL" name="moveWest" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="qfsm8sGPX3Ib" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="fHt0sk3B41D3" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="itcWyzsbGja6" name="moveNorth" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="GRcnUsMCkwji" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="TbFVaSZQ6PDE" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="vZHBGrHjTUE3" name="moveSouth" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="hUnRQU9L1RUH" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="wlU29fFP6rAa" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Gj0jDCl7wDA5" name="moveToPoint" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="jzWhyJqAs6Id" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="sNSyCaYt4JLU" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="lSnmrH36y1pB" type="VZj2fH3hDc5j" value="" name="lat" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="CYI8lQDdndbz" type="VZj2fH3hDc5j" value="" name="lon" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="D8rFPAhBaUvQ" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="XTFI4oGHw5UK" name="addTileLoader" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="3pSvwjWRClhF" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="FBVpfOFMLl1K" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="avUU0zmFAH3o" name="delTileLoader" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="VUIfE0smvNEw" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="eG8z0AJ3zmyt" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="M19UGCIuRPuR" name="activateTileLoader" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="ewqaJ5Ud6d8K" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="ZBUWxQOQsg46" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="oOFFn9gKI8pG" name="deActivateTileLoader" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="OYWS9cnx02Am" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="YBeQrgVWdL4u" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="9q4RwtfS4Itu" name="getMap" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="aJ5YJFKS4Ps0" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="yMOZfSS40yW9" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="GXTJnKDmgbJJ" name="TileUtils" >
+       <UML:Classifier.feature>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="3lN1hs8F9DmT" name="__init__" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="ECosn6CopXnX" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="R4tVRlTiHw12" type="VZj2fH3hDc5j" value="" name="self" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="PtkZ7W0Wbt12" name="LatLonToMeters" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="MNAF2cupIKPT" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="dUisPjubthUe" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="ngQaDD7b7q8C" type="VZj2fH3hDc5j" value="" name="lat" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="M8iv1hwc9eUY" type="VZj2fH3hDc5j" value="" name="lon" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="YV2dJAnfITZI" name="PixelsToMeters" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="CHkXboE6gYty" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="AVuJ9NqViylk" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="adXsxuJTNM4g" type="VZj2fH3hDc5j" value="" name="px" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="WrKpKt5SOzmV" type="VZj2fH3hDc5j" value="" name="py" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Kcz2Ykk8LHyI" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="PyRlvBGGlFGJ" name="MetersToPixels" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="TtEey6jGC3HW" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="x1RIGPZSeJyE" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="5CKjkDi7B7s6" type="VZj2fH3hDc5j" value="" name="mx" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="I8K1MbKHajYq" type="VZj2fH3hDc5j" value="" name="my" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="87HkOFyTRID9" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="cZoCIM1ORI6n" name="Resolution" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="AywbE3Mj8adR" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="V5EuLR3nIHRG" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="L8UXAj4mIqxa" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="0eEIteXEm1ju" name="PixelsToTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="tQhTz1FYikEz" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="lnh3beclaYKo" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="bgVhH87HmJXd" type="VZj2fH3hDc5j" value="" name="px" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="x4ri6YcpKHqv" type="VZj2fH3hDc5j" value="" name="py" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="qJEcclDaq2Gu" name="TileToWest" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="737x6LpfBUaH" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="bqhv6XqzyXRv" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="XgRDPdAFwOqZ" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="2QFywgrRKIej" name="TileToEast" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="9KrSaV9UJ6LT" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="uoxqCnPJoUFs" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="p2XzX7EXWTVQ" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="rimgBzW024zX" name="TileToNorth" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="pT3pV0McCOGs" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="9C4dfX3npsFP" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="NOseTD7Ktsy4" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="tHdi8s8VE08f" name="TileToSouth" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="a7ao5iSGtQHx" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="BDy25u5tN8is" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="63VHRj9Lyk16" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="KMqiSYYWb1n1" name="TileZoomedOut" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="EQIoP6n807pf" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="iuKheLnETL1Y" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="3Tnvt2sBMiro" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="QartwsQxLBqC" name="TileZoomedIn" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="3zKOAAZLrvuF" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="DiOZODLdbdP1" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="jC7iJuLjUCbO" type="VZj2fH3hDc5j" value="" name="(" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="8FskqFjYRqGi" name="LatLonToTile" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="RPRzNuLZ5EB5" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="kbQClzboytB6" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="1iRsdL8jYyTM" type="VZj2fH3hDc5j" value="" name="lat_deg" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="ECud2AKkjixT" type="VZj2fH3hDc5j" value="" name="lon_deg" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="hWFdPOjO68Hh" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="OVq6DnZsHmVe" name="TileToLatLon" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="JkhXzPxxeGEe" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="BC2HKJxliOk4" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="G3bLHmPeFFiQ" type="VZj2fH3hDc5j" value="" name="xtile" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="0HIH1nvCzvSJ" type="VZj2fH3hDc5j" value="" name="ytile" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="FP4vlmx1oXN3" type="VZj2fH3hDc5j" value="" name="zoom" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="17q12GIFdLBO" name="TileToBoundingBox" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="Rfs7kWq5Qm4g" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="56QtdlxxVcSS" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="0PPedbIfi7ei" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="LwyzH7NNDnEr" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="W9m1mCRmbqOD" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="rS12DFriPdh9" name="tile2lon" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="rBJmbpOXA6qE" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="p9tPzHaRuSWe" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="wMiK6m0vC1yO" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="Fp6cRnjEucbu" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="rqA3q6P3vVdK" name="tile2lat" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="iGh2cExmAM6B" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="HMZByA3pKMZv" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="CwRK0HYr5itv" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="mIwioZ23vZCt" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="df0jLtc8CXoy" name="latlon2pixel" >
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter kind="return" xmi.id="Dro5Tj1BTzAy" type="VZj2fH3hDc5j" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="6oz0MBt4RY64" type="VZj2fH3hDc5j" value="" name="self" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="l1ovOv4zY5gr" type="VZj2fH3hDc5j" value="" name="name" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="yHx8oj6uY5uu" type="VZj2fH3hDc5j" value="" name="lat_deg" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="HmygI2k31ZxP" type="VZj2fH3hDc5j" value="" name="lon_deg" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="S1N043p3Kn96" type="VZj2fH3hDc5j" value="" name="sizeX" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="WGz2JrwYdsFu" type="VZj2fH3hDc5j" value="" name="sizeY" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="sxvuWsHwseuw" type="VZj2fH3hDc5j" value="" name="x" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="ikx0X771N64e" type="VZj2fH3hDc5j" value="" name="y" />
+          <UML:Parameter visibility="private" isSpecification="false" xmi.id="xyDZpQRfNMZs" type="VZj2fH3hDc5j" value="" name="z" />
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Association visibility="public" isSpecification="false" namespace="Logical View" xmi.id="naktpiI8hMMd" name="" >
+       <UML:Association.connection>
+        <UML:AssociationEnd changeability="changeable" visibility="public" isNavigable="true" isSpecification="false" xmi.id="a8OFKnFrl5bY" type="CVKpyhIBPGba" name="" aggregation="composite" />
+        <UML:AssociationEnd changeability="changeable" visibility="public" isNavigable="true" isSpecification="false" xmi.id="jOo7FEv2oeud" type="GXTJnKDmgbJJ" name="" aggregation="none" />
+       </UML:Association.connection>
+      </UML:Association>
+      <UML:Association visibility="public" isSpecification="false" namespace="Logical View" xmi.id="Cj3Y6f7C1KWo" name="" >
+       <UML:Association.connection>
+        <UML:AssociationEnd changeability="changeable" visibility="public" isNavigable="true" isSpecification="false" xmi.id="XMXcv3LKsSX6" type="CVKpyhIBPGba" name="" aggregation="composite" />
+        <UML:AssociationEnd changeability="changeable" visibility="public" isNavigable="true" isSpecification="false" xmi.id="MZt0RWKeELAK" type="KYrul6bk8CgZ" name="" aggregation="none" />
+       </UML:Association.connection>
+      </UML:Association>
+      <UML:Association visibility="public" isSpecification="false" namespace="Logical View" xmi.id="0FU2Zyo6KKiE" name="" >
+       <UML:Association.connection>
+        <UML:AssociationEnd changeability="changeable" visibility="public" isNavigable="true" isSpecification="false" xmi.id="N4WFU3KoaDm2" type="KYrul6bk8CgZ" name="" aggregation="composite" />
+        <UML:AssociationEnd changeability="changeable" visibility="public" isNavigable="true" isSpecification="false" xmi.id="h6evSoDQ2hSb" type="RqKXHW7gfGfq" name="" aggregation="none" />
+       </UML:Association.connection>
+      </UML:Association>
+     </UML:Namespace.ownedElement>
+     <XMI.extension xmi.extender="umbrello" >
+      <diagrams>
+       <diagram showopsig="1" linecolor="#ff0000" snapx="10" showattribassocs="1" snapy="10" linewidth="0" showattsig="1" showpackage="1" showstereotype="1" name="class diagram" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" canvasheight="642" canvaswidth="1337" localid="" snapcsgrid="0" showgrid="0" showops="1" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="fUPxgcV0Yvch" documentation="" showscope="1" snapgrid="0" showatts="1" type="1" >
+        <widgets>
+         <classwidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" showoperations="1" usesdiagramusefillcolor="1" showpubliconly="0" showpackage="1" x="303" showattsigs="601" showstereotype="1" y="248" showattributes="1" font="DejaVu Sans,9,-1,0,75,0,0,0,0,0" width="384" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="CQznkJGU8lZp" showscope="1" height="52" showopsigs="601" />
+         <classwidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" showoperations="1" usesdiagramusefillcolor="1" showpubliconly="0" showpackage="1" x="35" showattsigs="601" showstereotype="1" y="336" showattributes="1" font="DejaVu Sans,9,-1,0,75,0,0,0,0,0" width="384" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="CVKpyhIBPGba" showscope="1" height="67" showopsigs="601" />
+         <classwidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" showoperations="1" usesdiagramusefillcolor="1" showpubliconly="0" showpackage="1" x="31" showattsigs="601" showstereotype="1" y="9" showattributes="1" font="DejaVu Sans,9,-1,0,75,0,0,0,0,0" width="558" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="iKUIfGfmXEb6" showscope="1" height="202" showopsigs="601" />
+         <classwidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" showoperations="1" usesdiagramusefillcolor="1" showpubliconly="0" showpackage="1" x="472" showattsigs="601" showstereotype="1" y="341" showattributes="1" font="DejaVu Sans,9,-1,0,75,0,0,0,0,0" width="861" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="GXTJnKDmgbJJ" showscope="1" height="292" showopsigs="601" />
+         <classwidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" showoperations="1" usesdiagramusefillcolor="1" showpubliconly="0" showpackage="1" x="39" showattsigs="601" showstereotype="1" y="452" showattributes="1" font="DejaVu Sans,9,-1,0,75,0,0,0,0,0" width="284" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="KYrul6bk8CgZ" showscope="1" height="52" showopsigs="601" />
+         <classwidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" showoperations="1" usesdiagramusefillcolor="1" showpubliconly="0" showpackage="1" x="36" showattsigs="601" showstereotype="1" y="556" showattributes="1" font="DejaVu Sans,9,-1,0,75,0,0,0,0,0" width="398" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="RqKXHW7gfGfq" showscope="1" height="82" showopsigs="601" />
+        </widgets>
+        <messages/>
+        <associations>
+         <assocwidget indexa="1" indexb="1" widgetaid="CVKpyhIBPGba" linecolor="none" totalcounta="2" xmi.id="X07GGDxSgGGc" widgetbid="iKUIfGfmXEb6" totalcountb="3" type="500" linewidth="none" >
+          <linepath>
+           <startpoint startx="222" starty="336" />
+           <endpoint endx="222" endy="211" />
+          </linepath>
+         </assocwidget>
+         <assocwidget indexa="1" indexb="2" widgetaid="CQznkJGU8lZp" linecolor="none" totalcounta="2" xmi.id="O5FGHFPlAuR4" widgetbid="iKUIfGfmXEb6" totalcountb="3" type="500" linewidth="none" >
+          <linepath>
+           <startpoint startx="303" starty="248" />
+           <endpoint endx="303" endy="211" />
+          </linepath>
+         </assocwidget>
+         <assocwidget indexa="1" indexb="1" widgetaid="CVKpyhIBPGba" linecolor="none" totalcounta="2" xmi.id="naktpiI8hMMd" widgetbid="GXTJnKDmgbJJ" totalcountb="2" type="510" linewidth="none" >
+          <linepath>
+           <startpoint startx="419" starty="355" />
+           <endpoint endx="472" endy="355" />
+          </linepath>
+         </assocwidget>
+         <assocwidget indexa="1" indexb="1" widgetaid="CVKpyhIBPGba" linecolor="none" totalcounta="2" xmi.id="Cj3Y6f7C1KWo" widgetbid="KYrul6bk8CgZ" totalcountb="2" type="510" linewidth="none" >
+          <linepath>
+           <startpoint startx="87" starty="403" />
+           <endpoint endx="87" endy="452" />
+          </linepath>
+         </assocwidget>
+         <assocwidget indexa="1" indexb="1" widgetaid="KYrul6bk8CgZ" linecolor="none" totalcounta="2" xmi.id="0FU2Zyo6KKiE" widgetbid="RqKXHW7gfGfq" totalcountb="2" type="510" linewidth="none" >
+          <linepath>
+           <startpoint startx="87" starty="504" />
+           <endpoint endx="87" endy="556" />
+          </linepath>
+         </assocwidget>
+        </associations>
+       </diagram>
+      </diagrams>
+     </XMI.extension>
+    </UML:Model>
+    <UML:Model stereotype="folder" visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Use Case View" name="Use Case View" >
+     <UML:Namespace.ownedElement/>
+    </UML:Model>
+    <UML:Model stereotype="folder" visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Component View" name="Component View" >
+     <UML:Namespace.ownedElement/>
+    </UML:Model>
+    <UML:Model stereotype="folder" visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Deployment View" name="Deployment View" >
+     <UML:Namespace.ownedElement/>
+    </UML:Model>
+    <UML:Model stereotype="folder" visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Entity Relationship Model" name="Entity Relationship Model" >
+     <UML:Namespace.ownedElement/>
+    </UML:Model>
+   </UML:Namespace.ownedElement>
+  </UML:Model>
+ </XMI.content>
+ <XMI.extensions xmi.extender="umbrello" >
+  <docsettings viewid="fUPxgcV0Yvch" uniqueid="h6evSoDQ2hSb" documentation="" />
+  <listview>
+   <listitem open="1" type="800" label="Views" >
+    <listitem open="1" type="801" id="Logical View" >
+     <listitem open="0" type="807" id="fUPxgcV0Yvch" label="class diagram" />
+     <listitem open="0" type="813" id="NGYFHXctZKY4" >
+      <listitem open="0" type="815" id="cuk1ThgXFEC6" />
+      <listitem open="0" type="815" id="17iBUwAzwsBN" />
+     </listitem>
+     <listitem open="0" type="813" id="MU54pkDu39aO" />
+     <listitem open="0" type="813" id="CVKpyhIBPGba" >
+      <listitem open="0" type="815" id="VNI9bYjZ7Ust" />
+      <listitem open="0" type="815" id="B7kirZsDaEAw" />
+      <listitem open="0" type="815" id="cPDtyDAEx9xl" />
+     </listitem>
+     <listitem open="0" type="813" id="RqKXHW7gfGfq" >
+      <listitem open="0" type="815" id="WPWT1Vf8cWxy" />
+      <listitem open="0" type="815" id="g1JIVEHXlwX0" />
+      <listitem open="0" type="815" id="6p0V9uPc5ptA" />
+      <listitem open="0" type="815" id="DtgPLoyLWTiu" />
+     </listitem>
+     <listitem open="0" type="813" id="be5Yl3HIOvGh" >
+      <listitem open="0" type="815" id="Vg6xldyPJoLK" />
+      <listitem open="0" type="815" id="otLn0MYAbagn" />
+      <listitem open="0" type="815" id="ZIMAs2wjtOX4" />
+      <listitem open="0" type="815" id="szfyLLH1tVwg" />
+      <listitem open="0" type="815" id="5LJv4D78NI61" />
+      <listitem open="0" type="815" id="eRA0WBhZJeF4" />
+      <listitem open="0" type="815" id="hLezELL0sCRN" />
+      <listitem open="0" type="815" id="kZXKs0E49v1J" />
+      <listitem open="0" type="815" id="x6GbeJ8AYgoj" />
+      <listitem open="0" type="815" id="eKED00uEmuJg" />
+      <listitem open="0" type="815" id="oIPUDVpSjnAH" />
+      <listitem open="0" type="815" id="r3TyfxEFnd8e" />
+      <listitem open="0" type="815" id="OWqhjUlzfS8o" />
+      <listitem open="0" type="815" id="TbSLvAy5azry" />
+      <listitem open="0" type="815" id="EI4dpodoXVHx" />
+      <listitem open="0" type="815" id="zLjE1Dc01JMx" />
+      <listitem open="0" type="815" id="QjWXEhcXqQwb" />
+      <listitem open="0" type="815" id="8q6wa3XUGjMI" />
+      <listitem open="0" type="815" id="nJAbRrpYCX4w" />
+      <listitem open="0" type="815" id="9oBPfI7MEKHd" />
+      <listitem open="0" type="815" id="uHvHFuJVzhxP" />
+      <listitem open="0" type="815" id="Siy9syhaZ7C5" />
+      <listitem open="0" type="815" id="c2s21rRmxE39" />
+      <listitem open="0" type="815" id="nFpaRYYcab0x" />
+      <listitem open="0" type="815" id="nLnMwlJX9F9p" />
+      <listitem open="0" type="815" id="eDZnQgaYS95d" />
+      <listitem open="0" type="815" id="eRr6auh4Tgph" />
+      <listitem open="0" type="815" id="wCfNsT5XnFkb" />
+      <listitem open="0" type="815" id="ouNb97AyKqzn" />
+      <listitem open="0" type="815" id="9o0Te0EddVcj" />
+      <listitem open="0" type="815" id="aW6gnrJ5bMMV" />
+     </listitem>
+     <listitem open="0" type="813" id="MI7nTFYQnm5B" >
+      <listitem open="0" type="815" id="LFZK0ZusRB1n" />
+      <listitem open="0" type="815" id="XqWzzWkzyeHs" />
+      <listitem open="0" type="815" id="mE328HIYHWut" />
+     </listitem>
+     <listitem open="0" type="813" id="CQznkJGU8lZp" >
+      <listitem open="0" type="815" id="DzrMtHOPxs3x" />
+      <listitem open="0" type="815" id="OPyfrjv5DX8d" />
+     </listitem>
+     <listitem open="0" type="813" id="JxwZSrSS0qJP" >
+      <listitem open="0" type="815" id="4mCWxumGP6WG" />
+      <listitem open="0" type="815" id="5vWVz2j8Waaz" />
+      <listitem open="0" type="815" id="0RB8jIB4BOtb" />
+      <listitem open="0" type="815" id="woDIg5Lt8RDZ" />
+     </listitem>
+     <listitem open="0" type="813" id="9xRvnA36cBZG" >
+      <listitem open="0" type="815" id="9Aet4IudS60m" />
+      <listitem open="0" type="815" id="nUyDawyGTC8n" />
+     </listitem>
+     <listitem open="0" type="813" id="iKUIfGfmXEb6" >
+      <listitem open="0" type="815" id="AMYYqfEYbSqj" />
+      <listitem open="0" type="815" id="FsEcSwzckqRY" />
+      <listitem open="0" type="815" id="A3usrJQasuW3" />
+      <listitem open="0" type="815" id="y82o2Zsu4RSC" />
+      <listitem open="0" type="815" id="TtcEjEMMPSId" />
+      <listitem open="0" type="815" id="6nmJGXYRSCHt" />
+      <listitem open="0" type="815" id="gWK8vPkmSvxm" />
+      <listitem open="0" type="815" id="wByEulFs1ec2" />
+      <listitem open="0" type="815" id="qRp8avGn7QGR" />
+      <listitem open="0" type="815" id="Al0Ec9Gm0Ncy" />
+      <listitem open="0" type="815" id="8WR8t47TqbAh" />
+      <listitem open="0" type="815" id="A6iLDK6jbnqr" />
+     </listitem>
+     <listitem open="0" type="813" id="Yp8dltd36CVy" >
+      <listitem open="0" type="815" id="tZ762rf3ADtN" />
+      <listitem open="0" type="815" id="goOfrgZT20RN" />
+      <listitem open="0" type="815" id="jZp6m2Jiqybb" />
+      <listitem open="0" type="815" id="OdpZZCUBc5zx" />
+      <listitem open="0" type="815" id="xBBmlM9TQ8rj" />
+      <listitem open="0" type="815" id="84T55enhYNen" />
+      <listitem open="0" type="815" id="1oXbSCFigZYV" />
+      <listitem open="0" type="815" id="CqnqOKJsS734" />
+      <listitem open="0" type="815" id="qfhiwQf5cbro" />
+      <listitem open="0" type="815" id="gJaaHC7qEJwk" />
+      <listitem open="0" type="815" id="dEsTTlbxlDQ1" />
+      <listitem open="0" type="815" id="8v18ll0Tyqef" />
+      <listitem open="0" type="815" id="0fk9svsLuwFY" />
+      <listitem open="0" type="815" id="jejkj1Vgc0WP" />
+      <listitem open="0" type="815" id="sswCWhAHtZx4" />
+      <listitem open="0" type="815" id="rvDfAMJBEVUF" />
+      <listitem open="0" type="815" id="9UzL6XbsGAXB" />
+      <listitem open="0" type="815" id="iAxTYRKTV3ei" />
+      <listitem open="0" type="815" id="mJPms6Ku6JQ8" />
+      <listitem open="0" type="815" id="gfu3n6GPUl2a" />
+      <listitem open="0" type="815" id="GfHmpG27oa0D" />
+      <listitem open="0" type="815" id="C3F1eDCfLTnV" />
+      <listitem open="0" type="815" id="s53DZogMcPrk" />
+      <listitem open="0" type="815" id="Hgpt4gd1o4PL" />
+      <listitem open="0" type="815" id="itcWyzsbGja6" />
+      <listitem open="0" type="815" id="vZHBGrHjTUE3" />
+      <listitem open="0" type="815" id="Gj0jDCl7wDA5" />
+      <listitem open="0" type="815" id="XTFI4oGHw5UK" />
+      <listitem open="0" type="815" id="avUU0zmFAH3o" />
+      <listitem open="0" type="815" id="M19UGCIuRPuR" />
+      <listitem open="0" type="815" id="oOFFn9gKI8pG" />
+      <listitem open="0" type="815" id="9q4RwtfS4Itu" />
+     </listitem>
+     <listitem open="0" type="813" id="GXTJnKDmgbJJ" >
+      <listitem open="0" type="815" id="3lN1hs8F9DmT" />
+      <listitem open="0" type="815" id="PtkZ7W0Wbt12" />
+      <listitem open="0" type="815" id="YV2dJAnfITZI" />
+      <listitem open="0" type="815" id="PyRlvBGGlFGJ" />
+      <listitem open="0" type="815" id="cZoCIM1ORI6n" />
+      <listitem open="0" type="815" id="0eEIteXEm1ju" />
+      <listitem open="0" type="815" id="qJEcclDaq2Gu" />
+      <listitem open="0" type="815" id="2QFywgrRKIej" />
+      <listitem open="0" type="815" id="rimgBzW024zX" />
+      <listitem open="0" type="815" id="tHdi8s8VE08f" />
+      <listitem open="0" type="815" id="KMqiSYYWb1n1" />
+      <listitem open="0" type="815" id="QartwsQxLBqC" />
+      <listitem open="0" type="815" id="8FskqFjYRqGi" />
+      <listitem open="0" type="815" id="OVq6DnZsHmVe" />
+      <listitem open="0" type="815" id="17q12GIFdLBO" />
+      <listitem open="0" type="815" id="rS12DFriPdh9" />
+      <listitem open="0" type="815" id="rqA3q6P3vVdK" />
+      <listitem open="0" type="815" id="df0jLtc8CXoy" />
+     </listitem>
+     <listitem open="0" type="813" id="KYrul6bk8CgZ" >
+      <listitem open="0" type="815" id="eXB04DgLBgBd" />
+      <listitem open="0" type="815" id="RRq3zxPddVPV" />
+     </listitem>
+     <listitem open="0" type="830" id="Datatypes" >
+      <listitem open="0" type="829" id="mgq9YQJV8kzu" />
+      <listitem open="1" type="829" id="OKkp3O5PouPi" />
+      <listitem open="1" type="829" id="LA0eejgtLtOW" />
+      <listitem open="0" type="829" id="cYrhjuMUaDd8" />
+      <listitem open="1" type="829" id="uSUDLqkhAUWB" />
+      <listitem open="1" type="829" id="6OGtooD9wDlb" />
+      <listitem open="1" type="829" id="ORp1wCzaoSYK" />
+      <listitem open="1" type="829" id="PeHLq3uiTOwo" />
+      <listitem open="0" type="829" id="bwcjebbrgu11" />
+      <listitem open="0" type="829" id="Mb4khVEH35yl" />
+      <listitem open="1" type="829" id="rbbfT0NYMdR8" />
+      <listitem open="1" type="829" id="VZj2fH3hDc5j" />
+      <listitem open="0" type="829" id="C7IAKUc5N5TW" />
+      <listitem open="1" type="829" id="DeTL60XxZ6a1" />
+      <listitem open="1" type="829" id="o99HW33hhX2l" />
+      <listitem open="1" type="829" id="4vZOW0WvcnFQ" />
+     </listitem>
+    </listitem>
+    <listitem open="1" type="802" id="Use Case View" />
+    <listitem open="1" type="821" id="Component View" />
+    <listitem open="1" type="827" id="Deployment View" />
+    <listitem open="1" type="836" id="Entity Relationship Model" />
+   </listitem>
+  </listview>
+  <codegeneration>
+   <codegenerator language="Python" >
+    <sourcecode value=":&#xa;TileMap.__init__(self,(x,y,z),(sizeX,sizeY),cacheUrl)&#xa;self.baseUrl=url&#xa;self.mapChars=&quot;....,;clodxkO.XNOM&quot;&#xa;" id="cuk1ThgXFEC6" />
+    <sourcecode value=":&#xa;if not os.access(pngFile,os.R_OK):&#xa;  url=self.baseUrl+&quot;/%s/%s/%s.png&quot;%(z,x,y)&#xa;  args=['-x',url]&#xa;  wget(args)&#xa;&#xa;if not os.access(pngFile,os.R_OK):&#xa;  regenerate_map=0&#xa;  self.loadedTiles[(x,y,z)]=self.getEmptyTile()&#xa;  return&#xa;&#xa;os.popen(&quot;convert %s %s&quot;%(pngFile,jpgFile))&#xa;" id="17iBUwAzwsBN" />
+    <sourcecode value=":&#xa;self.lat=None&#xa;self.lon=None&#xa;" id="9Aet4IudS60m" />
+    <sourcecode value=":&#xa;return&quot;lat: %s, lon: %s&quot;%(self.lat,self.lon)&#xa;" id="nUyDawyGTC8n" />
+    <sourcecode value=":&#xa;self.points=[]&#xa;" id="LFZK0ZusRB1n" />
+    <sourcecode value=":&#xa;p=Point()&#xa;p.lat=lat&#xa;p.lon=lon&#xa;self.points.append(p)&#xa;" id="XqWzzWkzyeHs" />
+    <sourcecode value=":&#xa;s=&quot;&quot;&#xa;for p in self.points:&#xa;  s=s+&quot;%s\n&quot;%p&#xa;&#xa;return s&#xa;" id="mE328HIYHWut" />
+    <sourcecode value=":&#xa;self.name=&quot;&quot;&#xa;self.description=&quot;&quot;&#xa;self.point=None&#xa;self.linear_ring=None&#xa;self.has_point=0&#xa;self.has_linear_ring=0&#xa;" id="4mCWxumGP6WG" />
+    <sourcecode value=":&#xa;self.point=Point()&#xa;self.point.lat=lat&#xa;self.point.lon=lon&#xa;self.has_point=1&#xa;" id="5vWVz2j8Waaz" />
+    <sourcecode value=":&#xa;if not self.linear_ring:&#xa;  self.linear_ring=LinearRing()&#xa;  self.has_linear_ring=1&#xa;&#xa;self.linear_ring.addPoint(lat,lon)&#xa;" id="0RB8jIB4BOtb" />
+    <sourcecode value=":&#xa;return&quot;name: %s, desc: %s, point: %s, linear_ring: %s&quot;%(self.name,self.description,self.point,self.linear_ring)&#xa;" id="woDIg5Lt8RDZ" />
+    <sourcecode value=":&#xa;self.Placemarks=[]&#xa;self.isPointCoordsElement=0&#xa;self.isLinearRingCoordsElement=0&#xa;self.isPlacemarkElement=0&#xa;self.isDescriptionElement=0&#xa;self.isNameElement=0&#xa;self.isPointElement=0&#xa;self.isLinearRingElement=0&#xa;self.currentPlacemark=None&#xa;self.isSchemaElement=0&#xa;" id="WPWT1Vf8cWxy" />
+    <sourcecode value=":&#xa;name=name.upper()&#xa;if name==&quot;SCHEMA&quot;:&#xa;  self.isSchemaElement=1&#xa;&#xa;if name=='PLACEMARK':&#xa;  self.isPlacemarkElement=1&#xa;  self.currentPlacemark=Placemark()&#xa;&#xa;else:&#xa;if self.isPlacemarkElement==1:&#xa;  if name=='DESCRIPTION':&#xa;    self.isDescriptionElement=1&#xa;    self.description=&quot;&quot;&#xa;&#xa;  elif name=='NAME':&#xa;    self.isNameElement=1&#xa;    self.name=&quot;&quot;&#xa;&#xa;  elif name==&quot;POINT&quot;:&#xa;    self.isPointElement=1&#xa;&#xa;  elif name==&quot;LINEARRING&quot;:&#xa;    self.isLinearRingElement=1&#xa;&#xa;  elif name=='COORDINATES':&#xa;    if self.isPointElement==1:&#xa;    self.isPointCoordsElement=1 self.point_coordinates=&quot;&quot;elif self.isLinearRingElement==1:&#xa;      self.isLinearRingCoordsElement=1&#xa;      self.linear_ring_coordinates=&quot;&quot;&#xa;&#xa;&#xa;&#xa;" id="g1JIVEHXlwX0" />
+    <sourcecode value=":&#xa;if self.isPlacemarkElement==1:&#xa;  if self.isDescriptionElement==1:&#xa;    self.description=ch&#xa;&#xa;  elif self.isNameElement==1:&#xa;    self.name=ch&#xa;&#xa;  elif self.isPointCoordsElement==1:&#xa;    self.point_coordinates=self.point_coordinates+ch&#xa;&#xa;  elif self.isLinearRingCoordsElement==1:&#xa;    self.linear_ring_coordinates=self.linear_ring_coordinates+ch&#xa;&#xa;&#xa;else:&#xa;  pass&#xa;&#xa;" id="6p0V9uPc5ptA" />
+    <sourcecode value=":&#xa;name=name.upper()&#xa;if name==&quot;PLACEMARK&quot;:&#xa;  self.isPlacemarkElement=0&#xa;  self.Placemarks.append(self.currentPlacemark)&#xa;  self.currentPlacemark=None&#xa;&#xa;elif name==&quot;SCHEMA&quot;:&#xa;  self.isSchemaElement=0&#xa;&#xa;if self.isPlacemarkElement:&#xa;  if name=='DESCRIPTION':&#xa;    self.isDescriptionElement=0&#xa;    self.currentPlacemark.description=self.description&#xa;    self.description=&quot;&quot;&#xa;&#xa;  elif name=='NAME':&#xa;    self.isNameElement=0&#xa;    self.currentPlacemark.name=self.name&#xa;    self.name=&quot;&quot;&#xa;&#xa;  elif name=='COORDINATES':&#xa;    if self.isPointCoordsElement==1:&#xa;      self.isPointCoordsElement=0&#xa;      coords=[float(x)for x in string.split(string.lstrip(string.strip(self.point_coordinates)),&quot;,&quot;)]&#xa;      self.currentPlacemark.setPoint(coords[1],coords[0])&#xa;      self.point_coordinates=&quot;&quot;&#xa;&#xa;    elif self.isLinearRingElement==1:&#xa;      self.isLinearRingElement=0&#xa;      reader=StringIO.StringIO(self.linear_ring_coordinates)&#xa;      coords=[]&#xa;      for line in reader.readlines():&#xa;        line=string.strip(line)&#xa;        if len(line):&#xa;          coords=[float(x)for x in string.split(string.lstrip(line),&quot;,&quot;)]&#xa;          self.currentPlacemark.addLinearRingPoint(coords[1],coords[0])&#xa;&#xa;&#xa;      self.linear_ring_coordinates=&quot;&quot;&#xa;&#xa;&#xa;  elif name==&quot;POINT&quot;:&#xa;    self.isPointElement=0&#xa;&#xa;  elif name==&quot;LINEARRING&quot;:&#xa;    self.isLinearRingElement=0&#xa;&#xa;  else:&#xa;    pass&#xa;&#xa;&#xa;" id="DtgPLoyLWTiu" />
+    <sourcecode value=":&#xa;self.filename=fname&#xa;self.parser=make_parser()&#xa;self.parser.setContentHandler(KML_Handler())&#xa;self.parser.parse(fname)&#xa;" id="eXB04DgLBgBd" />
+    <sourcecode value=":&#xa;&quot; Get a vector of Placemark structures from a kml file &quot;&quot;&quot;&#xa;return self.parser.getContentHandler().Placemarks&#xa;" id="RRq3zxPddVPV" />
+    <sourcecode value=":&#xa;TileLoader.__init__(self,(sizeX,sizeY),cacheUrl)&#xa;self.zoomLevel=zoomlevel&#xa;self.kmlFile=kmlFile&#xa;self.kmlPoints=:&#xa;&#xa;&#xa;self.kmlShapes=:&#xa;&#xa;&#xa;self.initKML()&#xa;self.tileUtils=TileUtils()&#xa;" id="VNI9bYjZ7Ust" />
+    <sourcecode value=":&#xa;tileArr=self.getEmptyTile()&#xa;for key,value in self.kmlPoints.items():&#xa;  lat=float(value[&quot;LAT&quot;])&#xa;  lon=float(value[&quot;LON&quot;])&#xa;  res=self.tileUtils.latlon2pixel(value[&quot;NAME&quot;],lat,lon,self.sizeX,self.sizeY,x,y,z)&#xa;  if res!=None:&#xa;    pixX,pixY=res[0],res[1]&#xa;    tileArr=self.addTextToTile(pixX,pixY,value[&quot;NAME&quot;],tileArr)&#xa;&#xa;&#xa;return tileArr&#xa;" id="B7kirZsDaEAw" />
+    <sourcecode value=":&#xa;&quot; Load cities and countries from a kml file - ./kml_files.txt lists kml files to load&quot;&quot;&quot;&#xa;reader=KMLParser.kmlReader(self.kmlFile)&#xa;coords=reader.getCoordinates()&#xa;for c in coords:&#xa;  if c.has_point and c.point.lat and c.point.lon:&#xa;    self.kmlPoints[c.name]=:&#xa;      &quot;LON&quot;:c.point.lon,&quot;LAT&quot;:c.point.lat,&quot;NAME&quot;:c.name,&quot;ZOOMLEVEL&quot;:self.zoomLevel&#xa;&#xa;&#xa;  if c.has_linear_ring:&#xa;    self.kmlShapes[c.name]=:&#xa;      &quot;NAME&quot;:c.name,&quot;ZOOMLEVEL&quot;:self.zoomLevel,&quot;POINTS&quot;:c.linear_ring.points&#xa;&#xa;&#xa;&#xa;" id="cPDtyDAEx9xl" />
+    <sourcecode value=":&#xa;self.tileStr=None&#xa;self.cacheUrl=cacheUrl&#xa;self.loadedTiles=:&#xa;&#xa;&#xa;self.x=x&#xa;self.y=y&#xa;self.z=z&#xa;self.isLoaded=0&#xa;self.sizeX=sizeX&#xa;self.sizeY=sizeY&#xa;self.curMap=&quot;&quot;&#xa;self.mapLoaded=false&#xa;self.tileSize=256&#xa;self.originShift=2*math.pi*6378137/2.0&#xa;self.initialResolution=2*math.pi*6378137/self.tileSize&#xa;self.tileMaps=:&#xa;&#xa;&#xa;" id="Vg6xldyPJoLK" />
+    <sourcecode value=":&#xa;pass&#xa;" id="otLn0MYAbagn" />
+    <sourcecode value=":&#xa;a=open(fname,&quot;w&quot;)&#xa;for i in range(self.sizeY):&#xa;  s=[&quot; &quot;]*self.sizeX&#xa;  for j in range(self.sizeX):&#xa;    if j%5==0:&#xa;      s[j]=&quot;x&quot;&#xa;&#xa;&#xa;  a.write(string.join(s,&quot;&quot;))&#xa;  a.write(&quot;\n&quot;)&#xa;&#xa;a.close()&#xa;" id="ZIMAs2wjtOX4" />
+    <sourcecode value=":&#xa;&quot;Converts given lat/lon in WGS84 Datum to XY in Spherical Mercator EPSG:900913&quot;&#xa;mx=lon*self.originShift/180.0&#xa;my=math.log(math.tan((90+lat)*math.pi/360.0))/(math.pi/180.0)&#xa;my=my*self.originShift/180.0&#xa;return mx,my&#xa;" id="szfyLLH1tVwg" />
+    <sourcecode value=":&#xa;&quot;Converts pixel coordinates in given zoom level of pyramid to EPSG:900913&quot;&#xa;res=self.Resolution(zoom)&#xa;mx=px*res-self.originShift&#xa;my=py*res-self.originShift&#xa;return mx,my&#xa;" id="5LJv4D78NI61" />
+    <sourcecode value=":&#xa;&quot;Converts EPSG:900913 to pyramid pixel coordinates in given zoom level&quot;&#xa;res=self.Resolution(zoom)&#xa;px=(mx+self.originShift)/res&#xa;py=(my+self.originShift)/res&#xa;return px,py&#xa;" id="eRA0WBhZJeF4" />
+    <sourcecode value=":&#xa;&quot;Resolution (meters/pixel) for given zoom level (measured at Equator)&quot;&#xa;return self.initialResolution/(2**zoom)&#xa;" id="hLezELL0sCRN" />
+    <sourcecode value=":&#xa;&quot;Returns a tile covering region in given pixel coordinates&quot;&#xa;tx=int(math.ceil(px/float(self.tileSize))-1)&#xa;ty=int(math.ceil(py/float(self.tileSize))-1)&#xa;return tx,ty&#xa;" id="kZXKs0E49v1J" />
+    <sourcecode value=":&#xa;return&quot;.&quot;*((self.sizeX)*(self.sizeY))&#xa;" id="x6GbeJ8AYgoj" />
+    <sourcecode value=":&#xa;&quot;Returns a tile west of the tile specified by x,y,z&quot;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;north_resolution=abs(abs(north)-abs(south))&#xa;east_resolution=abs(abs(east)-abs(west))&#xa;if(west-(east_resolution/2))&lt;-189:&#xa;  return x,y,z&#xa;&#xa;newx,newy=self.LatLonToTile((north+south)/2,west-(east_resolution/2),z)&#xa;return newx,newy,z&#xa;" id="eKED00uEmuJg" />
+    <sourcecode value=":&#xa;&quot;Returns a tile east of the tile specified by x,y,z&quot;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;north_resolution=abs(abs(north)-abs(south))&#xa;east_resolution=abs(abs(east)-abs(west))&#xa;if(east+(east_resolution/2))>189:&#xa;  return x,y,z&#xa;&#xa;newx,newy=self.LatLonToTile((north+south)/2,east+(east_resolution/2),z)&#xa;return(newx,newy,z)&#xa;" id="oIPUDVpSjnAH" />
+    <sourcecode value=":&#xa;&quot;Returns a tile north of the tile specified by x,y,z&quot;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;north_resolution=north-south&#xa;east_resolution=east-west&#xa;new_north=north+north_resolution/2&#xa;if(new_north)>86:&#xa;  new_north=85&#xa;&#xa;newx,newy=self.LatLonToTile(new_north,(east+west)/2,z)&#xa;return(newx,newy,z)&#xa;" id="r3TyfxEFnd8e" />
+    <sourcecode value=":&#xa;&quot;Returns a tile west of the tile specified by x,y,z&quot;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;north_resolution=abs(abs(north)-abs(south))&#xa;east_resolution=abs(abs(east)-abs(west))&#xa;new_south=south-north_resolution/2&#xa;if(new_south)&lt;-85:&#xa;  new_south=-85&#xa;&#xa;newx,newy=self.LatLonToTile(new_south,(east+west)/2,z)&#xa;return(newx,newy,z)&#xa;" id="OWqhjUlzfS8o" />
+    <sourcecode value=":&#xa;&quot;Returns a tile west of the tile specified by x,y,z&quot;&#xa;if z&lt;=1:&#xa;  return x,y,z&#xa;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;z=z-1&#xa;newx,newy=self.LatLonToTile(north,west,z)&#xa;return newx,newy,z&#xa;" id="TbSLvAy5azry" />
+    <sourcecode value=":&#xa;&quot;Returns a tile west of the tile specified by x,y,z&quot;&#xa;if z>=18:&#xa;  return x,y,z&#xa;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;z=z+1&#xa;tl_x,tl_y=self.LatLonToTile(north,west,z)&#xa;(newx,newy,z)=self.TileToSouth(self.TileToEast((tl_x,tl_y,z)))&#xa;return(newx,newy,z)&#xa;" id="EI4dpodoXVHx" />
+    <sourcecode value=":&#xa;lat_rad=lat_deg*math.pi/180.0&#xa;n=2.0**zoom&#xa;xtile=int((lon_deg+180.0)/360.0*n)&#xa;ytile=int((1.0-math.log(math.tan(lat_rad)+(1/math.cos(lat_rad)))/math.pi)/2.0*n)&#xa;return(xtile,ytile)&#xa;" id="zLjE1Dc01JMx" />
+    <sourcecode value=":&#xa;n=2.0**zoom&#xa;min_lon_deg=xtile/n*360.0-180.0&#xa;min_lat_rad=math.atan(math.sinh(math.pi*(1-2*ytile/n)))&#xa;min_lat_deg=min_lat_rad*180.0/math.pi&#xa;max_lon_deg=(xtile+1)/n*360.0-180.0&#xa;max_lat_rad=math.atan(math.sinh(math.pi*(1-2*(ytile+1)/n)))&#xa;max_lat_deg=max_lat_rad*180.0/math.pi&#xa;return(lat_deg,lon_deg)&#xa;" id="QjWXEhcXqQwb" />
+    <sourcecode value=":&#xa;north=self.tile2lat(y,z)&#xa;south=self.tile2lat(y+1,z)&#xa;west=self.tile2lon(x,z)&#xa;east=self.tile2lon(x+1,z)&#xa;return(north,south,east,west)&#xa;" id="8q6wa3XUGjMI" />
+    <sourcecode value=":&#xa;return((x/math.pow(2.0,z)*360.0)-180)&#xa;" id="nJAbRrpYCX4w" />
+    <sourcecode value=":&#xa;n=math.pi-((2.0*math.pi*y)/math.pow(2.0,z))&#xa;&#xa;return(180.0/math.pi*math.atan(0.5*(math.exp(n)-math.exp(-n))))&#xa;" id="9oBPfI7MEKHd" />
+    <sourcecode value=":&#xa;&quot; Returns true if this lat/lon point is in the current map &quot;&quot;&quot;&#xa;x,y=self.LatLonToTile(lat,lon,z)&#xa;if x==self.x or x==self.x+1:&#xa;  if y==self.y or y==self.y+1:&#xa;    return 1&#xa;&#xa;&#xa;return 0&#xa;" id="uHvHFuJVzhxP" />
+    <sourcecode value=":&#xa;meters_x,meters_y=self.LatLonToMeters(lat_deg,lon_deg)&#xa;pixels_x,pixels_y=self.MetersToPixels(meters_x,meters_y,z)&#xa;tile_x,tile_y=self.PixelsToTile(pixels_x,pixels_y)&#xa;pixels_x_scaled=(pixels_x*(self.sizeX)/256)&#xa;pixels_y_scaled=(pixels_y*(self.sizeY)/256)&#xa;total_pixels_y=self.sizeY*(2&lt;&lt;(z-1))&#xa;pixels_y_inv=total_pixels_y-pixels_y_scaled&#xa;pixels_x_r=int(pixels_x_scaled-(self.x*self.sizeX))&#xa;pixels_y_r=int(pixels_y_inv-(self.y*self.sizeY))&#xa;return int(pixels_x_r),int(pixels_y_r)&#xa;" id="Siy9syhaZ7C5" />
+    <sourcecode value=":&#xa;regenerate_map=0&#xa;if self.loadedTiles.has_key((x,y,z)):&#xa;  return&#xa;&#xa;else:&#xa;  txtFile=self.cacheUrl+&quot;/%s/%s/%s.txt&quot;%(z,x,y)&#xa;  if os.access(txtFile,os.R_OK):&#xa;    f=open(txtFile,&quot;r&quot;)&#xa;    mapstring=[string.strip(line)for line in f.readlines()]&#xa;    f.close()&#xa;    if len(mapstring)!=self.sizeY:&#xa;      regenerate_map=1&#xa;&#xa;    if len(mapstring[0])!=self.sizeX:&#xa;      regenerate_map=1&#xa;&#xa;    else:&#xa;      self.loadedTiles[(x,y,z)]=mapstring&#xa;&#xa;&#xa;  else:&#xa;    regenerate_map=1&#xa;    pngFile=self.cacheUrl+&quot;/%s/%s/%s.png&quot;%(z,x,y)&#xa;    jpgFile=self.cacheUrl+&quot;/%s/%s/%s.jpg&quot;%(z,x,y)&#xa;    if not os.access(jpgFile,os.R_OK):&#xa;      if not os.access(pngFile,os.R_OK):&#xa;        url=self.baseUrl+&quot;/%s/%s/%s.png&quot;%(z,x,y)&#xa;        args=['-x',url]&#xa;        wget(args)&#xa;&#xa;      if not os.access(pngFile,os.R_OK):&#xa;        regenerate_map=0&#xa;        self.loadedTiles[(x,y,z)]=self.getEmptyTile()&#xa;        return&#xa;&#xa;      os.popen(&quot;convert %s %s&quot;%(pngFile,jpgFile))&#xa;&#xa;&#xa;  if regenerate_map:&#xa;  self.getTile(x,y,z)&#xa;" id="c2s21rRmxE39" />
+    <sourcecode value=":&#xa;new_x,new_y,new_z=self.TileZoomedIn((self.x,self.y,self.z))&#xa;if(new_x,new_y,new_z)!=(self.x,self.y,self.z):&#xa;  self.mapLoaded=false&#xa;&#xa;self.x=new_x&#xa;self.y=new_y&#xa;self.z=new_z&#xa;" id="nFpaRYYcab0x" />
+    <sourcecode value=":&#xa;new_x,new_y,new_z=self.TileZoomedOut((self.x,self.y,self.z))&#xa;if(new_x,new_y,new_z)!=(self.x,self.y,self.z):&#xa;  self.mapLoaded=false&#xa;&#xa;new_x2,new_y2,new_z2=self.TileToEast((new_x,new_y,new_z))&#xa;if(new_x,new_y,new_z)==(new_x2,new_y2,new_z2):&#xa;  new_x,new_y,new_z=self.TileToWest((new_x,new_y,new_z))&#xa;&#xa;new_x2,new_y2,new_z2=self.TileToSouth((new_x,new_y,new_z))&#xa;if(new_x,new_y,new_z)==(new_x2,new_y2,new_z2):&#xa;  new_x,new_y,new_z=self.TileToNorth((new_x,new_y,new_z))&#xa;&#xa;self.x=new_x&#xa;self.y=new_y&#xa;self.z=new_z&#xa;" id="nLnMwlJX9F9p" />
+    <sourcecode value=":&#xa;new_x,new_y,new_z=self.TileToEast((self.x,self.y,self.z))&#xa;if(new_x,new_y,new_z)!=(self.x,self.y,self.z):&#xa;  self.mapLoaded=false&#xa;&#xa;new_x2,new_y2,new_z2=self.TileToEast((new_x,new_y,new_z))&#xa;if(new_x2,new_y2,new_z2)==(new_x,new_y,new_z):&#xa;  return&#xa;&#xa;else:&#xa;  self.x=new_x&#xa;  self.y=new_y&#xa;  self.z=new_z&#xa;&#xa;" id="eDZnQgaYS95d" />
+    <sourcecode value=":&#xa;new_x,new_y,new_z=self.TileToWest((self.x,self.y,self.z))&#xa;if(new_x,new_y,new_z)!=(self.x,self.y,self.z):&#xa;  self.mapLoaded=false&#xa;&#xa;self.x=new_x&#xa;self.y=new_y&#xa;self.z=new_z&#xa;pass&#xa;" id="eRr6auh4Tgph" />
+    <sourcecode value=":&#xa;new_x,new_y,new_z=self.TileToNorth((self.x,self.y,self.z))&#xa;if(new_x,new_y,new_z)!=(self.x,self.y,self.z):&#xa;  self.mapLoaded=false&#xa;&#xa;self.x=new_x&#xa;self.y=new_y&#xa;self.z=new_z&#xa;" id="wCfNsT5XnFkb" />
+    <sourcecode value=":&#xa;new_x,new_y,new_z=self.TileToSouth((self.x,self.y,self.z))&#xa;if(new_x,new_y,new_z)!=(self.x,self.y,self.z):&#xa;  self.mapLoaded=false&#xa;&#xa;new_x2,new_y2,new_z2=self.TileToSouth((new_x,new_y,new_z))&#xa;if(new_x2,new_y2,new_z2)==(new_x,new_y,new_z):&#xa;  return&#xa;&#xa;else:&#xa;  self.x=new_x&#xa;  self.y=new_y&#xa;  self.z=new_z&#xa;&#xa;" id="ouNb97AyKqzn" />
+    <sourcecode value=":&#xa;if zoom&lt;1 or zoom>18:&#xa;  return&#xa;&#xa;if lat&lt;-85 or lat>85:&#xa;  return&#xa;&#xa;if lon&lt;-180 or lon>180:&#xa;  return&#xa;&#xa;new_x,new_y=self.LatLonToTile(lat,lon,zoom)&#xa;new_z=zoom&#xa;new_x2,new_y2,new_z2=self.TileToEast((new_x,new_y,new_z))&#xa;if(new_x,new_y,new_z)==(new_x2,new_y2,new_z2):&#xa;  new_x,new_y,new_z=self.TileToWest((new_x,new_y,new_z))&#xa;&#xa;new_x2,new_y2,new_z2=self.TileToSouth((new_x,new_y,new_z))&#xa;if(new_x,new_y,new_z)==(new_x2,new_y2,new_z2):&#xa;  new_x,new_y,new_z=self.TileToNorth((new_x,new_y,new_z))&#xa;&#xa;self.x=new_x&#xa;self.y=new_y&#xa;self.z=new_z&#xa;" id="9o0Te0EddVcj" />
+    <sourcecode value=":&#xa;&quot; Get four tiles - x,y,z points to north west corner of north west tile &quot;&quot;&quot;&#xa;if self.mapLoaded:&#xa;  return self.curMap&#xa;&#xa;x=self.x&#xa;y=self.y&#xa;z=self.z&#xa;self.curMap=&quot;&quot;&#xa;topLeft=((x,y,z))&#xa;topRight=self.TileToEast(topLeft)&#xa;bottomLeft=self.TileToSouth(topLeft)&#xa;bottomRight=self.TileToEast(bottomLeft)&#xa;self.getMapTile(topLeft)&#xa;self.getMapTile(topRight)&#xa;self.getMapTile(bottomLeft)&#xa;self.getMapTile(bottomRight)&#xa;topLeft_map=self.loadedTiles[topLeft]&#xa;topRight_map=self.loadedTiles[topRight]&#xa;bottomLeft_map=self.loadedTiles[bottomLeft]&#xa;bottomRight_map=self.loadedTiles[bottomRight]&#xa;for i in range(len(topLeft_map)):&#xa;  self.curMap=self.curMap+topLeft_map[i]+topRight_map[i]+&quot;\n&quot;&#xa;&#xa;for i in range(len(bottomLeft_map)):&#xa;  self.curMap=self.curMap+bottomLeft_map[i]+bottomRight_map[i]+&quot;\n&quot;&#xa;&#xa;return self.curMap&#xa;" id="aW6gnrJ5bMMV" />
+    <sourcecode value=":&#xa;TileLoader.__init__(self,(sizeX,sizeY),cacheUrl)&#xa;self.baseUrl=url&#xa;self.mapChars=&quot;....,;clodxkO.XNOM&quot;&#xa;" id="DzrMtHOPxs3x" />
+    <sourcecode value=":&#xa;line=string.strip(line)&#xa;for c in line:&#xa;  tileArr[row_ctr][col_ctr]=c&#xa;  col_ctr=col_ctr+1&#xa;&#xa;row_ctr=row_ctr+1&#xa;col_ctr=0&#xa;" id="OPyfrjv5DX8d" />
+    <sourcecode value=":&#xa;self.cacheUrl=cacheUrl&#xa;self.sizeX=sizeX&#xa;self.sizeY=sizeY&#xa;self.isActive=true&#xa;self.loadedTiles=:&#xa;&#xa;&#xa;" id="AMYYqfEYbSqj" />
+    <sourcecode value=":&#xa;self.isActive=true&#xa;" id="FsEcSwzckqRY" />
+    <sourcecode value=":&#xa;self.isActive=false&#xa;" id="A3usrJQasuW3" />
+    <sourcecode value=":&#xa;fname=self.getFileName(x,y,z)&#xa;lines=[string.strip(line)for line in open(fname,&quot;r&quot;).readlines()]&#xa;tile=[]&#xa;for line in lines:&#xa;  arr=[]&#xa;  for c in line:&#xa;    arr.append(c)&#xa;&#xa;  tile.append(arr)&#xa;&#xa;return tile&#xa;" id="y82o2Zsu4RSC" />
+    <sourcecode value=":&#xa;&quot; Write a tile to the correct place in cache &quot;&quot;&quot;&#xa;tileArr=self.loadedTiles[(x,y,z)]&#xa;self.createDir(x,y,z)&#xa;fname=self.getFileName(x,y,z)&#xa;fhandle=open(fname,&quot;w&quot;)&#xa;for row_num in range(self.sizeY):&#xa;  fhandle.write(string.join(tileArr[row_num],&quot;&quot;))&#xa;  fhandle.write(&quot;\n&quot;)&#xa;&#xa;fhandle.close()&#xa;" id="TtcEjEMMPSId" />
+    <sourcecode value=":&#xa;if not self.isActive:&#xa;  return&#xa;&#xa;if self.loadedTiles.has_key((x,y,z)):&#xa;  if debug:print&quot;found tile in memory&quot;&#xa;  return self.loadedTiles[(x,y,z)]&#xa;&#xa;elif self.tileExists(x,y,z)and self.tileIsCorrectSize(x,y,z):&#xa;  if debug:print&quot;tile exists and is correct size&quot;&#xa;  self.loadedTiles[(x,y,z)]=self.loadTileFromDisk(x,y,z)&#xa;&#xa;else:&#xa;  if debug:print&quot;generating tile&quot;&#xa;  self.loadedTiles[(x,y,z)]=self.fetchTile(x,y,z)&#xa;  self.writeTileToDisk(x,y,z)&#xa;&#xa;" id="6nmJGXYRSCHt" />
+    <sourcecode value=":&#xa;pos=pixX-len(text)/2&#xa;if debug:&#xa;  print&quot;pixX = %s, len(text) = %s, pos = %s&quot;%(pixX,len(text),pos)&#xa;&#xa;if pos&lt;0:&#xa;  pos=0&#xa;&#xa;for c in text:&#xa;  tileArr[pixY][pos]=c&#xa;  pos=pos+1&#xa;&#xa;return tileArr&#xa;" id="gWK8vPkmSvxm" />
+    <sourcecode value=":&#xa;fname=self.getFileName(x,y,z)&#xa;if os.access(fname,os.R_OK):&#xa;  return true&#xa;&#xa;else:&#xa;  if debug:print&quot;tile does not exist&quot;&#xa;  return false&#xa;&#xa;" id="wByEulFs1ec2" />
+    <sourcecode value=":&#xa;fname=self.getFileName(x,y,z)&#xa;lines=open(fname,&quot;r&quot;).readlines()&#xa;if len(lines)==self.sizeY and len(lines[0])==self.sizeX+1:&#xa;  return true&#xa;&#xa;else:&#xa;  if debug:print&quot;tile is incorrect size&quot;&#xa;  return false&#xa;&#xa;" id="qRp8avGn7QGR" />
+    <sourcecode value=":&#xa;arr=[]&#xa;for y in range(self.sizeY):&#xa;  arr.append([&quot; &quot;]*self.sizeX)&#xa;&#xa;return arr&#xa;" id="Al0Ec9Gm0Ncy" />
+    <sourcecode value=":&#xa;fname=self.cacheUrl+os.sep+str(z)+os.sep+str(x)+os.sep+str(y)+&quot;.txt&quot;&#xa;return fname&#xa;" id="8WR8t47TqbAh" />
+    <sourcecode value=":&#xa;&quot; Creates directory if it doesn't exist &quot;&quot;&quot;&#xa;fname=self.getFileName(x,y,z)&#xa;dirParts=string.split(fname,os.sep)[:-1]&#xa;if fname[0]==os.sep:&#xa;  curdir=os.sep&#xa;  dirParts=dirParts[1:]&#xa;&#xa;else:&#xa;  curdir='.'+os.sep&#xa;&#xa;nextdir=''&#xa;for dirname in dirParts:&#xa;  if nextdir=='':&#xa;    nextdir=curdir+dirname&#xa;&#xa;  else:&#xa;    nextdir=nextdir+os.sep+dirname&#xa;&#xa;  if debug:&#xa;    print&quot;trying to make &quot;+nextdir&#xa;&#xa;  if dirname not in os.listdir(curdir):&#xa;    try:&#xa;      os.mkdir(nextdir)&#xa;&#xa;    except:&#xa;      print&quot;Couldn't make directory %s&quot;%nextdir&#xa;      return&#xa;&#xa;&#xa;  curdir=nextdir&#xa;&#xa;" id="A6iLDK6jbnqr" />
+    <sourcecode value=":&#xa;self.tileStr=None&#xa;self.cacheUrl=cacheUrl&#xa;self.loadedTiles=:&#xa;&#xa;&#xa;self.x=x&#xa;self.y=y&#xa;self.z=z&#xa;self.isLoaded=0&#xa;self.sizeX=sizeX&#xa;self.sizeY=sizeY&#xa;self.curMap=&quot;&quot;&#xa;self.mapLoaded=false&#xa;self.tileSize=256&#xa;self.originShift=2*math.pi*6378137/2.0&#xa;self.initialResolution=2*math.pi*6378137/self.tileSize&#xa;self.tileLoaders=[]&#xa;" id="tZ762rf3ADtN" />
+    <sourcecode value=":&#xa;&quot;Converts given lat/lon in WGS84 Datum to XY in Spherical Mercator EPSG:900913&quot;&#xa;mx=lon*self.originShift/180.0&#xa;my=math.log(math.tan((90+lat)*math.pi/360.0))/(math.pi/180.0)&#xa;my=my*self.originShift/180.0&#xa;return mx,my&#xa;" id="goOfrgZT20RN" />
+    <sourcecode value=":&#xa;&quot;Converts pixel coordinates in given zoom level of pyramid to EPSG:900913&quot;&#xa;res=self.Resolution(zoom)&#xa;mx=px*res-self.originShift&#xa;my=py*res-self.originShift&#xa;return mx,my&#xa;" id="jZp6m2Jiqybb" />
+    <sourcecode value=":&#xa;&quot;Converts EPSG:900913 to pyramid pixel coordinates in given zoom level&quot;&#xa;res=self.Resolution(zoom)&#xa;px=(mx+self.originShift)/res&#xa;py=(my+self.originShift)/res&#xa;return px,py&#xa;" id="OdpZZCUBc5zx" />
+    <sourcecode value=":&#xa;&quot;Resolution (meters/pixel) for given zoom level (measured at Equator)&quot;&#xa;return self.initialResolution/(2**zoom)&#xa;" id="xBBmlM9TQ8rj" />
+    <sourcecode value=":&#xa;&quot;Returns a tile covering region in given pixel coordinates&quot;&#xa;tx=int(math.ceil(px/float(self.tileSize))-1)&#xa;ty=int(math.ceil(py/float(self.tileSize))-1)&#xa;return tx,ty&#xa;" id="84T55enhYNen" />
+    <sourcecode value=":&#xa;return&quot;.&quot;*((self.sizeX)*(self.sizeY))&#xa;" id="1oXbSCFigZYV" />
+    <sourcecode value=":&#xa;&quot;Returns a tile west of the tile specified by x,y,z&quot;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;north_resolution=abs(abs(north)-abs(south))&#xa;east_resolution=abs(abs(east)-abs(west))&#xa;if(west-(east_resolution/2))&lt;-189:&#xa;  return x,y,z&#xa;&#xa;newx,newy=self.LatLonToTile((north+south)/2,west-(east_resolution/2),z)&#xa;return newx,newy,z&#xa;" id="CqnqOKJsS734" />
+    <sourcecode value=":&#xa;&quot;Returns a tile east of the tile specified by x,y,z&quot;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;north_resolution=abs(abs(north)-abs(south))&#xa;east_resolution=abs(abs(east)-abs(west))&#xa;if(east+(east_resolution/2))>189:&#xa;  return x,y,z&#xa;&#xa;newx,newy=self.LatLonToTile((north+south)/2,east+(east_resolution/2),z)&#xa;return(newx,newy,z)&#xa;" id="qfhiwQf5cbro" />
+    <sourcecode value=":&#xa;&quot;Returns a tile north of the tile specified by x,y,z&quot;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;north_resolution=north-south&#xa;east_resolution=east-west&#xa;new_north=north+north_resolution/2&#xa;if(new_north)>86:&#xa;  new_north=85&#xa;&#xa;newx,newy=self.LatLonToTile(new_north,(east+west)/2,z)&#xa;return(newx,newy,z)&#xa;" id="gJaaHC7qEJwk" />
+    <sourcecode value=":&#xa;&quot;Returns a tile west of the tile specified by x,y,z&quot;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;north_resolution=abs(abs(north)-abs(south))&#xa;east_resolution=abs(abs(east)-abs(west))&#xa;new_south=south-north_resolution/2&#xa;if(new_south)&lt;-85:&#xa;  new_south=-85&#xa;&#xa;newx,newy=self.LatLonToTile(new_south,(east+west)/2,z)&#xa;return(newx,newy,z)&#xa;" id="dEsTTlbxlDQ1" />
+    <sourcecode value=":&#xa;&quot;Returns a tile west of the tile specified by x,y,z&quot;&#xa;if z&lt;=1:&#xa;  return x,y,z&#xa;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;z=z-1&#xa;newx,newy=self.LatLonToTile(north,west,z)&#xa;return newx,newy,z&#xa;" id="8v18ll0Tyqef" />
+    <sourcecode value=":&#xa;&quot;Returns a tile west of the tile specified by x,y,z&quot;&#xa;if z>=18:&#xa;  return x,y,z&#xa;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;z=z+1&#xa;tl_x,tl_y=self.LatLonToTile(north,west,z)&#xa;(newx,newy,z)=self.TileToSouth(self.TileToEast((tl_x,tl_y,z)))&#xa;return(newx,newy,z)&#xa;" id="0fk9svsLuwFY" />
+    <sourcecode value=":&#xa;lat_rad=lat_deg*math.pi/180.0&#xa;n=2.0**zoom&#xa;xtile=int((lon_deg+180.0)/360.0*n)&#xa;ytile=int((1.0-math.log(math.tan(lat_rad)+(1/math.cos(lat_rad)))/math.pi)/2.0*n)&#xa;return(xtile,ytile)&#xa;" id="jejkj1Vgc0WP" />
+    <sourcecode value=":&#xa;n=2.0**zoom&#xa;min_lon_deg=xtile/n*360.0-180.0&#xa;min_lat_rad=math.atan(math.sinh(math.pi*(1-2*ytile/n)))&#xa;min_lat_deg=min_lat_rad*180.0/math.pi&#xa;max_lon_deg=(xtile+1)/n*360.0-180.0&#xa;max_lat_rad=math.atan(math.sinh(math.pi*(1-2*(ytile+1)/n)))&#xa;max_lat_deg=max_lat_rad*180.0/math.pi&#xa;return(lat_deg,lon_deg)&#xa;" id="sswCWhAHtZx4" />
+    <sourcecode value=":&#xa;north=self.tile2lat(y,z)&#xa;south=self.tile2lat(y+1,z)&#xa;west=self.tile2lon(x,z)&#xa;east=self.tile2lon(x+1,z)&#xa;return(north,south,east,west)&#xa;" id="rvDfAMJBEVUF" />
+    <sourcecode value=":&#xa;return((x/math.pow(2.0,z)*360.0)-180)&#xa;" id="9UzL6XbsGAXB" />
+    <sourcecode value=":&#xa;n=math.pi-((2.0*math.pi*y)/math.pow(2.0,z))&#xa;&#xa;return(180.0/math.pi*math.atan(0.5*(math.exp(n)-math.exp(-n))))&#xa;" id="iAxTYRKTV3ei" />
+    <sourcecode value=":&#xa;&quot; Returns true if this lat/lon point is in the current map &quot;&quot;&quot;&#xa;x,y=self.LatLonToTile(lat,lon,z)&#xa;if x==self.x or x==self.x+1:&#xa;  if y==self.y or y==self.y+1:&#xa;    return 1&#xa;&#xa;&#xa;return 0&#xa;meters_x,meters_y=self.LatLonToMeters(lat_deg,lon_deg)&#xa;pixels_x,pixels_y=self.MetersToPixels(meters_x,meters_y,z)&#xa;tile_x,tile_y=self.PixelsToTile(pixels_x,pixels_y)&#xa;pixels_x_scaled=(pixels_x*(self.sizeX)/256)&#xa;pixels_y_scaled=(pixels_y*(self.sizeY)/256)&#xa;total_pixels_y=self.sizeY*(2&lt;&lt;(z-1))&#xa;pixels_y_inv=total_pixels_y-pixels_y_scaled&#xa;pixels_x_r=int(pixels_x_scaled-(self.x*self.sizeX))&#xa;pixels_y_r=int(pixels_y_inv-(self.y*self.sizeY))&#xa;return int(pixels_x_r),int(pixels_y_r)&#xa;" id="mJPms6Ku6JQ8" />
+    <sourcecode value=":&#xa;regenerate_map=0&#xa;if self.loadedTiles.has_key((x,y,z)):&#xa;  return&#xa;&#xa;else:&#xa;  txtFile=self.cacheUrl+&quot;/%s/%s/%s.txt&quot;%(z,x,y)&#xa;  if os.access(txtFile,os.R_OK):&#xa;    f=open(txtFile,&quot;r&quot;)&#xa;    mapstring=[string.strip(line)for line in f.readlines()]&#xa;    f.close()&#xa;    if len(mapstring)!=self.sizeY:&#xa;      regenerate_map=1&#xa;&#xa;    if len(mapstring[0])!=self.sizeX:&#xa;      regenerate_map=1&#xa;&#xa;    else:&#xa;      self.loadedTiles[(x,y,z)]=mapstring&#xa;&#xa;&#xa;  else:&#xa;    regenerate_map=1&#xa;&#xa;  if regenerate_map:&#xa;    self.fetchTile(x,y,z)&#xa;&#xa;&#xa;" id="gfu3n6GPUl2a" />
+    <sourcecode value=":&#xa;new_x,new_y,new_z=self.TileZoomedIn((self.x,self.y,self.z))&#xa;if(new_x,new_y,new_z)!=(self.x,self.y,self.z):&#xa;  self.mapLoaded=false&#xa;&#xa;self.x=new_x&#xa;self.y=new_y&#xa;self.z=new_z&#xa;" id="GfHmpG27oa0D" />
+    <sourcecode value=":&#xa;new_x,new_y,new_z=self.TileZoomedOut((self.x,self.y,self.z))&#xa;if(new_x,new_y,new_z)!=(self.x,self.y,self.z):&#xa;  self.mapLoaded=false&#xa;&#xa;new_x2,new_y2,new_z2=self.TileToEast((new_x,new_y,new_z))&#xa;if(new_x,new_y,new_z)==(new_x2,new_y2,new_z2):&#xa;  new_x,new_y,new_z=self.TileToWest((new_x,new_y,new_z))&#xa;&#xa;new_x2,new_y2,new_z2=self.TileToSouth((new_x,new_y,new_z))&#xa;if(new_x,new_y,new_z)==(new_x2,new_y2,new_z2):&#xa;  new_x,new_y,new_z=self.TileToNorth((new_x,new_y,new_z))&#xa;&#xa;self.x=new_x&#xa;self.y=new_y&#xa;self.z=new_z&#xa;" id="C3F1eDCfLTnV" />
+    <sourcecode value=":&#xa;new_x,new_y,new_z=self.TileToEast((self.x,self.y,self.z))&#xa;if(new_x,new_y,new_z)!=(self.x,self.y,self.z):&#xa;  self.mapLoaded=false&#xa;&#xa;new_x2,new_y2,new_z2=self.TileToEast((new_x,new_y,new_z))&#xa;if(new_x2,new_y2,new_z2)==(new_x,new_y,new_z):&#xa;  return&#xa;&#xa;else:&#xa;  self.x=new_x&#xa;  self.y=new_y&#xa;  self.z=new_z&#xa;&#xa;" id="s53DZogMcPrk" />
+    <sourcecode value=":&#xa;new_x,new_y,new_z=self.TileToWest((self.x,self.y,self.z))&#xa;if(new_x,new_y,new_z)!=(self.x,self.y,self.z):&#xa;  self.mapLoaded=false&#xa;&#xa;self.x=new_x&#xa;self.y=new_y&#xa;self.z=new_z&#xa;pass&#xa;" id="Hgpt4gd1o4PL" />
+    <sourcecode value=":&#xa;new_x,new_y,new_z=self.TileToNorth((self.x,self.y,self.z))&#xa;if(new_x,new_y,new_z)!=(self.x,self.y,self.z):&#xa;  self.mapLoaded=false&#xa;&#xa;self.x=new_x&#xa;self.y=new_y&#xa;self.z=new_z&#xa;" id="itcWyzsbGja6" />
+    <sourcecode value=":&#xa;new_x,new_y,new_z=self.TileToSouth((self.x,self.y,self.z))&#xa;if(new_x,new_y,new_z)!=(self.x,self.y,self.z):&#xa;  self.mapLoaded=false&#xa;&#xa;new_x2,new_y2,new_z2=self.TileToSouth((new_x,new_y,new_z))&#xa;if(new_x2,new_y2,new_z2)==(new_x,new_y,new_z):&#xa;  return&#xa;&#xa;else:&#xa;  self.x=new_x&#xa;  self.y=new_y&#xa;  self.z=new_z&#xa;&#xa;" id="vZHBGrHjTUE3" />
+    <sourcecode value=":&#xa;if zoom&lt;1 or zoom>18:&#xa;  return&#xa;&#xa;if lat&lt;-85 or lat>85:&#xa;  return&#xa;&#xa;if lon&lt;-180 or lon>180:&#xa;  return&#xa;&#xa;new_x,new_y=self.LatLonToTile(lat,lon,zoom)&#xa;new_z=zoom&#xa;new_x2,new_y2,new_z2=self.TileToEast((new_x,new_y,new_z))&#xa;if(new_x,new_y,new_z)==(new_x2,new_y2,new_z2):&#xa;  new_x,new_y,new_z=self.TileToWest((new_x,new_y,new_z))&#xa;&#xa;new_x2,new_y2,new_z2=self.TileToSouth((new_x,new_y,new_z))&#xa;if(new_x,new_y,new_z)==(new_x2,new_y2,new_z2):&#xa;  new_x,new_y,new_z=self.TileToNorth((new_x,new_y,new_z))&#xa;&#xa;self.x=new_x&#xa;self.y=new_y&#xa;self.z=new_z&#xa;" id="Gj0jDCl7wDA5" />
+    <sourcecode value=":&#xa;pass&#xa;" id="XTFI4oGHw5UK" />
+    <sourcecode value=":&#xa;pass&#xa;" id="avUU0zmFAH3o" />
+    <sourcecode value=":&#xa;pass&#xa;" id="M19UGCIuRPuR" />
+    <sourcecode value=":&#xa;pass&#xa;" id="oOFFn9gKI8pG" />
+    <sourcecode value=":&#xa;&quot; Get four tiles - x,y,z points to north west corner of north west tile &quot;&quot;&quot;&#xa;if self.mapLoaded:&#xa;  return self.curMap&#xa;&#xa;x=self.x&#xa;y=self.y&#xa;z=self.z&#xa;self.curMap=&quot;&quot;&#xa;topLeft=((x,y,z))&#xa;topRight=self.TileToEast(topLeft)&#xa;bottomLeft=self.TileToSouth(topLeft)&#xa;bottomRight=self.TileToEast(bottomLeft)&#xa;self.getMapTile(topLeft)&#xa;self.getMapTile(topRight)&#xa;self.getMapTile(bottomLeft)&#xa;self.getMapTile(bottomRight)&#xa;topLeft_map=self.loadedTiles[topLeft]&#xa;topRight_map=self.loadedTiles[topRight]&#xa;bottomLeft_map=self.loadedTiles[bottomLeft]&#xa;bottomRight_map=self.loadedTiles[bottomRight]&#xa;for i in range(len(topLeft_map)):&#xa;  self.curMap=self.curMap+topLeft_map[i]+topRight_map[i]+&quot;\n&quot;&#xa;&#xa;for i in range(len(bottomLeft_map)):&#xa;  self.curMap=self.curMap+bottomLeft_map[i]+bottomRight_map[i]+&quot;\n&quot;&#xa;&#xa;return self.curMap&#xa;" id="9q4RwtfS4Itu" />
+    <sourcecode value=":&#xa;self.mapLoaded=false&#xa;self.tileSize=256&#xa;self.originShift=2*math.pi*6378137/2.0&#xa;self.initialResolution=2*math.pi*6378137/self.tileSize&#xa;self.tileLoaders=[]&#xa;" id="3lN1hs8F9DmT" />
+    <sourcecode value=":&#xa;&quot;Converts given lat/lon in WGS84 Datum to XY in Spherical Mercator EPSG:900913&quot;&#xa;mx=lon*self.originShift/180.0&#xa;my=math.log(math.tan((90+lat)*math.pi/360.0))/(math.pi/180.0)&#xa;my=my*self.originShift/180.0&#xa;return mx,my&#xa;" id="PtkZ7W0Wbt12" />
+    <sourcecode value=":&#xa;&quot;Converts pixel coordinates in given zoom level of pyramid to EPSG:900913&quot;&#xa;res=self.Resolution(zoom)&#xa;mx=px*res-self.originShift&#xa;my=py*res-self.originShift&#xa;return mx,my&#xa;" id="YV2dJAnfITZI" />
+    <sourcecode value=":&#xa;&quot;Converts EPSG:900913 to pyramid pixel coordinates in given zoom level&quot;&#xa;res=self.Resolution(zoom)&#xa;px=(mx+self.originShift)/res&#xa;py=(my+self.originShift)/res&#xa;return px,py&#xa;" id="PyRlvBGGlFGJ" />
+    <sourcecode value=":&#xa;&quot;Resolution (meters/pixel) for given zoom level (measured at Equator)&quot;&#xa;return self.initialResolution/(2**zoom)&#xa;" id="cZoCIM1ORI6n" />
+    <sourcecode value=":&#xa;&quot;Returns a tile covering region in given pixel coordinates&quot;&#xa;tx=int(math.ceil(px/float(self.tileSize))-1)&#xa;ty=int(math.ceil(py/float(self.tileSize))-1)&#xa;return tx,ty&#xa;" id="0eEIteXEm1ju" />
+    <sourcecode value=":&#xa;&quot;Returns a tile west of the tile specified by x,y,z&quot;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;north_resolution=abs(abs(north)-abs(south))&#xa;east_resolution=abs(abs(east)-abs(west))&#xa;if(west-(east_resolution/2))&lt;-189:&#xa;  return x,y,z&#xa;&#xa;newx,newy=self.LatLonToTile((north+south)/2,west-(east_resolution/2),z)&#xa;return newx,newy,z&#xa;" id="qJEcclDaq2Gu" />
+    <sourcecode value=":&#xa;&quot;Returns a tile east of the tile specified by x,y,z&quot;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;north_resolution=abs(abs(north)-abs(south))&#xa;east_resolution=abs(abs(east)-abs(west))&#xa;if(east+(east_resolution/2))>189:&#xa;  return x,y,z&#xa;&#xa;newx,newy=self.LatLonToTile((north+south)/2,east+(east_resolution/2),z)&#xa;return(newx,newy,z)&#xa;" id="2QFywgrRKIej" />
+    <sourcecode value=":&#xa;&quot;Returns a tile north of the tile specified by x,y,z&quot;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;north_resolution=north-south&#xa;east_resolution=east-west&#xa;new_north=north+north_resolution/2&#xa;if(new_north)>86:&#xa;  new_north=85&#xa;&#xa;newx,newy=self.LatLonToTile(new_north,(east+west)/2,z)&#xa;return(newx,newy,z)&#xa;" id="rimgBzW024zX" />
+    <sourcecode value=":&#xa;&quot;Returns a tile west of the tile specified by x,y,z&quot;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;north_resolution=abs(abs(north)-abs(south))&#xa;east_resolution=abs(abs(east)-abs(west))&#xa;new_south=south-north_resolution/2&#xa;if(new_south)&lt;-85:&#xa;  new_south=-85&#xa;&#xa;newx,newy=self.LatLonToTile(new_south,(east+west)/2,z)&#xa;return(newx,newy,z)&#xa;" id="tHdi8s8VE08f" />
+    <sourcecode value=":&#xa;&quot;Returns a tile west of the tile specified by x,y,z&quot;&#xa;if z&lt;=1:&#xa;  return x,y,z&#xa;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;z=z-1&#xa;newx,newy=self.LatLonToTile(north,west,z)&#xa;return newx,newy,z&#xa;" id="KMqiSYYWb1n1" />
+    <sourcecode value=":&#xa;&quot;Returns a tile west of the tile specified by x,y,z&quot;&#xa;if z>=18:&#xa;  return x,y,z&#xa;&#xa;north,south,east,west=self.TileToBoundingBox(x,y,z)&#xa;z=z+1&#xa;tl_x,tl_y=self.LatLonToTile(north,west,z)&#xa;(newx,newy,z)=self.TileToSouth(self.TileToEast((tl_x,tl_y,z)))&#xa;return(newx,newy,z)&#xa;" id="QartwsQxLBqC" />
+    <sourcecode value=":&#xa;lat_rad=lat_deg*math.pi/180.0&#xa;n=2.0**zoom&#xa;xtile=int((lon_deg+180.0)/360.0*n)&#xa;ytile=int((1.0-math.log(math.tan(lat_rad)+(1/math.cos(lat_rad)))/math.pi)/2.0*n)&#xa;return(xtile,ytile)&#xa;" id="8FskqFjYRqGi" />
+    <sourcecode value=":&#xa;n=2.0**zoom&#xa;min_lon_deg=xtile/n*360.0-180.0&#xa;min_lat_rad=math.atan(math.sinh(math.pi*(1-2*ytile/n)))&#xa;min_lat_deg=min_lat_rad*180.0/math.pi&#xa;max_lon_deg=(xtile+1)/n*360.0-180.0&#xa;max_lat_rad=math.atan(math.sinh(math.pi*(1-2*(ytile+1)/n)))&#xa;max_lat_deg=max_lat_rad*180.0/math.pi&#xa;return(lat_deg,lon_deg)&#xa;" id="OVq6DnZsHmVe" />
+    <sourcecode value=":&#xa;north=self.tile2lat(y,z)&#xa;south=self.tile2lat(y+1,z)&#xa;west=self.tile2lon(x,z)&#xa;east=self.tile2lon(x+1,z)&#xa;return(north,south,east,west)&#xa;" id="17q12GIFdLBO" />
+    <sourcecode value=":&#xa;return((x/math.pow(2.0,z)*360.0)-180)&#xa;" id="rS12DFriPdh9" />
+    <sourcecode value=":&#xa;n=math.pi-((2.0*math.pi*y)/math.pow(2.0,z))&#xa;&#xa;return(180.0/math.pi*math.atan(0.5*(math.exp(n)-math.exp(-n))))&#xa;" id="rqA3q6P3vVdK" />
+    <sourcecode value=":&#xa;meters_x,meters_y=self.LatLonToMeters(lat_deg,lon_deg)&#xa;pixels_x,pixels_y=self.MetersToPixels(meters_x,meters_y,z)&#xa;tile_x,tile_y=self.PixelsToTile(pixels_x,pixels_y)&#xa;pixels_x_scaled=(pixels_x*(sizeX)/256)&#xa;pixels_y_scaled=(pixels_y*(sizeY)/256)&#xa;total_pixels_y=sizeY*(2&lt;&lt;(z-1))&#xa;pixels_y_inv=total_pixels_y-pixels_y_scaled&#xa;pixels_x_r=int(pixels_x_scaled-(x*sizeX))&#xa;pixels_y_r=int(pixels_y_inv-(y*sizeY))&#xa;return int(pixels_x_r),int(pixels_y_r)&#xa;" id="df0jLtc8CXoy" />
+   </codegenerator>
+  </codegeneration>
+ </XMI.extensions>
+</XMI>
