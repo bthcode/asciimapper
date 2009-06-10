@@ -138,7 +138,7 @@ class TileLoader:
   def getEmptyTile( self ):
     arr = []
     for y in range(self.sizeY):
-        arr.append( ["x"] * self.sizeX )	
+        arr.append( [" "] * self.sizeX )	
     return arr
   # end getMepthTile
 
