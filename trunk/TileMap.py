@@ -230,7 +230,6 @@ class TileMap:
     return 0
   # end isShown
 
-  def latlon2pixel( self, name, lat_deg, lon_deg, z ):
 
     meters_x, meters_y = self.LatLonToMeters( lat_deg, lon_deg )
     pixels_x, pixels_y = self.MetersToPixels( meters_x, meters_y, z )

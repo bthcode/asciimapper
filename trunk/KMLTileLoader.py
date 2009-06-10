@@ -83,5 +83,5 @@ class KMLTileMap( TileLoader ):
 
 if __name__=="__main__":
   #def __init__(self, (x,y,z), (sizeX, sizeY), kmlFile, cacheUrl ):
-  T = KMLTileMap((56,56),  "us_states.kml", "test_cache", 0 )
+  T = KMLTileMap((55,55),  "us_states.kml", "test_cache", 0 )
   print T.getTile( 0,0,1 )
