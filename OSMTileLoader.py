@@ -50,33 +50,28 @@ class OSMTileLoader( TileLoader):
   # end __init__
 
   def fetchTile( self, x, y, z ): 
-    regenerate_map = 1
+    tileArr = self.getEmptyTile()
     pngFile = self.cacheUrl + "/%s/%s/%s.png" % ( z,x,y )
     jpgFile = self.cacheUrl + "/%s/%s/%s.jpg" % ( z,x,y )
-    # if the jpgFile doesn't exist, check if the png does
-    if not os.access( jpgFile , os.R_OK ):
-        if not os.access( pngFile, os.R_OK ) :
-            # png doesn't exist, try to download it
-            url = self.baseUrl + "/%s/%s/%s.png" % ( z,x,y )
-            #os.popen( "wget -q -x --timeout=2 %s" % url ) 
-            args = [ '-x', url ]
-            wget( args )
-        if not os.access( pngFile, os.R_OK ):
-            # no png after wget
-            regenerate_map = 0
-            self.loadedTiles[ (x,y,z) ] = self.getEmptyTile()
-            return
-        # now try to convert it
-        os.popen( "convert %s %s" % ( pngFile, jpgFile ) )
+    url = self.baseUrl + "/%s/%s/%s.png" % ( z,x,y )
+    args = [ '-x', url ]
+    wget( args )
 
-    if regenerate_map: 
-        txtFile = self.cacheUrl + "/%s/%s/%s.txt" % ( z,x,y )
-        jpgFile = self.cacheUrl + "/%s/%s/%s.jpg" % ( z,x,y )
-        cmd = """jp2a --size=%sx%s --chars="%s" %s > %s""" % (self.sizeX, self.sizeY, self.mapChars, jpgFile, txtFile )
-        os.popen( cmd )
-        f = open( txtFile, "r" )
-        self.loadedTiles[ (x,y,z) ] = [ string.strip(line) for line in f.readlines() ]
-        f.close()
+    jpgFile = self.cacheUrl + "/%s/%s/%s.jpg" % ( z,x,y )
+    cmd = """jp2a --size=%sx%s --chars="%s" %s > test.txt""" % (self.sizeX, self.sizeY, self.mapChars, jpgFile )
+    os.popen( cmd )
+    row_ctr = 0
+    col_ctr = 0
+    f = open( "test.txt", "r" )
+    for line in f.readlines():
+        line = string.strip( line )
+        for c in line:
+            tileArr[ row_ctr ][ col_ctr ] = c
+            col_ctr = col_ctr+1
+        row_ctr = row_ctr + 1
+        col_ctr = 0
+    #f.close()
+    return tileArr
   #end getMap
 
 # end class OSMTileLoader
