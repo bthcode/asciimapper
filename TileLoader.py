@@ -35,7 +35,7 @@
 
 import curses, time, sys, os, string, random, math
 import pprint
-from Wget import *
+from TileUtils import TileUtils
 
 debug  = 1
 false  = 0
@@ -48,6 +48,7 @@ class TileLoader:
     self.sizeY       = sizeY
     self.isActive    = true
     self.loadedTiles = {}
+    self.tileUtils    = TileUtils()
   # end __init__
 
   def activate( self ):
