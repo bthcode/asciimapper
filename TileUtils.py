@@ -218,7 +218,7 @@ class TileUtils:
     pixels_x_scaled = ( pixels_x  * (sizeX) / 256 ) # scale
     pixels_y_scaled = ( pixels_y  * (sizeY) / 256 ) # scale
 
-    total_pixels_y  = self.sizeY * ( 2 << (z-1) ) 
+    total_pixels_y  = sizeY * ( 2 << (z-1) ) 
     pixels_y_inv    = total_pixels_y - pixels_y_scaled 
 
     pixels_x_r = int( pixels_x_scaled - (x*sizeX)  )

@@ -33,58 +33,55 @@
 # THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ######################################################################
 
-import time, sys, os, string, random, math
+import curses, time, sys, os, string, random, math
 import pprint
+from Wget import *
+from TileMap import TileMap
 from TileLoader import TileLoader
-from TileUtils  import TileUtils
-import KMLParser
 
 false = 0
 true = 1
-debug = 1
 
-class KMLTileLoader( TileLoader ):
-  def __init__(self, (sizeX, sizeY), kmlFile, cacheUrl, zoomlevel ):
+class OSMTileLoader( TileLoader):
+  def __init__(self, (sizeX, sizeY), url, cacheUrl ):
     TileLoader.__init__( self, (sizeX, sizeY), cacheUrl )
-    self.zoomLevel    = zoomlevel # minzoomlevel
-    self.kmlFile      = kmlFile
-    self.kmlPoints    = {}
-    self.kmlShapes    = {}
-    self.initKML()
-    self.tileUtils    = TileUtils()
+    self.baseUrl      = url
+    self.mapChars     = "....,;clodxkO.XNOM"
   # end __init__
 
-  def fetchTile( self, x, y, z ):
-    tileArr = self.getEmptyTile()
-    #print tileStr
-    for key, value in self.kmlPoints.items():
-      lat = float( value[ "LAT" ] )
-      lon = float( value[ "LON" ] )
-      # returns None if point does not intersect
-      res = self.tileUtils.latlon2pixel( value["NAME" ], lat, lon, self.sizeX, self.sizeY, x,y, z )
+  def fetchTile( self, x, y, z ): 
+    regenerate_map = 1
+    pngFile = self.cacheUrl + "/%s/%s/%s.png" % ( z,x,y )
+    jpgFile = self.cacheUrl + "/%s/%s/%s.jpg" % ( z,x,y )
+    # if the jpgFile doesn't exist, check if the png does
+    if not os.access( jpgFile , os.R_OK ):
+        if not os.access( pngFile, os.R_OK ) :
+            # png doesn't exist, try to download it
+            url = self.baseUrl + "/%s/%s/%s.png" % ( z,x,y )
+            #os.popen( "wget -q -x --timeout=2 %s" % url ) 
+            args = [ '-x', url ]
+            wget( args )
+        if not os.access( pngFile, os.R_OK ):
+            # no png after wget
+            regenerate_map = 0
+            self.loadedTiles[ (x,y,z) ] = self.getEmptyTile()
+            return
+        # now try to convert it
+        os.popen( "convert %s %s" % ( pngFile, jpgFile ) )
 
-      # TODO: This logic relies on error handling to determine whether
-      #       a point is "onscreen" - do something better
-      if res != None:
-          pixX, pixY = res[0], res[1]
-          tileArr = self.addTextToTile( pixX, pixY, value[ "NAME" ], tileArr )
-    return tileArr
-  # end createTile
+    if regenerate_map: 
+        txtFile = self.cacheUrl + "/%s/%s/%s.txt" % ( z,x,y )
+        jpgFile = self.cacheUrl + "/%s/%s/%s.jpg" % ( z,x,y )
+        cmd = """jp2a --size=%sx%s --chars="%s" %s > %s""" % (self.sizeX, self.sizeY, self.mapChars, jpgFile, txtFile )
+        os.popen( cmd )
+        f = open( txtFile, "r" )
+        self.loadedTiles[ (x,y,z) ] = [ string.strip(line) for line in f.readlines() ]
+        f.close()
+  #end getMap
 
-  def initKML( self ):
-    """ Load cities and countries from a kml file - ./kml_files.txt lists kml files to load"""
-    reader = KMLParser.kmlReader( self.kmlFile )
-    coords = reader.getCoordinates()  
-    for c in coords:
-        if c.has_point and c.point.lat and c.point.lon:
-            self.kmlPoints[ c.name ] = { "LON" : c.point.lon, "LAT" : c.point.lat, "NAME": c.name, "ZOOMLEVEL" : self.zoomLevel }
-        if c.has_linear_ring:
-            self.kmlShapes[ c.name ] = { "NAME" : c.name, "ZOOMLEVEL" : self.zoomLevel, "POINTS" : c.linear_ring.points }
-  # end loadKML
-
-# end class KMLTileMap
+# end class OSMTileLoader
 
 if __name__=="__main__":
   #def __init__(self, (x,y,z), (sizeX, sizeY), kmlFile, cacheUrl ):
-  T = KMLTileLoader((55,55),  "us_states.kml", "test_cache", 0 )
+  T = OSMTileLoader((55,55),  "http://tile.openstreetmap.org", "tile.openstreetmap.org" )
   print T.getTile( 0,0,1 )
