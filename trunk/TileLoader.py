@@ -43,11 +43,12 @@ true   = 1
 
 class TileLoader:
   def __init__(self, (sizeX, sizeY), url, cacheUrl ):
-    self.cacheUrl = cacheUrl
-    self.sizeX    = sizeX
-    self.sizeY    = sizeY
-    self.baseUrl  = url
-    self.isActive = true
+    self.cacheUrl    = cacheUrl
+    self.sizeX       = sizeX
+    self.sizeY       = sizeY
+    self.baseUrl     = url
+    self.isActive    = true
+    self.loadedTiles = {}
   # end __init__
 
   def activate( self ):
@@ -58,26 +59,85 @@ class TileLoader:
     self.isActive = false
   # end deactivate
 
+  def loadTileFromDisk( self, x,y,z ):
+    fname = self.getFileName( x,y,z )
+    lines = [ string.strip( line ) for line in open( fname, "r" ).readlines()  ]
+    tile = []
+    for line in lines:
+      arr = []
+      for c in line:
+        arr.append( c )
+      tile.append( arr )  
+    return tile
+  # end loadTileFromDisk
+
+  def writeTileToDisk( self, x,y,z ):
+    """ Write a tile to the correct place in cache """
+    tileArr = self.loadedTiles[ (x,y,z) ]
+    self.createDir( x,y,z )
+    fname = self.getFileName( x,y,z )
+    fhandle = open( fname, "w" )
+    for row_num in range( self.sizeY ):
+      fhandle.write( string.join( tileArr[row_num],"" ) )
+      fhandle.write( "\n" )
+    fhandle.close()
+  # end writeTileToDisk 
+
+  def getTile( self, x,y,z ):
+    if not self.isActive:
+      return
+    if self.loadedTiles.has_key( (x,y,z) ):
+      if debug: print "found tile in memory"
+      return self.loadedTiles[ (x,y,z) ]
+    elif self.tileExists( x,y,z ) and self.tileIsCorrectSize( x,y,z ):
+      if debug: print "tile exists and is correct size"
+      self.loadedTiles[ (x,y,z) ] = self.loadTileFromDisk( x,y,z )
+    else:
+      if debug: print "generating tile"
+      self.loadedTiles[ ( x,y,z) ] = self.fetchTile( x,y,z )
+      self.writeTileToDisk( x,y,z )
+  # end getTile
+
   def fetchTile( self, x, y, z ): 
-    pass
+    """ This method must be implemented by the subclass - gets the tile from wherever it gets it """
+    return self.getEmptyTile()
   #end getMap
 
   def tileExists( self, x, y, z ):
-    pass
+    fname = self.getFileName( x,y,z)
+    if os.access( fname, os.R_OK ):
+      return true
+    else:
+      if debug: print "tile does not exist"
+      return false
   # end tileExists
 
   def tileIsCorrectSize( self, x, y, z ):
-    pass
-  # end tileExists
+    fname = self.getFileName( x,y,z )
+    lines = open( fname, "r" ).readlines()
+    if len(lines) == self.sizeY and len( lines[0] ) == self.sizeX +1:
+      return true
+    else:
+      if debug: print "tile is incorrect size"
+      return false
+  # end tileIsCorrectSize
 
-  def cacheTile( self, x, y, z ):
-    pass
-  # end cacheTile
+  def getEmptyTile( self ):
+    arr = []
+    for y in range(self.sizeY):
+        arr.append( ["x"] * self.sizeX )	
+    return arr
+  # end getMepthTile
 
-  def createDir( self, dirStr ):
+  def getFileName( self, x, y, z ):
+    fname = self.cacheUrl + os.sep + str(z) + os.sep + str(x) + os.sep + str(y) + ".txt"
+    return fname
+  # end getFileName
+
+  def createDir( self, x,y,z ):
     """ Creates directory if it doesn't exist """
-    fname = dirStr
-    dirParts = string.split( fname, os.sep )
+    fname = self.getFileName( x,y,z)
+    dirParts = string.split( fname, os.sep )[:-1]
 
     # relative v. absolute
     if fname[0] == os.sep:
@@ -110,5 +170,5 @@ class TileLoader:
 
 if __name__=="__main__":
 	a = TileLoader( (24,24), "abc", "def" )
-        a.createDir( "a/b/c")
-        a.createDir( "/tmp/a/b/c" )
+        a.getTile( 1,1,0 )
+        a.getTile( 1,1,0 )
