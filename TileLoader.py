@@ -42,11 +42,10 @@ false  = 0
 true   = 1
 
 class TileLoader:
-  def __init__(self, (sizeX, sizeY), url, cacheUrl ):
+  def __init__(self, (sizeX, sizeY), cacheUrl ):
     self.cacheUrl    = cacheUrl
     self.sizeX       = sizeX
     self.sizeY       = sizeY
-    self.baseUrl     = url
     self.isActive    = true
     self.loadedTiles = {}
   # end __init__
@@ -97,6 +96,20 @@ class TileLoader:
       self.loadedTiles[ ( x,y,z) ] = self.fetchTile( x,y,z )
       self.writeTileToDisk( x,y,z )
   # end getTile
+
+  def addTextToTile( self,pixX, pixY, text, tileArr ):
+    #pos = self.sizeX * pixY + pixX
+    pos = pixX - len( text )/2
+    if debug:
+      print "pixX = %s, len(text) = %s, pos = %s" % (pixX, len(text), pos)
+    if pos < 0:
+      pos = 0
+    for c in text:
+      tileArr[pixY][pos] = c
+      pos = pos + 1
+    return tileArr
+  # end addTextToTile
+
 
   def fetchTile( self, x, y, z ): 
     """ This method must be implemented by the subclass - gets the tile from wherever it gets it """
@@ -169,6 +182,6 @@ class TileLoader:
 # end class TileLoader
 
 if __name__=="__main__":
-	a = TileLoader( (24,24), "abc", "def" )
+	a = TileLoader( (24,24), "def" )
         a.getTile( 1,1,0 )
         a.getTile( 1,1,0 )
