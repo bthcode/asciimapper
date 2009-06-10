@@ -36,7 +36,6 @@
 import time, sys, os, string, random, math
 import pprint
 from TileLoader import TileLoader
-from TileUtils  import TileUtils
 import KMLParser
 
 false = 0
@@ -51,7 +50,7 @@ class KMLTileLoader( TileLoader ):
     self.kmlPoints    = {}
     self.kmlShapes    = {}
     self.initKML()
-    self.tileUtils    = TileUtils()
+    #self.tileUtils    = TileUtils()
   # end __init__
 
   def fetchTile( self, x, y, z ):

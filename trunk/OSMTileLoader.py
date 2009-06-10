@@ -57,12 +57,15 @@ class OSMTileLoader( TileLoader):
     args = [ '-x', url ]
     wget( args )
 
+    # now try to convert it
+    os.popen( "convert %s %s" % ( pngFile, jpgFile ) )
+
     jpgFile = self.cacheUrl + "/%s/%s/%s.jpg" % ( z,x,y )
-    cmd = """jp2a --size=%sx%s --chars="%s" %s > test.txt""" % (self.sizeX, self.sizeY, self.mapChars, jpgFile )
+    cmd = """jp2a --size=%sx%s --chars="%s" %s > tmp_tile.txt""" % (self.sizeX, self.sizeY, self.mapChars, jpgFile )
     os.popen( cmd )
     row_ctr = 0
     col_ctr = 0
-    f = open( "test.txt", "r" )
+    f = open( "tmp_tile.txt", "r" )
     for line in f.readlines():
         line = string.strip( line )
         for c in line:
@@ -71,6 +74,7 @@ class OSMTileLoader( TileLoader):
         row_ctr = row_ctr + 1
         col_ctr = 0
     #f.close()
+    os.unlink( "tmp_tile.txt" )
     return tileArr
   #end getMap
 
