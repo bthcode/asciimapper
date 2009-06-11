@@ -106,15 +106,15 @@ class TileLoader:
   # end getTile
 
   def addTextToTile( self,pixX, pixY, text, tileArr ):
-    #pos = self.sizeX * pixY + pixX
-    pos = pixX - len( text )/2
-    #if debug:
-    #  print "pixX = %s, len(text) = %s, pos = %s" % (pixX, len(text), pos)
-    if pos < 0:
-      pos = 0
+    x_pos = pixX - len( text )
+    if x_pos < 0:
+      x_pos = 0
+    if pixY < 1:
+      pixY  = 1
     for c in text:
-      tileArr[pixY][pos] = c
-      pos = pos + 1
+      if x_pos < len( tileArr[ pixY ] ):
+        tileArr[pixY][x_pos] = c
+        x_pos = x_pos + 1
     return tileArr
   # end addTextToTile
 
