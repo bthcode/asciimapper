@@ -207,7 +207,19 @@ class TileUtils:
     return ( 180.0 / math.pi * math.atan(0.5 * (math.exp(n) - math.exp(-n))) )
   # end tile2lat
 
+  def isShown( self, lat, lon, x, y, z ):
+    x_tile,y_tile = self.LatLonToTile( lat, lon, z )
+    if x_tile == x or x_tile == x+1:
+      if y_tile == y or y_tile == y+1:
+        return 1
+    return 0
+
+
   def latlon2pixel( self, name, lat_deg, lon_deg, sizeX, sizeY, x,y,z ):
+
+    if not self.isShown( lat_deg, lon_deg, x,y,z ):
+      return None
+    
     meters_x, meters_y = self.LatLonToMeters( lat_deg, lon_deg )
     pixels_x, pixels_y = self.MetersToPixels( meters_x, meters_y, z )
     tile_x, tile_y     = self.PixelsToTile( pixels_x, pixels_y )

@@ -87,6 +87,9 @@ class MapViewer:
     self.layerManager = LayerManager( (0,0,1), ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ) )
     O = OSMTileLoader( ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ) , self.baseUrl, self.cacheUrl )
     self.layerManager.addTileLoader( 10, O )
+
+    K = KMLTileLoader( ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), "us_states.kml", "us_states", 0 )
+    self.layerManager.addTileLoader( 20, K )
     
 
     # BTH TEST:
@@ -129,7 +132,9 @@ class MapViewer:
       elif c == " ":
         x = x + 1 
       else:
-        color = cmap[ c ]
+        # TODO: what do I do about color maps???
+        #color = cmap[ c ]
+        color = curses.color_pair(3)
         self.mainWin.addch( y,x, ord(c), color )
         x = x + 1
   # end addColorStr
