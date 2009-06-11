@@ -36,9 +36,10 @@
 
 import curses, time, sys, os, string, random, math
 import pprint
-from AsciiTileMap import AsciiTileMap
-from KMLTileMap import KMLTileMap
-import KMLParser
+
+from OSMTileLoader import OSMTileLoader
+from KMLTileLoader import KMLTileLoader
+from LayerManager   import LayerManager
 
 false = 0
 true = 1
@@ -80,13 +81,15 @@ class MapViewer:
     self.drawCommandWin()
 
     # tile will always point to north west corner of north west screen tile
-    self.tileMap    = AsciiTileMap( (0,0,1), ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), self.baseUrl, self.cacheUrl )
-    self.stateMap = KMLTileMap( (0,0,1),  ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), "us_states.kml", "us_states",0 )
+    #self.tileMap    = AsciiTileMap( (0,0,1), ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), self.baseUrl, self.cacheUrl )
+    #self.stateMap = KMLTileMap( (0,0,1),  ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), "us_states.kml", "us_states",0 )
+
+    self.layerManager = LayerManager( (0,0,1), ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ) )
+    O = OSMTileLoader( ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ) , self.baseUrl, self.cacheUrl )
+    self.layerManager.addTileLoader( 10, O )
     
 
     # BTH TEST:
-    #self.tileMap.makeFakeTile( "fake_tile.txt" )
-    #self.fake_tile       = open( "fake_tile.txt", "r" ).read()
 
     self.mapLoaded  = None # optimization - don't load if you don't need to
     self.showCities = false
@@ -95,7 +98,6 @@ class MapViewer:
     self.dirty      = true
 
     self.getMap()
-    self.loadKML()
 
     curses.start_color() 
     self.initColors()
@@ -216,7 +218,7 @@ class MapViewer:
           lat = float( args[0] )
           lon = float( args[1] )
           if len( args ) == 2:
-            zoom = self.tileMap.z
+            zoom = self.layerManager.z
           else:
             zoom = int( args[2] )
           valid_lla = true
@@ -228,7 +230,7 @@ class MapViewer:
         self.commandWin.addstr( 0, 0, prompt2, curses.A_BOLD )
         self.commandWin.move( 0, 0 + len(prompt2) )
         res = self.commandWin.getstr( 0, 0+len(prompt2) )
-    self.tileMap.moveToPoint( lat, lon, zoom )
+    self.layerManager.moveToPoint( lat, lon, zoom )
     self.drawCommandWin()
     
   #end getLocation
@@ -289,8 +291,8 @@ class MapViewer:
   # end drawLine 
 
   def drawLatLonLine( self, latA, lonA, latB, lonB ):
-    resA = self.tileMap.latlon2pixel( "A", latA, lonA, self.tileMap.z )
-    resB = self.tileMap.latlon2pixel( "B", latB, lonB, self.tileMap.z ) 
+    resA = self.layerManager.latlon2pixel( "A", latA, lonA, self.layerManager.z )
+    resB = self.layerManager.latlon2pixel( "B", latB, lonB, self.layerManager.z ) 
     self.drawLine( resA[1], resA[0], resB[1], resB[0], '.' )    
   # end drawLatLonLine
 
@@ -317,8 +319,8 @@ class MapViewer:
     for key, value in self.kmlPoints.items():
       lat = float( value[ "LAT" ] )
       lon = float( value[ "LON" ] )
-      if self.tileMap.z > value[ "ZOOMLEVEL" ]:
-        res = self.tileMap.latlon2pixel( value["NAME" ], lat, lon, self.tileMap.z )
+      if self.layerManager.z > value[ "ZOOMLEVEL" ]:
+        res = self.layerManager.latlon2pixel( value["NAME" ], lat, lon, self.layerManager.z )
 
         # TODO: This logic relies on error handling to determine whether
         #       a point is "onscreen" - do something better
@@ -336,8 +338,6 @@ class MapViewer:
       self.addColorString( self.mainMap )
     else:
       self.mainWin.clear()
-    # BTH Test
-    #self.addColorString( self.fake_tile )
     self.drawLines()
     self.drawCities()
   # end drawMap
@@ -355,7 +355,7 @@ class MapViewer:
   # end canFitString
 
   def getMap(self):
-    self.mainMap = self.tileMap.getMap()
+    self.mainMap = self.layerManager.getMap()
   # end getMap 
 
   def nextFrame( self ):
@@ -372,22 +372,22 @@ class MapViewer:
         self.getLocation()
       elif c == ord('+'):
         self.dirty = true
-        self.tileMap.zoomIn()
+        self.layerManager.zoomIn()
       elif c == ord('-'):
         self.dirty = true
-        self.tileMap.zoomOut()
+        self.layerManager.zoomOut()
       elif c == ord( 'j' ) or c == curses.KEY_LEFT:
         self.dirty = true
-        self.tileMap.moveWest()
+        self.layerManager.moveWest()
       elif c == ord( 'k' ) or c == curses.KEY_RIGHT:
         self.dirty = true
-        self.tileMap.moveEast()
+        self.layerManager.moveEast()
       elif c == ord( 'm' ) or c == curses.KEY_DOWN:
         self.dirty = true
-        self.tileMap.moveSouth()
+        self.layerManager.moveSouth()
       elif c == ord( 'i' ) or c == curses.KEY_UP:
         self.dirty = true
-        self.tileMap.moveNorth()
+        self.layerManager.moveNorth()
       elif c == ord( 'l' ):
         self.dirty = true
         if self.showLines:

@@ -37,7 +37,7 @@ import curses, time, sys, os, string, random, math
 import pprint
 from TileUtils import TileUtils
 
-debug  = 1
+debug  = 0
 false  = 0
 true   = 1
 
@@ -46,17 +46,21 @@ class TileLoader:
     self.cacheUrl    = cacheUrl
     self.sizeX       = sizeX
     self.sizeY       = sizeY
-    self.isActive    = true
+    self.is_active    = true
     self.loadedTiles = {}
     self.tileUtils    = TileUtils()
   # end __init__
 
+  def isActive( self ):
+    return self.is_active
+  # end isActive
+
   def activate( self ):
-    self.isActive = true
+    self.is_active = true
   # end activate
 
   def deactivate( self ):
-    self.isActive = false
+    self.is_active = false
   # end deactivate
 
   def loadTileFromDisk( self, x,y,z ):
@@ -84,7 +88,8 @@ class TileLoader:
   # end writeTileToDisk 
 
   def getTile( self, x,y,z ):
-    if not self.isActive:
+    if not self.is_active:
+      if debug: print "OSMTileLoader inactive"
       return
     if self.loadedTiles.has_key( (x,y,z) ):
       if debug: print "found tile in memory"
@@ -92,17 +97,19 @@ class TileLoader:
     elif self.tileExists( x,y,z ) and self.tileIsCorrectSize( x,y,z ):
       if debug: print "tile exists and is correct size"
       self.loadedTiles[ (x,y,z) ] = self.loadTileFromDisk( x,y,z )
+      return self.loadedTiles[ (x,y,z) ]
     else:
       if debug: print "generating tile"
       self.loadedTiles[ ( x,y,z) ] = self.fetchTile( x,y,z )
+      return self.loadedTiles[ (x,y,z) ]
       self.writeTileToDisk( x,y,z )
   # end getTile
 
   def addTextToTile( self,pixX, pixY, text, tileArr ):
     #pos = self.sizeX * pixY + pixX
     pos = pixX - len( text )/2
-    if debug:
-      print "pixX = %s, len(text) = %s, pos = %s" % (pixX, len(text), pos)
+    #if debug:
+    #  print "pixX = %s, len(text) = %s, pos = %s" % (pixX, len(text), pos)
     if pos < 0:
       pos = 0
     for c in text:
@@ -141,7 +148,7 @@ class TileLoader:
     for y in range(self.sizeY):
         arr.append( [" "] * self.sizeX )	
     return arr
-  # end getMepthTile
+  # end getEmptyTile
 
   def getFileName( self, x, y, z ):
     fname = self.cacheUrl + os.sep + str(z) + os.sep + str(x) + os.sep + str(y) + ".txt"
