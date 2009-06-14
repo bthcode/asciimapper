@@ -88,6 +88,52 @@ class KMLTileLoader( TileLoader ):
             self.kmlShapes[ c.name ] = { "NAME" : c.name, "ZOOMLEVEL" : self.zoomLevel, "POINTS" : c.linear_ring.points }
   # end loadKML
 
+  def drawLatLonLine( self, latA, lonA, latB, lonB ):
+    resA = self.tileUtils.latlon2pixel( "A", latA, lonA, self.sizeX, self.sizeY, x, y, z )
+    resB = self.tileUtils.latlon2pixel( "B", latB, lonB, self.sizeX, self.sizeY, x, y, z )
+    self.drawLine( resA[1], resA[0], resB[1], resB[0], '.' )    
+  # end drawLatLonLine
+
+  def drawLines( self ):
+    for shape in self.kmlShapes.items():
+      shape = shape[1]
+      points = shape["POINTS"]
+      last_point = points[0]
+      for point in shape["POINTS"][1:]:
+        self.drawLatLonLine( last_point.lat,last_point.lon,point.lat,point.lon );
+        last_point = point
+  #end showLine
+
+  def drawLine( self, fromY, fromX, toY, toX, ch ):
+    """ draw from YX to YX using the character ch """
+    deltaY = toY - fromY
+    deltaX = toX - fromX
+    pts = []
+    pts.append( [fromX, fromY] )
+    direction = 1
+
+    if abs(deltaX) > abs(deltaY):
+      if toX - fromX < 0:
+        direction = -1
+      for x in range( fromX+1, toX, direction ):
+        pts.append( [x, fromY + deltaY * (( x-fromX ) / float(deltaX))  ] )
+    else:
+      if toY - fromY < 0:
+        direction = -1
+      for y in range( fromY+1, toY, direction ):
+        pts.append( [ fromX + deltaX * (( y-fromY ) / float(deltaY)), y ] )
+
+    for pt in pts:
+      if self.pixelIsShown( pt[0], pt[1] ):
+        try:
+          self.mainWin.addch( int(pt[1]), int(pt[0]), ord(ch), curses.color_pair(8) )
+        except:
+          pass
+    self.mainWin.refresh()
+  # end drawLine 
+
+
+
 # end class KMLTileMap
 
 if __name__=="__main__":
