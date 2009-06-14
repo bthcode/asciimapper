@@ -34,7 +34,7 @@
 ######################################################################
 
 
-import curses, time, sys, os, string, random, math
+import curses, time, sys, os, string, random, math, StringIO
 import pprint
 
 from OSMTileLoader import OSMTileLoader
@@ -88,11 +88,13 @@ class MapViewer:
     O = OSMTileLoader( ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ) , self.baseUrl, self.cacheUrl )
     self.layerManager.addTileLoader( 10, O )
 
+    self.kmlLayerManager = LayerManager( (0,0,1), ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ) )
     K = KMLTileLoader( ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), "us_states.kml", "us_states", 0 )
-    self.layerManager.addTileLoader( 20, K )
-    
+    self.kmlLayerManager.addTileLoader( 20, K )
+    J = KMLTileLoader( ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), "countries.kml", "countries", 0 )
+    self.kmlLayerManager.addTileLoader( 30, J )
 
-    # BTH TEST:
+    self.lms = [ self.layerManager, self.kmlLayerManager ] 
 
     self.mapLoaded  = None # optimization - don't load if you don't need to
     self.showCities = false
@@ -133,8 +135,8 @@ class MapViewer:
         x = x + 1 
       else:
         # TODO: what do I do about color maps???
-        #color = cmap[ c ]
-        color = curses.color_pair(3)
+        color = cmap[ c ]
+        #color = curses.color_pair(3)
         self.mainWin.addch( y,x, ord(c), color )
         x = x + 1
   # end addColorStr
@@ -314,6 +316,28 @@ class MapViewer:
   #end showLine
 
   def drawCities( self ):
+    if not self.showCities:
+      return
+    f = open( "m_out.txt", "w" )
+    sizeY = self.mainWinMaxY
+    sizeX = self.mainWinMaxX
+    #self.mainWin.addstr( 0,0, self.overlayMap )    
+    f.write( self.overlayMap )
+    s = StringIO.StringIO( self.overlayMap ) 
+    lines  = s.readlines()
+    for i in range( len( lines ) ):
+      for j in range( len( lines[i] ) -1 ):
+        if lines[i][j] != " ":
+          try:
+            self.mainWin.addch( i,j, ord( lines[i][j] ) )
+          except:
+            pass
+      col = 0
+      
+  # end drawCities
+
+
+  def OLDdrawCities( self ):
     """ draw cities """
     # 1. Check if we have a kml overlay tile already created
     # 2. If so, go to the correct screen position and call addColorSting
@@ -361,6 +385,7 @@ class MapViewer:
 
   def getMap(self):
     self.mainMap = self.layerManager.getMap()
+    self.overlayMap = self.kmlLayerManager.getMap()
   # end getMap 
 
   def nextFrame( self ):
@@ -369,7 +394,6 @@ class MapViewer:
 
   def run( self ):
     while 1:
-      time.sleep(0.5)
       c = self.win.getch()
       if c == ord( 'q' ):
         break
@@ -377,22 +401,34 @@ class MapViewer:
         self.getLocation()
       elif c == ord('+'):
         self.dirty = true
-        self.layerManager.zoomIn()
+        #self.layerManager.zoomIn()
+        for lm in self.lms:
+          lm.zoomIn()
       elif c == ord('-'):
         self.dirty = true
-        self.layerManager.zoomOut()
+        #self.layerManager.zoomOut()
+        for lm in self.lms:
+          lm.zoomeOut()
       elif c == ord( 'j' ) or c == curses.KEY_LEFT:
         self.dirty = true
-        self.layerManager.moveWest()
+        #self.layerManager.moveWest()
+        for lm in self.lms:
+          lm.moveWest()
       elif c == ord( 'k' ) or c == curses.KEY_RIGHT:
         self.dirty = true
-        self.layerManager.moveEast()
+        #self.layerManager.moveEast()
+        for lm in self.lms:
+          lm.moveEast()
       elif c == ord( 'm' ) or c == curses.KEY_DOWN:
         self.dirty = true
-        self.layerManager.moveSouth()
+        #self.layerManager.moveSouth()
+        for lm in self.lms:
+          lm.moveSouth()
       elif c == ord( 'i' ) or c == curses.KEY_UP:
         self.dirty = true
-        self.layerManager.moveNorth()
+        #self.layerManager.moveNorth()
+        for lm in self.lms:
+          lm.moveNorth()
       elif c == ord( 'l' ):
         self.dirty = true
         if self.showLines:

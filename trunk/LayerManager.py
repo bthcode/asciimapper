@@ -207,7 +207,7 @@ class LayerManager:
     tile = self.getEmptyTile(self.sizeX, self.sizeY)
     keys = self.tileLoaders.keys()
     keys.sort()
-    # 1. Iterate through active loaders building up tile
+    # 1. Iterate through higher layers adding non-transparent pixels
     for key in keys:
       if self.tileLoaders[ key ].isActive():
         tile_arr = self.tileLoaders[ key ].getTile( x,y,z )
