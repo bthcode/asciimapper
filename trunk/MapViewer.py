@@ -269,53 +269,7 @@ class MapViewer:
     return false;
   # end pixelIsShown
 
-  def drawLine( self, fromY, fromX, toY, toX, ch ):
-    """ draw from YX to YX using the character ch """
-    deltaY = toY - fromY
-    deltaX = toX - fromX
-    pts = []
-    pts.append( [fromX, fromY] )
-    direction = 1
-
-    if abs(deltaX) > abs(deltaY):
-      if toX - fromX < 0:
-        direction = -1
-      for x in range( fromX+1, toX, direction ):
-        pts.append( [x, fromY + deltaY * (( x-fromX ) / float(deltaX))  ] )
-    else:
-      if toY - fromY < 0:
-        direction = -1
-      for y in range( fromY+1, toY, direction ):
-        pts.append( [ fromX + deltaX * (( y-fromY ) / float(deltaY)), y ] )
-
-    for pt in pts:
-      if self.pixelIsShown( pt[0], pt[1] ):
-        try:
-          self.mainWin.addch( int(pt[1]), int(pt[0]), ord(ch), curses.color_pair(8) )
-        except:
-          pass
-    self.mainWin.refresh()
-  # end drawLine 
-
-  def drawLatLonLine( self, latA, lonA, latB, lonB ):
-    resA = self.layerManager.latlon2pixel( "A", latA, lonA, self.layerManager.z )
-    resB = self.layerManager.latlon2pixel( "B", latB, lonB, self.layerManager.z ) 
-    self.drawLine( resA[1], resA[0], resB[1], resB[0], '.' )    
-  # end drawLatLonLine
-
-  def drawLines( self ):
-    if not self.showLines:
-      return
-    for shape in self.kmlShapes.items():
-      shape = shape[1]
-      points = shape["POINTS"]
-      last_point = points[0]
-      for point in shape["POINTS"][1:]:
-        self.drawLatLonLine( last_point.lat,last_point.lon,point.lat,point.lon );
-        last_point = point
-  #end showLine
-
-  def drawCities( self ):
+  def drawOverlay( self ):
     if not self.showCities:
       return
     f = open( "m_out.txt", "w" )
@@ -334,7 +288,7 @@ class MapViewer:
             pass
       col = 0
       
-  # end drawCities
+  # end drawOverlay
 
 
   def OLDdrawCities( self ):
@@ -367,8 +321,7 @@ class MapViewer:
       self.addColorString( self.mainMap )
     else:
       self.mainWin.clear()
-    self.drawLines()
-    self.drawCities()
+    self.drawOverlay()
   # end drawMap
 
   def drawMainWindow(self):
@@ -408,7 +361,7 @@ class MapViewer:
         self.dirty = true
         #self.layerManager.zoomOut()
         for lm in self.lms:
-          lm.zoomeOut()
+          lm.zoomOut()
       elif c == ord( 'j' ) or c == curses.KEY_LEFT:
         self.dirty = true
         #self.layerManager.moveWest()
