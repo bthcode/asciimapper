@@ -54,6 +54,8 @@ class KMLTileLoader( TileLoader ):
   # end __init__
 
   def fetchTile( self, x, y, z ):
+    f = open( "k_out.txt", "w" )
+    f.write( "Trying to build kml tile: %s %s %s\n" % ( x,y,z ) )
     tileArr = self.getEmptyTile()
     #print tileStr
     for key, value in self.kmlPoints.items():
@@ -61,12 +63,17 @@ class KMLTileLoader( TileLoader ):
       lon = float( value[ "LON" ] )
       # returns None if point does not intersect
       res = self.tileUtils.latlon2pixel( value["NAME" ], lat, lon, self.sizeX, self.sizeY, x,y, z )
+      if res != None:
+        f.write( "lat=%s lon=%s self.sizeX=%s self.sizeY=%s x=%s y=%s z=%s res[0]=%s res[1]=%s\n" % ( lat, lon, self.sizeX, self.sizeY, x, y, z, res[0], res[1] ) )
+      else:
+        f.write( "lat=%s lon=%s self.sizeX=%s self.sizeY=%s x=%s y=%s z=%s Not Shown\n" % ( lat, lon, self.sizeX, self.sizeY, x, y, z ) )
 
       # TODO: This logic relies on error handling to determine whether
       #       a point is "onscreen" - do something better
       if res != None:
           pixX, pixY = res[0], res[1]
           tileArr = self.addTextToTile( pixX, pixY, value[ "NAME" ], tileArr )
+    f.close()
     return tileArr
   # end createTile
 
@@ -86,4 +93,4 @@ class KMLTileLoader( TileLoader ):
 if __name__=="__main__":
   #def __init__(self, (x,y,z), (sizeX, sizeY), kmlFile, cacheUrl ):
   T = KMLTileLoader((55,55),  "us_states.kml", "test_cache", 0 )
-  print T.getTile( 0,0,1 )
+  print T.getTile( 1,2,3 )

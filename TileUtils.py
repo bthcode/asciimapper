@@ -209,11 +209,13 @@ class TileUtils:
 
   def isShown( self, lat, lon, x, y, z ):
     x_tile,y_tile = self.LatLonToTile( lat, lon, z )
-    if x_tile == x or x_tile == x+1:
-      if y_tile == y or y_tile == y+1:
-        return 1
+    # orig
+    #if x_tile == x or x_tile == x+1:
+    #  if y_tile == y or y_tile == y+1:
+    if x_tile == x and y_tile == y:
+      return 1
     return 0
-
+  #end isShown
 
   def latlon2pixel( self, name, lat_deg, lon_deg, sizeX, sizeY, x,y,z ):
 
