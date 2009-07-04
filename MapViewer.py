@@ -158,24 +158,6 @@ class MapViewer:
     self.commandWin.addstr( 0, 0, helpString, curses.A_BOLD )
   # end drawCommandWin
 
-
-  def loadKML( self ):
-    """ Load cities and countries from a kml file - ./kml_files.txt lists kml files to load"""
-    kmlFiles = [ string.strip( line ) for line in open( self.kmlFiles, "r" ).readlines() ] 
-    for line in kmlFiles:
-      if line[0] == "#":
-        pass
-      else:
-        lineParts = string.split( line, "," )
-        reader = KMLParser.kmlReader( lineParts[1] )
-        coords = reader.getCoordinates()  
-        for c in coords:
-          if c.has_point and c.point.lat and c.point.lon:
-            self.kmlPoints[ c.name ] = { "LON" : c.point.lon, "LAT" : c.point.lat, "NAME": c.name, "ZOOMLEVEL" : int( lineParts[0] ) }
-          if c.has_linear_ring:
-            self.kmlShapes[ c.name ] = { "NAME" : c.name, "ZOOMLEVEL" : int( lineParts[0] ), "POINTS" : c.linear_ring.points }
-  # end getCities
-
   def loadFile( self ):
     self.commandWin.clear()  
     prompt = "Enter Path to File: "
@@ -262,21 +244,12 @@ class MapViewer:
       q = q + 1
   #end initColors
 
-  def pixelIsShown( self, px, py ):
-    self.mainWinMaxY, self.mainWinMaxX = self.mainWin.getmaxyx()
-    if px > 0 and px < self.mainWinMaxX and py > 0 and py < self.mainWinMaxY:
-      return true
-    return false;
-  # end pixelIsShown
 
   def drawOverlay( self ):
     if not self.showCities:
       return
-    f = open( "m_out.txt", "w" )
     sizeY = self.mainWinMaxY
     sizeX = self.mainWinMaxX
-    #self.mainWin.addstr( 0,0, self.overlayMap )    
-    f.write( self.overlayMap )
     s = StringIO.StringIO( self.overlayMap ) 
     lines  = s.readlines()
     for i in range( len( lines ) ):
@@ -287,34 +260,8 @@ class MapViewer:
           except:
             pass
       col = 0
-      
   # end drawOverlay
 
-
-  def OLDdrawCities( self ):
-    """ draw cities """
-    # 1. Check if we have a kml overlay tile already created
-    # 2. If so, go to the correct screen position and call addColorSting
-    # 3. If not, create one, then load it and call addColorString
-    # 123456
-    if not self.showCities:
-      return
-    for key, value in self.kmlPoints.items():
-      lat = float( value[ "LAT" ] )
-      lon = float( value[ "LON" ] )
-      if self.layerManager.z > value[ "ZOOMLEVEL" ]:
-        res = self.layerManager.latlon2pixel( value["NAME" ], lat, lon, self.layerManager.z )
-
-        # TODO: This logic relies on error handling to determine whether
-        #       a point is "onscreen" - do something better
-        if res != None:
-          pixX, pixY = res[0], res[1]
-          try:
-            self.mainWin.addstr( pixY, pixX, value[ "NAME" ], curses.color_pair(7) )
-          except:
-            pass
-  # end drawCities
-    
   def drawMainWin( self ):
     """ draw a map in the map window """
     if self.showMap:
