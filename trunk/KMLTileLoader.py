@@ -54,8 +54,6 @@ class KMLTileLoader( TileLoader ):
   # end __init__
 
   def fetchTile( self, x, y, z ):
-    f = open( "k_out.txt", "w" )
-    f.write( "Trying to build kml tile: %s %s %s\n" % ( x,y,z ) )
     tileArr = self.getEmptyTile()
     #print tileStr
     for key, value in self.kmlPoints.items():
@@ -63,17 +61,12 @@ class KMLTileLoader( TileLoader ):
       lon = float( value[ "LON" ] )
       # returns None if point does not intersect
       res = self.tileUtils.latlon2pixel( value["NAME" ], lat, lon, self.sizeX, self.sizeY, x,y, z )
-      if res != None:
-        f.write( "lat=%s lon=%s self.sizeX=%s self.sizeY=%s x=%s y=%s z=%s res[0]=%s res[1]=%s\n" % ( lat, lon, self.sizeX, self.sizeY, x, y, z, res[0], res[1] ) )
-      else:
-        f.write( "lat=%s lon=%s self.sizeX=%s self.sizeY=%s x=%s y=%s z=%s Not Shown\n" % ( lat, lon, self.sizeX, self.sizeY, x, y, z ) )
 
       # TODO: This logic relies on error handling to determine whether
       #       a point is "onscreen" - do something better
       if res != None:
           pixX, pixY = res[0], res[1]
           tileArr = self.addTextToTile( pixX, pixY, value[ "NAME" ], tileArr )
-    f.close()
     return tileArr
   # end createTile
 
@@ -88,19 +81,19 @@ class KMLTileLoader( TileLoader ):
             self.kmlShapes[ c.name ] = { "NAME" : c.name, "ZOOMLEVEL" : self.zoomLevel, "POINTS" : c.linear_ring.points }
   # end loadKML
 
-  def drawLatLonLine( self, latA, lonA, latB, lonB ):
+  def drawLatLonLine( self, latA, lonA, latB, lonB, x, y, z ):
     resA = self.tileUtils.latlon2pixel( "A", latA, lonA, self.sizeX, self.sizeY, x, y, z )
     resB = self.tileUtils.latlon2pixel( "B", latB, lonB, self.sizeX, self.sizeY, x, y, z )
-    self.drawLine( resA[1], resA[0], resB[1], resB[0], '.' )    
+    self.drawLine( resA[1], resA[0], resB[1], resB[0], '.', x, y, z )    
   # end drawLatLonLine
 
-  def drawLines( self ):
+  def drawLines( self, x, y, z ):
     for shape in self.kmlShapes.items():
       shape = shape[1]
       points = shape["POINTS"]
       last_point = points[0]
       for point in shape["POINTS"][1:]:
-        self.drawLatLonLine( last_point.lat,last_point.lon,point.lat,point.lon );
+        self.drawLatLonLine( last_point.lat,last_point.lon,point.lat,point.lon, x, y, z );
         last_point = point
   #end showLine
 
@@ -132,6 +125,12 @@ class KMLTileLoader( TileLoader ):
     self.mainWin.refresh()
   # end drawLine 
 
+  def pixelIsShown( self, px, py ):
+    self.mainWinMaxY, self.mainWinMaxX = self.mainWin.getmaxyx()
+    if px > 0 and px < self.mainWinMaxX and py > 0 and py < self.mainWinMaxY:
+      return true
+    return false;
+  # end pixelIsShown
 
 
 # end class KMLTileMap
