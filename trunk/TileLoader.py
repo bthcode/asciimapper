@@ -190,6 +190,6 @@ class TileLoader:
 # end class TileLoader
 
 if __name__=="__main__":
-	a = TileLoader( (24,24), "def" )
-        a.getTile( 1,1,0 )
-        a.getTile( 1,1,0 )
+    a = TileLoader( (24,24), "def" )
+    a.getTile( 1,1,0 )
+    a.getTile( 1,1,0 )
