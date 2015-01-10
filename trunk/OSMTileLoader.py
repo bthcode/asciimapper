@@ -61,7 +61,8 @@ class OSMTileLoader( TileLoader):
     os.popen( "convert %s %s" % ( pngFile, jpgFile ) )
 
     jpgFile = self.cacheUrl + "/%s/%s/%s.jpg" % ( z,x,y )
-    cmd = """jp2a --size=%sx%s --chars="%s" %s > tmp_tile.txt""" % (self.sizeX, self.sizeY, self.mapChars, jpgFile )
+    cmd = """python ./jp2a.py --width=%s --height=%s --chars="%s" %s > tmp_tile.txt""" % (self.sizeX, self.sizeY, self.mapChars, jpgFile )
+    #cmd = """jp2a --size=%sx%s --chars="%s" %s > tmp_tile.txt""" % (self.sizeX, self.sizeY, self.mapChars, jpgFile )
     os.popen( cmd )
     row_ctr = 0
     col_ctr = 0
