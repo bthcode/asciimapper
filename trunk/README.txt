@@ -54,21 +54,9 @@ Requirements:
 ------------
 
 1. Python
-2. jp2a
-3. Imagemagick convert
 
- Your distro should have come with python.  The others you may have to 
-  install:
-
- Getting the requirements on RPM based distros:
-  sudo yum install jp2a
-  sudo yum install imagemagick
-
- Getting the requirements on Debian / Ubuntu:
-  sudo apt-get install jp2a
-  sudo apt-get install imagemagick
-
- Getting the requirements on Windows:
+Does this work on Windows?:
+--------------------------
   I have no idea.  Seems hard to me.
 
 Running it:

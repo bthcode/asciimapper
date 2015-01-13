@@ -106,15 +106,16 @@ def load_and_scale_image( url, ascii_chars,  width=None, height=None, grayscale=
             image_as_ascii.append(c)
     else:   
         # 5B. Color Loop
-        import ipdb; ipdb.set_trace()
+        print "color not implemented"
 
     # 6. Prepare output
+    outstr = []
     for c in range(0, len(image_as_ascii), output_width):
-        print string.join(image_as_ascii[c:c+output_width], "" ) 
+        t = string.join(image_as_ascii[c:c+output_width], "" )
+        outstr.extend([t])
+    return outstr
 
 
-
-    return None
 # end load_and_scale_image
  
 if __name__=="__main__":
@@ -138,7 +139,9 @@ if __name__=="__main__":
     if args.colors:
         grayscale = False
 
-    load_and_scale_image( args.url, args.chars, width=args.width, height=args.height, grayscale=grayscale )
+    outstr = load_and_scale_image( args.url, args.chars, width=args.width, height=args.height, grayscale=grayscale )
     
+    for row in outstr:
+        print row
 
 
