@@ -38,6 +38,7 @@ import pprint
 from Wget import *
 from TileMap import TileMap
 from TileLoader import TileLoader
+import img_to_aa
 
 false = 0
 true = 1
@@ -52,30 +53,20 @@ class OSMTileLoader( TileLoader):
   def fetchTile( self, x, y, z ): 
     tileArr = self.getEmptyTile()
     pngFile = self.cacheUrl + "/%s/%s/%s.png" % ( z,x,y )
-    jpgFile = self.cacheUrl + "/%s/%s/%s.jpg" % ( z,x,y )
     url = self.baseUrl + "/%s/%s/%s.png" % ( z,x,y )
     args = [ '-x', url ]
     wget( args )
 
-    # now try to convert it
-    os.popen( "convert %s %s" % ( pngFile, jpgFile ) )
-
-    jpgFile = self.cacheUrl + "/%s/%s/%s.jpg" % ( z,x,y )
-    cmd = """python ./jp2a.py --width=%s --height=%s --chars="%s" %s > tmp_tile.txt""" % (self.sizeX, self.sizeY, self.mapChars, jpgFile )
-    #cmd = """jp2a --size=%sx%s --chars="%s" %s > tmp_tile.txt""" % (self.sizeX, self.sizeY, self.mapChars, jpgFile )
-    os.popen( cmd )
+    # convert to ascii
     row_ctr = 0
     col_ctr = 0
-    f = open( "tmp_tile.txt", "r" )
-    for line in f.readlines():
-        line = string.strip( line )
+    img_text = img_to_aa.load_and_scale_image( pngFile, self.mapChars, width=self.sizeX, height=self.sizeY, grayscale=True ) 
+    for line in img_text:
         for c in line:
             tileArr[ row_ctr ][ col_ctr ] = c
             col_ctr = col_ctr+1
         row_ctr = row_ctr + 1
         col_ctr = 0
-    #f.close()
-    os.unlink( "tmp_tile.txt" )
     return tileArr
   #end getMap
 
