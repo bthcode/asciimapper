@@ -41,6 +41,7 @@ true = 1
 
 class TileMap:
   def __init__(self, (x,y,z), (sizeX, sizeY), cacheUrl ):
+    self.grid_x       = 4
     self.tileStr      = None
     self.cacheUrl     = cacheUrl
     self.loadedTiles  = {}
@@ -404,31 +405,78 @@ class TileMap:
     y = self.y
     z = self.z
 
+    grid_x = self.grid_x
+
     self.curMap = ""
 
+    topLeft     = ( (x,y,z) )
+    prev = topLeft
+    self.cur_tiles = [ [topLeft] ]
+    for i in range( grid_x ):
+        for j in range( grid_x ):
+            nextTile = self.TileToEast( prev )
+            self.cur_tiles[-1].append( nextTile )
+            prev = nextTile
+        nextTile = self.TileToSouth( self.cur_tiles[-1][0] )
+        self.cur_tiles.append( [nextTile] )
+        prev = nextTile
+            
+             
+
     # 1. Figure out which tiles we want
+    '''
     topLeft     = ( (x,y,z) )
     topRight    = self.TileToEast( topLeft )
     bottomLeft  = self.TileToSouth( topLeft )
     bottomRight = self.TileToEast( bottomLeft )
+    '''
+    '''
+    topLeft = cur_tiles[0][0]
+    topRight = cur_tiles[0][1]
+    bottomLeft = cur_tiles[1][0]
+    bottomRight = cur_tiles[1][1] 
+    '''
 
+    for i in range( grid_x ):
+        for j in range( grid_x ):
+            self.getMapTile( self.cur_tiles[i][j] )
+
+    '''
     # 2. Load them into memory if they're not already there
     self.getMapTile( topLeft )
     self.getMapTile( topRight )
     self.getMapTile( bottomLeft )
     self.getMapTile( bottomRight )
+    '''
 
+    self.cur_map_tiles = []
+    for i in range( grid_x ):
+        self.cur_map_tiles.append( [] )
+        for j in range( grid_y ):
+            self.cur_map_tiles[-1].append( self.loadedTiles[ self.cur_tiles[i][j] ] )
 
+    '''
     topLeft_map     = self.loadedTiles[ topLeft     ]
     topRight_map    = self.loadedTiles[ topRight    ]
     bottomLeft_map  = self.loadedTiles[ bottomLeft  ]
     bottomRight_map = self.loadedTiles[ bottomRight ]
+    '''
+    for j in range( grid_x ):
+        start_map = self.cur_map_tiles[j][0]
+        for i in range( len( start_map ) ):
+            line = ''
+            for y in range( grid_x ):
+                line = line + self.cur_map_tiles[j][y][i]
+ 
+            self.curMap = self.curMap + line + "\n"
 
+    '''
     # 3. now put them together
     for i in range( len( topLeft_map ) ):
         self.curMap = self.curMap + topLeft_map[i] + topRight_map[i] + "\n"
     for i in range( len( bottomLeft_map ) ):
         self.curMap = self.curMap + bottomLeft_map[i] + bottomRight_map[i] + "\n"
+    '''
 
     return self.curMap
   #end getMap

@@ -46,7 +46,8 @@ true = 1
 debug = 0
 
 class LayerManager:
-  def __init__(self, (x,y,z), (sizeX, sizeY) ):
+  def __init__(self, (x,y,z), (sizeX, sizeY), grid_x ):
+    self.grid_x       = grid_x
     self.tileStr      = None
     self.x            = x 
     self.y            = y
@@ -158,7 +159,7 @@ class LayerManager:
 
   # end moveToPoint
 
-  def getMap( self ):
+  def getMap_orig( self ):
     """ Get four tiles - x,y,z points to north west corner of north west tile """
     if self.mapLoaded:
       return self.curMap
@@ -191,6 +192,61 @@ class LayerManager:
         self.curMap = self.curMap + string.join(topLeft_map[i],"") + string.join(topRight_map[i], "") + "\n"
     for i in range( len( bottomLeft_map ) ):
         self.curMap = self.curMap + string.join(bottomLeft_map[i],"") + string.join(bottomRight_map[i],"") + "\n"
+
+    return self.curMap
+  #end getMap
+
+  def getMap( self ):
+    """ Get four tiles - x,y,z points to north west corner of north west tile """
+    if self.mapLoaded:
+      return self.curMap
+
+    x = self.x
+    y = self.y
+    z = self.z
+
+    grid_x = self.grid_x
+
+    self.curMap = ""
+
+    topLeft     = ( (x,y,z) )
+    prev = topLeft
+    self.cur_tiles = [ [topLeft] ]
+    for i in range( grid_x ):
+        for j in range( grid_x ):
+            nextTile = self.tileUtils.TileToEast( prev )
+            self.cur_tiles[-1].append( nextTile )
+            prev = nextTile
+        nextTile = self.tileUtils.TileToSouth( self.cur_tiles[-1][0] )
+        self.cur_tiles.append( [nextTile] )
+        prev = nextTile
+            
+             
+
+    # 1. Figure out which tiles we want
+    for i in range( grid_x ):
+        for j in range( grid_x ):
+            self.getMapTile( self.cur_tiles[i][j] )
+
+
+    self.cur_map_tiles = []
+    for i in range( grid_x ):
+        self.cur_map_tiles.append( [] )
+        for j in range( grid_x ):
+            self.cur_map_tiles[-1].append( self.loadedTiles[ self.cur_tiles[i][j] ] )
+
+
+    for j in range( grid_x ):
+        start_map = self.cur_map_tiles[j][0]
+        for i in range( len( start_map ) ):
+            line = ''
+            for y in range( grid_x ):
+                tmp_tile = self.cur_map_tiles[j][y]
+                row = tmp_tile[i]
+                line = line + string.join(row, '' )
+ 
+            self.curMap = self.curMap + line + "\n"
+
 
     return self.curMap
   #end getMap
