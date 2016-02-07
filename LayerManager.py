@@ -46,6 +46,7 @@ true = 1
 debug = 0
 
 class LayerManager:
+  ''' Holds all sub-layers, handles movement commands '''
   def __init__(self, (x,y,z), (sizeX, sizeY), grid_x ):
     self.grid_x       = grid_x
     self.tileStr      = None

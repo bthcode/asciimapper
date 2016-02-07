@@ -219,7 +219,11 @@ class kmlReader:
 # end class kmlReader
 
 if __name__=="__main__":
-  fname = sys.argv[1]
+  import argparse
+  parser = argparse.ArgumentParser('')
+  parser.add_argument('filename')
+  args = parser.parse_args()
+  fname = args.filename
   reader = kmlReader( fname )
   for c in reader.getCoordinates():
     #print c.name, c.point.lat, c.point.lon

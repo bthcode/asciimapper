@@ -84,16 +84,16 @@ class MapViewer:
     #self.tileMap    = AsciiTileMap( (0,0,1), ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), self.baseUrl, self.cacheUrl )
     #self.stateMap = KMLTileMap( (0,0,1),  ( self.mainWinMaxX/2 -1, self.mainWinMaxY/2 -1 ), "us_states.kml", "us_states",0 )
 
-    grid_x = 3
+    grid_x = 4
 
     tile_x = self.mainWinMaxX / grid_x -1
     tile_y = self.mainWinMaxY / grid_x 
 
-    self.layerManager = LayerManager( (0,0,1), ( tile_x, tile_y ), grid_x )
+    self.layerManager = LayerManager( (0,0,2), ( tile_x, tile_y ), grid_x )
     O = OSMTileLoader( ( tile_x, tile_y ) , self.baseUrl, self.cacheUrl )
     self.layerManager.addTileLoader( 10, O )
 
-    self.kmlLayerManager = LayerManager( (0,0,1), ( tile_x, tile_y ), grid_x )
+    self.kmlLayerManager = LayerManager( (0,0,2), ( tile_x, tile_y ), grid_x )
     K = KMLTileLoader( ( tile_x, tile_y ), "us_states.kml", "us_states", 0 )
     self.kmlLayerManager.addTileLoader( 20, K )
     J = KMLTileLoader( ( tile_x, tile_y ), "countries.kml", "countries", 0 )

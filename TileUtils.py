@@ -40,6 +40,7 @@ false = 0
 true = 1
 
 class TileUtils:
+  ''' Utility for converting among screen, world and tile coords '''
   def __init__(self):
     # For coordinate conversions
     self.mapLoaded    = false
